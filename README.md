@@ -1,6 +1,8 @@
 # YWebApp
 
-Zagroznia:
-1.Uzytkownik proboje stworzyc konto o takiej samej nazwie jak konto juz istniejace.
-2.Uzytkownik ponizej (tutaj podac jaki wiek) probuje dokonac rejstracji.
-3.Uzytkownik proboje uzyc nieobslugiwanych znakow przy rejstracji konta.
+Zagrożenia:
+------------
+<br />
+1. Użytkownik próbuje stworzyć konto o takiej samej nazwie jak konto już istniejące.<br />
+2.Użytkownik poniżej (tutaj podać jaki wiek) próbuje dokonać rejestracji.<br />
+3.Użytkownik próbuje użyć nieobsługiwanych znaków przy rejestracji konta.<br />
