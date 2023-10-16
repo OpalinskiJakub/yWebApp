@@ -16,3 +16,4 @@ Zagrożenia:
 9. Próba wyboru nieobsługiwanej wersji językowej.
 10. Próba wejścia na profil użytkownika, który już nie istnieje.
 11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.
+12. Uzytkownik proboje dostac sie na endpoint bez autoryzacji.
