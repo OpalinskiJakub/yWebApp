@@ -10,3 +10,9 @@ Zagrożenia:
 4. Próba dodania postu bez treści.
 5. Próba usunięcia nie swojego komentarzu/posta.
 6. Próba zarejestrowania się poprzez serwis nie obsługiwany przez witrynę.
+
+7. Próba stworzenia konta z hasłem, które nie jest wystarczająco skomplikowane.
+8. Próba polubienia/skomentowania posta, który nie jest już dostępny.
+9. Próba wyboru nieobsługiwanej wersji językowej.
+10. Próba wejścia na profil użytkownika, który już nie istnieje.
+11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.
