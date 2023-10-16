@@ -7,9 +7,9 @@ Zagrożenia:
 2.Użytkownik poniżej (tutaj podać jaki wiek) próbuje dokonać rejestracji.<br />
 3.Użytkownik próbuje użyć nieobsługiwanych znaków przy rejestracji konta.<br />
 
-4. Próba dodania postu bez treści.
-5. Próba usunięcia nie swojego komentarzu/posta.
-6. Próba zarejestrowania się poprzez serwis nie obsługiwany przez witrynę.
+4. Próba dodania postu bez treści.<br />
+5. Próba usunięcia nie swojego komentarzu/posta.<br />
+6. Próba zarejestrowania się poprzez serwis nie obsługiwany przez witrynę.<br />
 
 7. Próba stworzenia konta z hasłem, które nie jest wystarczająco skomplikowane.
 8. Próba polubienia/skomentowania posta, który nie jest już dostępny.
@@ -17,3 +17,14 @@ Zagrożenia:
 10. Próba wejścia na profil użytkownika, który już nie istnieje.
 11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.
 12. Uzytkownik proboje dostac sie na endpoint bez autoryzacji.
+
+7. Próba stworzenia konta z hasłem, które nie jest wystarczająco skomplikowane.<br />
+8. Próba polubienia/skomentowania posta, który nie jest już dostępny.<br />
+9. Próba wyboru nieobsługiwanej wersji językowej portalu.<br />
+10. Próba wejścia na profil użytkownika, który już nie istnieje.<br />
+11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.<br />
+12. Próba natychmiastowego usunięcia konta z serwisu.<br />
+13. Próba publikacji posta/komentarza o zbyt dużej liczbie znaków.<br />
+14. Próba stworzenia konta bez podania adresu e-mail/nazwy użytkownika/hasła.<br />
+
+
