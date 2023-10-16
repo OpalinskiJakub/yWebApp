@@ -13,9 +13,11 @@ Zagrożenia:
 
 7. Próba stworzenia konta z hasłem, które nie jest wystarczająco skomplikowane.
 8. Próba polubienia/skomentowania posta, który nie jest już dostępny.
-9. Próba wyboru nieobsługiwanej wersji językowej.
+9. Próba wyboru nieobsługiwanej wersji językowej portalu.
 10. Próba wejścia na profil użytkownika, który już nie istnieje.
 11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.
 12. Próba natychmiastowego usunięcia konta z serwisu.
 13. Próba publikacji posta/komentarza o zbyt dużej liczbie znaków.
 14. Próba stworzenia konta bez podania adresu e-mail/nazwy użytkownika/hasła.
+15. Próba wyszukania pustej frazy.
+16. Próba zaobserwowania użytkownika, który nie istnieje.
