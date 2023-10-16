@@ -28,3 +28,6 @@ Zagrożenia:
 14. Próba stworzenia konta bez podania adresu e-mail/nazwy użytkownika/hasła.<br />
 15. Proba dostania sie na endpoint bez autoryzacji.
 
+Na next time
+Przypadki uźycia (diagram UML)
+Wymagania (cele) aplikacji (np. możliwość rejestracji)
