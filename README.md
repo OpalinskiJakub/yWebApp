@@ -17,3 +17,5 @@ Zagrożenia:
 10. Próba wejścia na profil użytkownika, który już nie istnieje.
 11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.
 12. Próba natychmiastowego usunięcia konta z serwisu.
+13. Próba publikacji posta/komentarza o zbyt dużej liczbie znaków.
+14. Próba stworzenia konta bez podania adresu e-mail/nazwy użytkownika/hasła.
