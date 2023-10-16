@@ -26,5 +26,5 @@ Zagrożenia:
 12. Próba natychmiastowego usunięcia konta z serwisu.<br />
 13. Próba publikacji posta/komentarza o zbyt dużej liczbie znaków.<br />
 14. Próba stworzenia konta bez podania adresu e-mail/nazwy użytkownika/hasła.<br />
-
+15. Proba dostania sie na endpoint bez autoryzacji.
 
