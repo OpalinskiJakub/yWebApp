@@ -31,3 +31,43 @@ Zagrożenia:
 Na next time
 Przypadki uźycia (diagram UML)
 Wymagania (cele) aplikacji (np. możliwość rejestracji)
+
+--------------------------
+Przykład opisu przypadku użycia jakiejś aplikacji z IO z Palaczem
+--------------------------
+Przypadek użycia Sprawdź ilość dostępnych wejść na karcie magnetycznej
+Główny aktor: klient ośrodka narciarskiego
+Zakres/system: System ośrodka narciarskiego
+Poziom: cel użytkownika
+Scenariusz podstawowy:
+1. Klient wsuwa oficjalną kartę wejściową do automatu przeznaczonego do
+sprawdzania informacji o karcie.
+2. Klient na ekranie dotykowym wybiera z menu głównego opcje czytaj informacje z
+karty.
+3. Automat odczytuje dane z karty i po zakończeniu wyświetla gotowość do dalszego
+działania.
+4. Klient wybiera opcje sprawdź ilość dostępnych wejść.
+5. System automatu ukazuje klientowi konkretną liczbę wejść wraz z opisem.
+6. Klient wybiera opcję zakończenia sprawdzania informacji poprzez wybór opcji
+Zakończ i wyjdź.
+7. Automat wysuwa kartę.
+Rozszerzenia scenariusza:
+ 1a. Klient wsunął kartę złą stroną:
+1a.1 Automat na ekranie dotykowym wyświetla informacje o złym wprowadzeniu
+karty oraz wyświetla krótką animację poprawnego wprowadzania karty.
+ 2a. (4a. 6a.) Ekran automatu nie reaguje na polecenia (lub wydaje się być wyłączony)
+2a.1 Klient naciska fizyczny przycisk Połącz z pomocą.
+ 2a.1.2 Przycisk nie działa.
+ 2a.1.2 Klient ma możliwość zadzwonienia do pomocy technicznej używając
+numeru wskazanego na urządzeniu.
+2a.2 Klient oczekuje na połączenie z konsultantem pomocy technicznej.
+2a.3 Klient postępuje wraz z poleceniami pomocy technicznej.
+ 3a. Automat nie odczytuje danych z karty.
+3a.1 Klient ma możliwość wyboru zakończenia działań. (patrz pkt 6)
+3a.2 Automat wysuwa kartę.
+3a.3 Klient powtarza operację lub kontaktuje się z pomocą techniczną (patrz pkt
+2a.1-2a.3)
+ 5a. Automat ukazuje błędne lub niepełne informacje.
+5a.1 Klient kontaktuje się z pomocą. (patrz pkt 2a.1-2a.3)
+ 7a. Automat nie wysuwa karty.
+7a.1 Klient kontaktuje się z pomocą. (patrz pkt 2a.1-2a.3)
