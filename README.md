@@ -1,5 +1,3 @@
-![image](https://github.com/OpalinskiJakub/YWebApp/assets/49318908/e332157b-5425-4a1b-a2ba-de745c50fd3f)# YWebApp
-
 Zagrożenia:
 ------------
 <br />
