@@ -29,7 +29,7 @@ Zagrożenia:
 --------------------------
 Diagram przypadków użycia
 --------------------------
-[Untitled.vpd.pdf](https://github.com/OpalinskiJakub/YWebApp/files/13064628/Untitled.vpd.pdf)
+![Untitled](https://github.com/OpalinskiJakub/YWebApp/assets/49318908/4b989fb7-3f77-4860-872b-56bab0d4db21)
 
 --------------------------
 Przykład opisu przypadku użycia jakiejś aplikacji z IO z Palaczem
