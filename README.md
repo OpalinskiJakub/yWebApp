@@ -35,3 +35,7 @@ Przykład opisu przypadku użycia jakiejś aplikacji z IO z Palaczem
 --------------------------
 ![image](https://github.com/OpalinskiJakub/YWebApp/assets/49318908/61772e0c-e576-4230-80c9-5a97a41eccbd)
 
+<img width="540" alt="image" src="https://github.com/OpalinskiJakub/YWebApp/assets/49318908/04776b82-5e61-4342-bc08-122381170a85">
+
+
+
