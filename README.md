@@ -7,16 +7,25 @@ Zagrożenia:
 4. Próba dodania postu bez treści.<br />
 5. Próba usunięcia nie swojego komentarzu/posta.<br />
 6. Próba zarejestrowania się poprzez serwis nie obsługiwany przez witrynę.<br />
-7. Próba stworzenia konta z hasłem, które nie jest wystarczająco skomplikowane.
+7. Próba stworzenia konta z hasłem, które nie jest wystarczająco skomplikowane. <br />
 8. Próba polubienia/skomentowania posta, który nie jest już dostępny.<br />
 9. Próba wyboru nieobsługiwanej wersji językowej.<br />
 10. Próba wejścia na profil użytkownika, który już nie istnieje.<br />
 11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.<br />
 12. Uzytkownik proboje dostac sie na endpoint bez autoryzacji.<br />
-14. Próba natychmiastowego usunięcia konta z serwisu.<br />
-15. Próba publikacji posta/komentarza o zbyt dużej liczbie znaków.<br />
-14. Próba stworzenia konta bez podania adresu e-mail/nazwy użytkownika/hasła.<br />
-15. Proba dostania sie na endpoint bez autoryzacji.<br />
+13. Próba natychmiastowego usunięcia konta z serwisu.<br />
+14. Próba publikacji posta/komentarza o zbyt dużej liczbie znaków.<br />
+15. Próba stworzenia konta bez podania adresu e-mail/nazwy użytkownika/hasła.<br />
+16. Próba usunięcia postu, pod którym toczy się już dyskusja. <br />
+17. Próba modyfikacji postu, który jest już modyfikowany. <br />
+18. Próba dodania komentarza w innej strefie czasowej. <br />
+19. Próba zalogowania się z niepoprawnymi danymi lub bez danych. <br />
+20. Próba wprowadzenia loginu/hasła/adresu e-mail, które jest zbyt długie. <br />
+21. Próba podania pustej lub zbyt długiej frazy podczas wyszukiwania postu. <br />
+22. Próba wprowadzenia 2 postów o tej samej nazwie przez 1-go użytkownika. <br />
+23. Próba podania zbyt krótkiej nazwy postu. <br />
+24. Próba polubienia kilka razy tego samego posta. <br />
+25. Próba usunięcia polubienia postu, który nie jest polubiony. <br />
 
 Wymagania <br />
 1. Mozliwosc utworzenia konta przez niezalogowanego uzytkownika.
@@ -35,7 +44,10 @@ Wymagania <br />
 14. Mozliwosc zablokowania dowolnego uzytkownika przez administratora.
 15. Mozliwosc wyswietlenia wszystkich komentarzy przez administratora.
 16. Mozliwosc wyswietlenia profili uzytkownikow  przez administratora.
-17. Mozliwosc usuniecia uzytkownika przez administratora.
+17. Mozliwosc usuniecia uzytkownika przez administratora. – do usunięcia
+18. Poinformowanie użytkownika o blokadzie konta
+19. Możliwość odwołania się użytkownika od decyzji administratora.
+//zamiast usuwania dać blokowanie widoczności wpisu/komentarza oraz trwałą blokadę użytkownika
 
 
 --------------------------
