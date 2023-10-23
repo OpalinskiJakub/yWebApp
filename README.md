@@ -47,7 +47,7 @@ Wymagania <br />
 17. Mozliwosc usuniecia uzytkownika przez administratora. – do usunięcia
 18. Poinformowanie użytkownika o blokadzie konta
 19. Możliwość odwołania się użytkownika od decyzji administratora.
-//zamiast usuwania dać blokowanie widoczności wpisu/komentarza oraz trwałą blokadę użytkownika
+<br />//zamiast usuwania dać blokowanie widoczności wpisu/komentarza oraz trwałą blokadę użytkownika
 
 
 --------------------------
