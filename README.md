@@ -49,6 +49,10 @@ Wymagania <br />
 19. Możliwość odwołania się użytkownika od decyzji administratora – formularz odwołania
 <br />//zamiast usuwania dać blokowanie widoczności wpisu/komentarza oraz trwałą blokadę użytkownika
 
+Na następny raz:
+Przemyśleć i zaprezentować rozwiązania do zagrożeń 
+
+
 
 --------------------------
 Diagram przypadków użycia
