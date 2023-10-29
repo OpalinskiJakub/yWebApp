@@ -2,30 +2,53 @@ Zagrożenia:
 ------------
 <br />
 1. Użytkownik próbuje stworzyć konto o takiej samej nazwie jak konto już istniejące.<br />
+Aplikacja nie pozwala na stworzenie oraz wyswietla komunikat.
 2. Użytkownik poniżej (tutaj podać jaki wiek) próbuje dokonać rejestracji.<br />
+Aplikacja nie pozwala na stworzenie oraz wyswietla komunikat.
 3. Użytkownik próbuje użyć nieobsługiwanych znaków przy rejestracji konta.<br />
+Aplikacja nie pozwala na stworzenie oraz wyswietla komunikat.
 4. Próba dodania postu bez treści.<br />
+Aplikacja nie pozwala na stworzenie oraz wyswietla komunikat.
 5. Próba usunięcia nie swojego komentarzu/posta.<br />
+Aplikacja nie pozwala na usuniecie oraz wyswietla komunikat.
 6. Próba zarejestrowania się poprzez serwis nie obsługiwany przez witrynę.<br />
+-------------------
 7. Próba stworzenia konta z hasłem, które nie jest wystarczająco skomplikowane. <br />
+Aplikacja nie pozwala na stworzenie oraz wyswietla komunikat.
 8. Próba polubienia/skomentowania posta, który nie jest już dostępny.<br />
+Aplikacja nie pozwala oraz wyswietla komuniukat ze post nie jest dostepny.
 9. Próba wyboru nieobsługiwanej wersji językowej.<br />
+Nie bedzie mozliwosci zmiany na inne wersje jezykowe niz dostepne(wyswietlane beda tylko dostepne wersje);
 10. Próba wejścia na profil użytkownika, który już nie istnieje.<br />
+Aplikacja nie pozwala oraz wyswietla komuniukat ze uzytkownik nie istnieje.
 11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.<br />
-12. Uzytkownik proboje dostac sie na endpoint bez autoryzacji.<br />
+-----------------------
 13. Próba natychmiastowego usunięcia konta z serwisu.<br />
+Aplikacja dezaktywuje uzytkownika(nie usuwa rekordu z bazy).
 14. Próba publikacji posta/komentarza o zbyt dużej liczbie znaków.<br />
+Aplikacja nie pozwala oraz wyswietla komuniukat.
 15. Próba stworzenia konta bez podania adresu e-mail/nazwy użytkownika/hasła.<br />
+Aplikacja nie pozwala oraz wyswietla komuniukat.
 16. Próba usunięcia postu, pod którym toczy się już dyskusja. <br />
+Aplikacja dezaktywuje post oraz komentarze.
 17. Próba modyfikacji postu, który jest już modyfikowany. <br />
+--------------------
 18. Próba dodania komentarza w innej strefie czasowej. <br />
+----------------
 19. Próba zalogowania się z niepoprawnymi danymi lub bez danych. <br />
+Aplikacja nie pozwala oraz wyswietla komuniukat.
 20. Próba wprowadzenia loginu/hasła/adresu e-mail, które jest zbyt długie. <br />
+Aplikacja nie pozwala oraz wyswietla komuniukat.
 21. Próba podania pustej lub zbyt długiej frazy podczas wyszukiwania postu. <br />
+Aplikacja nie pozwala oraz wyswietla komuniukat.
 22. Próba wprowadzenia 2 postów o tej samej nazwie przez 1-go użytkownika. <br />
+Aplikacja nie pozwala oraz wyswietla komuniukat.
 23. Próba podania zbyt krótkiej nazwy postu. <br />
+Aplikacja nie pozwala oraz wyswietla komuniukat.
 24. Próba polubienia kilka razy tego samego posta. <br />
+Aplikacja nie pozwala , przycisk nie dostepny.
 25. Próba usunięcia polubienia postu, który nie jest polubiony. <br />
+Aplikacja nie pozwala , przycisk nie dostepny.
 
 Wymagania <br />
 1. Mozliwosc utworzenia konta przez niezalogowanego uzytkownika.
