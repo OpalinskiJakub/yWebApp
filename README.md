@@ -32,22 +32,24 @@ Aplikacja nie pozwala oraz wyswietla komuniukat.<br />
 16. Próba usunięcia postu, pod którym toczy się już dyskusja. <br />
 Aplikacja dezaktywuje post oraz komentarze.<br />
 17. Próba modyfikacji postu, który jest już modyfikowany. <br />
+Edycja postu nakłada blokadę na jakiekolwiek inne próby wpsółbierznej modyfikacji.
 --------------------<br />
-18. Próba dodania komentarza w innej strefie czasowej. <br />
+19. Próba dodania komentarza w innej strefie czasowej. <br />
+Aplikacja wyświetla czas, który upłynął od momentu dodania wpisu/komentarza. Ewentualne daty dostosowywane są do do stref czasowych.
 ----------------<br />
-19. Próba zalogowania się z niepoprawnymi danymi lub bez danych. <br />
+20. Próba zalogowania się z niepoprawnymi danymi lub bez danych. <br />
 Aplikacja nie pozwala oraz wyswietla komuniukat.<br />
-20. Próba wprowadzenia loginu/hasła/adresu e-mail, które jest zbyt długie. <br />
+21. Próba wprowadzenia loginu/hasła/adresu e-mail, które jest zbyt długie. <br />
 Aplikacja nie pozwala oraz wyswietla komuniukat.<br />
-21. Próba podania pustej lub zbyt długiej frazy podczas wyszukiwania postu. <br />
+22. Próba podania pustej lub zbyt długiej frazy podczas wyszukiwania postu. <br />
 Aplikacja nie pozwala oraz wyswietla komuniukat.<br />
-22. Próba wprowadzenia 2 postów o tej samej nazwie przez 1-go użytkownika. <br />
+23. Próba wprowadzenia 2 postów o tej samej nazwie przez 1-go użytkownika. <br />
 Aplikacja nie pozwala oraz wyswietla komuniukat.<br />
-23. Próba podania zbyt krótkiej nazwy postu. <br />
+24. Próba podania zbyt krótkiej nazwy postu. <br />
 Aplikacja nie pozwala oraz wyswietla komuniukat.<br />
-24. Próba polubienia kilka razy tego samego posta. <br />
+25. Próba polubienia kilka razy tego samego posta. <br />
 Aplikacja nie pozwala , przycisk nie dostepny.<br />
-25. Próba usunięcia polubienia postu, który nie jest polubiony. <br />
+26. Próba usunięcia polubienia postu, który nie jest polubiony. <br />
 Aplikacja nie pozwala , przycisk nie dostepny.<br />
 
 Wymagania <br />
