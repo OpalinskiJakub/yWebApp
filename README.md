@@ -69,6 +69,8 @@ Wymagania <br />
 16. Mozliwosc wyswietlenia profili uzytkownikow  przez administratora.
 17. Mozliwosc usuniecia uzytkownika przez administratora.
 18. Poinformowanie użytkownika o blokadzie konta
+19. Mozliwosc zglosznia posta przezz zalogowanego uzytkowanika
+20. Mozliwosc wyswietlenia postow uzytkowanika na jego profilu.
 
 <br />//zamiast usuwania dać blokowanie widoczności wpisu/komentarza oraz trwałą blokadę użytkownika
 
