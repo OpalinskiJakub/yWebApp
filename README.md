@@ -12,7 +12,7 @@ Aplikacja nie pozwala na stworzenie oraz wyswietla komunikat.<br />
 5. Próba usunięcia nie swojego komentarzu/posta.<br />
 Aplikacja nie pozwala na usuniecie oraz wyswietla komunikat.<br />
 6. Próba zarejestrowania się poprzez serwis nie obsługiwany przez witrynę.<br />
--------------------<br />
+Aplikacja wymusza zalogowanie się z dostępnych opcji<br />
 7. Próba stworzenia konta z hasłem, które nie jest wystarczająco skomplikowane. <br />
 Aplikacja nie pozwala na stworzenie oraz wyswietla komunikat.<br />
 8. Próba polubienia/skomentowania posta, który nie jest już dostępny.<br />
@@ -22,7 +22,7 @@ Nie bedzie mozliwosci zmiany na inne wersje jezykowe niz dostepne(wyswietlane be
 10. Próba wejścia na profil użytkownika, który już nie istnieje.<br />
 Aplikacja nie pozwala oraz wyswietla komuniukat ze uzytkownik nie istnieje.<br />
 11. Korzystanie z serwisu bez potwierdzonego adresu e-mail.<br />
------------------------<br />
+Aplikacja blokuje dostęp do serwisu i wyświetla komunikat<br />
 13. Próba natychmiastowego usunięcia konta z serwisu.<br />
 Aplikacja dezaktywuje uzytkownika(nie usuwa rekordu z bazy).<br />
 14. Próba publikacji posta/komentarza o zbyt dużej liczbie znaków.<br />
