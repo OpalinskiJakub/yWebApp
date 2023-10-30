@@ -32,11 +32,9 @@ Aplikacja nie pozwala oraz wyswietla komuniukat.<br />
 16. Próba usunięcia postu, pod którym toczy się już dyskusja. <br />
 Aplikacja dezaktywuje post oraz komentarze.<br />
 17. Próba modyfikacji postu, który jest już modyfikowany. <br />
-Edycja postu nakłada blokadę na jakiekolwiek inne próby wpsółbierznej modyfikacji.
---------------------<br />
+Edycja postu nakłada blokadę na jakiekolwiek inne próby wpsółbierznej modyfikacji.<br />
 19. Próba dodania komentarza w innej strefie czasowej. <br />
-Aplikacja wyświetla czas, który upłynął od momentu dodania wpisu/komentarza. Ewentualne daty dostosowywane są do do stref czasowych.
-----------------<br />
+Aplikacja wyświetla czas, który upłynął od momentu dodania wpisu/komentarza. Ewentualne daty dostosowywane są do do stref czasowych.<br />
 20. Próba zalogowania się z niepoprawnymi danymi lub bez danych. <br />
 Aplikacja nie pozwala oraz wyswietla komuniukat.<br />
 21. Próba wprowadzenia loginu/hasła/adresu e-mail, które jest zbyt długie. <br />
