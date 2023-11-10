@@ -5,52 +5,73 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Layout.css';
-import {Badge,Button,Dropdown} from "react-bootstrap";
+import {Badge,Button,Dropdown,Form,Offcanvas} from "react-bootstrap";
 import React from "react";
 
 
 function Layout() {
-  return (
-    <div>
-        <Navbar expand="lg" className="bg-body-tertiary" data-bs-theme="dark">
-            <Container>
-                <Navbar.Brand href="#home" className="logoStyle">
-                    <div >
-                        <Badge bg="secondary">
-                            Y
-                        </Badge>
-                    </div>
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
-                        <Dropdown>
-                            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                                Panel użytkownika
-                            </Dropdown.Toggle>
+    return (
+        <div >
+            {[false].map((expand) => (
+                <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme="dark">
+                    <Container fluid>
+                        <Navbar.Brand href="#">
+                            <Badge bg="secondary" style={{width:"50px", height:"37px"}}>
+                                <h4>Y</h4>
+                            </Badge>
+                        </Navbar.Brand>
+                        <div style={{width:"70%"}}>
 
-                            <Dropdown.Menu>
-                                <Dropdown.Item href="#/action-1">Twoje posty oraz aktywności</Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Dane użytkownika</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    </Nav>
+                        <Form className="d-flex">
+                            <Form.Control
+                                type="search"
+                                placeholder="Wyszukaj"
+                                className="me-2"
+                                aria-label="Wyszukaj"
+                            />
+                            <Button variant="outline-success">Search</Button>
+                        </Form>
+                        </div>
+                        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+                        <Navbar.Offcanvas
+                            id={`offcanvasNavbar-expand-${expand}`}
+                            aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                            placement="end"
+                            data-bs-theme="dark"
+                        >
+                            <Offcanvas.Header closeButton>
+                                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                                    Panel użytkownika
+                                </Offcanvas.Title>
+                            </Offcanvas.Header>
+                            <Offcanvas.Body data-bs-theme="dark">
+                                <Nav className="justify-content-end flex-grow-1 pe-3" data-bs-theme="dark">
+                                    <Nav.Link href="/home">Dane użytkownika</Nav.Link>
+                                    <Nav.Link href="/post">Twoje posty</Nav.Link>
+                                    <NavDropdown
+                                        title="Wybierz język"
+                                        id={`offcanvasNavbarDropdown-expand-${expand}`}
+                                    >
+                                        <NavDropdown.Item href="#action3">
+                                            Angielski
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#action4">
+                                            Polski
+                                        </NavDropdown.Item>
 
-                </Navbar.Collapse>
+                                    </NavDropdown>
+                                </Nav>
 
-            </Container>
-            <div className="me-auto">
-                <Button variant="secondary">
-                    EN
-                </Button>
-            </div>
-
-        </Navbar>
-
-        <Outlet />
-
-    </div>
-  );
+                            </Offcanvas.Body>
+                        </Navbar.Offcanvas>
+                    </Container>
+                </Navbar>
+            ))}
+            <Outlet/>
+        </div>
+    );
 }
 
 export default Layout;
+
+
