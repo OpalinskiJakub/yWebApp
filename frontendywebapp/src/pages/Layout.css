@@ -1,0 +1,19 @@
+.navbarStyle{
+    margin: 0 auto;
+    text-align: right;
+}
+
+.logoStyle{
+    font-size: 25px;
+}
+
+.circleStyle{
+    width: 50px;
+    height: 50px;
+    borderRadius: 50%;
+
+
+    alignItems: center;
+    justifyContent: center;
+}
+
