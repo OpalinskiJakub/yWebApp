@@ -25,3 +25,26 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# Pliki tymczasowe generowane podczas rozwoju
+node_modules/
+.cache/
+dist/
+build/
+
+# Plik konfiguracyjny środowiska
+.env
+
+# Pliki systemu operacyjnego
+.DS_Store
+
+# Pliki konfiguracyjne IDE
+.idea/
+.vscode/
+
+# Pliki konfiguracyjne narzędzi
+package-lock.json
+yarn.lock
+
+# Inne pliki konfiguracyjne
+*.log
