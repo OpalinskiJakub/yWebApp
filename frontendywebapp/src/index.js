@@ -4,12 +4,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import PostPanel from "./pages/PostSystem/PostPanel";
 
-import App from './pages/Main/App';
+import Home from "./pages/Main/Home";
 
-
+import Post from "./pages/PostSystem/Post";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+document.body.style.background = 'grey';
 
 const post={
     id:1,
@@ -20,9 +21,9 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path={"/"} element={<App />}>
+                <Route path={"/"} element={<Home />}>
                     <Route path={"post"} element={<PostPanel />}/>
-
+                    <Route path={"posts"} element={<Post />}/>
 
                 </Route>
             </Routes>

@@ -10,9 +10,9 @@ import React from "react";
 
 function Home() {
     return (
-        <div className="mx-0">
+        <div data-bs-theme="dark" sticky="top">
             {[false].map((expand) => (
-                <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3 mx-0" data-bs-theme="dark" sticky="top">
+                <Navbar key={expand} expand={expand} className="bg-body-tertiary" data-bs-theme="dark" sticky="top">
                     <Container fluid>
                         <Navbar.Brand href="/">
                             <Badge bg="secondary" style={{width:"50px", height:"37px"}}>
@@ -67,7 +67,7 @@ function Home() {
                 </Navbar>
 
             ))}
-
+            <Outlet />
         </div>
     );
 }

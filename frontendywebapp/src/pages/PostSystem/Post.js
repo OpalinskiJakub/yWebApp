@@ -6,7 +6,11 @@ import {Button} from "react-bootstrap";
 
 
 function Post(props){
-    const { post } = props;
+    const post={
+        id:1,
+        title:"react",
+        content:"javascript"
+    }
 
     let cards=[]
     for(let i=0;i<100;i++) {
