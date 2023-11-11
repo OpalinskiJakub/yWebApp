@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Post from "./pages/PostSystem/Post";
-import Layout from './pages/Layout';
-import PostsPage from "./pages/PostSystem/PostsPage";
+
 import PostPanel from "./pages/PostSystem/PostPanel";
-import SimpleFormClass from "./pages/Test/SimpleFormClass";
+
+import App from './pages/Main/App';
+
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const post={
@@ -15,17 +17,15 @@ const post={
     content:"javascript"
 }
 root.render(
-  <React.StrictMode>
-      <BrowserRouter>
-          <Routes>
-              <Route path={"/"} element={<Layout />}>
-                  <Route path={"home"} element={<Home />}/>
-                  <Route path={"post"} element={<PostPanel />}/>
-                  <Route path={"test"} element={<SimpleFormClass />}/>
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route path={"/"} element={<App />}>
+                    <Route path={"post"} element={<PostPanel />}/>
 
-              </Route>
-          </Routes>
-      </BrowserRouter>
-  </React.StrictMode>
+
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>
 );
-

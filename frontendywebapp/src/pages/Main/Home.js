@@ -4,18 +4,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.css';
-import './Layout.css';
 import {Badge,Button,Dropdown,Form,Offcanvas} from "react-bootstrap";
 import React from "react";
 
 
-function Layout() {
+function Home() {
     return (
-        <div >
+        <div className="mx-0">
             {[false].map((expand) => (
-                <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme="dark" sticky="top">
+                <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3 mx-0" data-bs-theme="dark" sticky="top">
                     <Container fluid>
-                        <Navbar.Brand href="#">
+                        <Navbar.Brand href="/">
                             <Badge bg="secondary" style={{width:"50px", height:"37px"}}>
                                 <h4>Y</h4>
                             </Badge>
@@ -66,12 +65,13 @@ function Layout() {
                         </Navbar.Offcanvas>
                     </Container>
                 </Navbar>
+
             ))}
-            <Outlet/>
+
         </div>
     );
 }
 
-export default Layout;
+export default Home;
 
 

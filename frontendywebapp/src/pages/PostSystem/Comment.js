@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Form} from "react-bootstrap";
+import {Button, Form,DropdownButton,Dropdown} from "react-bootstrap";
 
 
 class Comment extends Component {
@@ -20,27 +20,41 @@ class Comment extends Component {
         const { comment, handleReply, isReply } = this.props;
 
         const replyStyle = {
-            borderLeft: isReply ? '2px solid blue' : 'none',
-            paddingLeft: isReply ? '10px' : '0',
+            borderLeft: isReply ? '3px solid blue' : 'none',
+            paddingLeft: isReply ? '13px' : '0',
             marginLeft: isReply ? '10px' : '20px',
-            marginTop: '10px'
+            marginTop: isReply ? '0px' : '10px'
+        };
+
+
+        const lineStyle = {
+            position: 'absolute',
+            top: '50%',
+            left: '-10px',
+            transform: 'translateY(-50%)',
+            height: '2px',
+            width: '10px',
+            backgroundColor: 'blue',
         };
 
         const buttonStyle = {
-            fontSize: '0.8em',
-            padding: '5px 10px'
+            fontSize: '0.8em', // Jeszcze mniejsza czcionka
+            padding: '1px 3px',
         };
 
         return (
             <div style={replyStyle}>
                 <p>{comment.text}</p>
-                <Button
-                    variant="outline-primary"
-                    onClick={() => this.setState({ showReplyForm: !this.state.showReplyForm })}
-                    style={buttonStyle}
-                >
-                    Odpowiedz
-                </Button>
+
+
+
+                <DropdownButton id="dropdown-basic-button" title="Opcje" style={buttonStyle}>
+                    <Dropdown.Item onClick={() => this.setState({ showReplyForm: !this.state.showReplyForm })}>
+                        Odpowiedź
+                    </Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                </DropdownButton>
+
                 {comment.replies && comment.replies.map((reply, index) => (
                     <Comment
                         key={index}
@@ -60,8 +74,11 @@ class Comment extends Component {
                             />
                         </Form.Group>
                         <Button variant="primary" onClick={this.handleAddReply} style={buttonStyle}>
+
                             Dodaj Odpowiedź
                         </Button>
+
+
                     </div>
                 )}
             </div>

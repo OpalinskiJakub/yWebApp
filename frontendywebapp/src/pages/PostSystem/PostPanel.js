@@ -31,7 +31,7 @@ class PostPanel extends Component {
 
     render() {
         return (
-            <Card>
+            <Card data-bs-theme="dark" className="m-3">
                 <Card.Body>
                     <Card.Title>Post</Card.Title>
                     <Card.Text>
