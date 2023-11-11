@@ -13,7 +13,7 @@ function Layout() {
     return (
         <div >
             {[false].map((expand) => (
-                <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme="dark">
+                <Navbar key={expand} expand={expand} className="bg-body-tertiary mb-3" data-bs-theme="dark" sticky="top">
                     <Container fluid>
                         <Navbar.Brand href="#">
                             <Badge bg="secondary" style={{width:"50px", height:"37px"}}>

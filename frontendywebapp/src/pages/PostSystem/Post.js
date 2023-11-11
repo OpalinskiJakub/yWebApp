@@ -2,23 +2,35 @@
 import {Card} from "react-bootstrap";
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Button} from "react-bootstrap";
 
 
+function Post(props){
+    const { post } = props;
 
-function Post(){
-    return (
-        <Card className="mx-auto" style={{ width: '80%' }}>
-
+    let cards=[]
+    for(let i=0;i<100;i++) {
+        cards.push(
+        <Card className="mx-auto" style={{width: '80%',margin:'10px'}}>
             <Card.Body>
-                Treść posta
+                <Card.Title>
+                    <h4>{post.title}</h4>
+                </Card.Title>
+                <Card.Text>
+                    <h6>{post.content}</h6>
+                </Card.Text>
             </Card.Body>
-
-
             <Card.Footer className="text-center">
-                Komentarze
-               
+                <Button variant="primary" href="post/${post.id}">Zobacz post</Button>
             </Card.Footer>
         </Card>
+        );
+    }
+    return (
+        <div>
+            {cards}
+        </div>
+
     );
 };
 
