@@ -7,6 +7,8 @@ import PostPanel from "./pages/PostSystem/PostPanel";
 import Home from "./pages/Main/Home";
 
 import Post from "./pages/PostSystem/Post";
+import MyComponent from "./pages/Test/App";
+import App from "./pages/Test/App";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,9 +23,8 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path={"/"} element={<Home />}>
-                    <Route path={"post"} element={<PostPanel />}/>
-                    <Route path={"posts"} element={<Post />}/>
+                <Route path={"/"} element={<App/>}>
+
 
                 </Route>
             </Routes>

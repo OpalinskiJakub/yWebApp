@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/public/logo192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/public/logo512.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/Main/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/Main/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/Main/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/Post.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +98,8 @@
       <workItem from="1699617040424" duration="1636000" />
       <workItem from="1699626289151" duration="29168000" />
       <workItem from="1699724384854" duration="5604000" />
+      <workItem from="1700235393217" duration="839000" />
+      <workItem from="1700239797013" duration="2932000" />
     </task>
     <servers />
   </component>
