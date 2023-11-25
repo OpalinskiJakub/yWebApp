@@ -16,10 +16,8 @@ public class PostController {
     private PostRepository postRepository;
 
     @GetMapping("/post1")
-    public Post getPost(){
-        this.postRepository.getPost().getComments().stream().forEach((x)-> System.out.println(x.getAuthor().getName()));
-
-        return postRepository.getPost();
+    public String getPost(){
+        return "post";
     }
 
 }
