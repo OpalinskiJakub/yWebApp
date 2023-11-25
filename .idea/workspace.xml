@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/Comment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/Post.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Repository/PostRepository.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Configuration/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Controller/PostController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Repository/PostRepository.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +106,7 @@
       <workItem from="1700250636344" duration="48000" />
       <workItem from="1700252285634" duration="1215000" />
       <workItem from="1700877659022" duration="2455000" />
-      <workItem from="1700901692422" duration="3645000" />
+      <workItem from="1700901692422" duration="10516000" />
     </task>
     <servers />
   </component>
