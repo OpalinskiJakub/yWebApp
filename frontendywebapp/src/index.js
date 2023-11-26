@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostApiConnector from "./pages/StorageSystem/Post/PostApiConnector";
-
-
+import Home from "./pages/Main/Home";
+import PostPanel from "./pages/PostSystem/PostPanel";
+import Post from "./pages/PostSystem/Post";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
@@ -17,9 +18,9 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path={"/"} element={<PostApiConnector />}>
-
-
+                <Route path="/" element={<Home />} >
+                <Route path="/post" element={<PostPanel />} />
+                <Route path="/posts" element={<Post />} />
                 </Route>
             </Routes>
         </BrowserRouter>

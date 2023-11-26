@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Button, Card, Form} from "react-bootstrap";
-import Comment from './Comment';
+import Comment from "./Comment";
 
 
 class PostPanel extends Component {
