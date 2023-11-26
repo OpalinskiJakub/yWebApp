@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/WireMockApi/WireMockConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model/Author.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model/Comment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model/Post.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostApiConnector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/ApiBackendYWebAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/ApiBackendYWebAppApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Controller/PostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/WireMockApi/WireMockConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/WireMockApi/WireMockConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/dbPostSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/dbPostSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/postConnector.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Kotlin Class" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -71,6 +76,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model" />
       <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post" />
       <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/Main" />
       <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem" />
@@ -111,7 +117,7 @@
       <workItem from="1700252285634" duration="1215000" />
       <workItem from="1700877659022" duration="2455000" />
       <workItem from="1700901692422" duration="10516000" />
-      <workItem from="1700929671270" duration="1725000" />
+      <workItem from="1700929671270" duration="18085000" />
     </task>
     <servers />
   </component>

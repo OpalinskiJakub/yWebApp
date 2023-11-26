@@ -26,6 +26,8 @@ public class WireMockConfig {
     public WireMockServer startWireMockServer() {
         WireMockServer wireMockServer = new WireMockServer(WIREMOCKPORT);
 
+
+
         wireMockServer.stubFor(
                 WireMock.get(WireMock.urlEqualTo("/post1"))
                         .willReturn(WireMock.aResponse()

@@ -1,8 +1,8 @@
 import Dexie from "dexie";
 
-const db = new Dexie('MyDatabase');
+const db = new Dexie('postDB');
 
 db.version(1).stores({
-    friends: '++id, name, age'
+    post: 'id, name, age'
 });
 export default db;

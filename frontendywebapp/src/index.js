@@ -2,12 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import PostPanel from "./pages/PostSystem/PostPanel";
-
-import Home from "./pages/Main/Home";
-
-import Post from "./pages/PostSystem/Post";
-import MyComponent from "./pages/Test/App";
+import PostApiConnector from "./pages/StorageSystem/Post/PostApiConnector";
 import App from "./pages/Test/App";
 
 
@@ -23,7 +18,7 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path={"/"} element={<App/>}>
+                <Route path={"/"} element={<App />}>
 
 
                 </Route>
