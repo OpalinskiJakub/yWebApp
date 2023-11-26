@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 
 
-function Post(props){
+function MainPagePostsWizualization(props){
     const post={
         id:1,
         title:"react",
@@ -38,6 +38,6 @@ function Post(props){
     );
 };
 
-export default Post;
+export default MainPagePostsWizualization;
 
 

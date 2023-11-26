@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PostApiConnector from "./pages/StorageSystem/Post/PostApiConnector";
 import Home from "./pages/Main/Home";
-import PostPanel from "./pages/PostSystem/PostPanel";
-import Post from "./pages/PostSystem/Post";
 
+import MainPagePostsWizualization from "./pages/PostSystem/MainPagePostsWizualization";
+import PostPanel from "./pages/PostSystem/PostPanel";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
@@ -19,8 +19,9 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} >
-                <Route path="/post" element={<PostPanel />} />
-                <Route path="/posts" element={<Post />} />
+                    <Route path="/" element={<MainPagePostsWizualization />} />
+                    <Route path="/post" element={<PostPanel />} />
+
                 </Route>
             </Routes>
         </BrowserRouter>

@@ -7,7 +7,11 @@
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanelCommentVizualization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/MainPagePostsWizualization.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostsPage.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

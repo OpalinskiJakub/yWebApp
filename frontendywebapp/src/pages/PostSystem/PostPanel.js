@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Button, Card, Form} from "react-bootstrap";
-import Comment from "./Comment";
+import PostPanelCommentVizualization from "./PostPanelCommentVizualization";
 
 
 class PostPanel extends Component {
@@ -26,7 +26,7 @@ class PostPanel extends Component {
             replies: []
         }
         parentComment.replies.push(reply);
-        this.setState({ comments: [...this.state.comments] }); // Force component refresh
+        this.setState({ comments: [...this.state.comments] });
     };
 
     render() {
@@ -41,7 +41,7 @@ class PostPanel extends Component {
                     <div>
                         <h5>Komentarze:</h5>
                         {this.state.comments.map((comment, index) => (
-                            <Comment key={index} comment={comment} handleReply={this.handleReply} />
+                            <PostPanelCommentVizualization key={index} comment={comment} handleReply={this.handleReply} />
                         ))}
                     </div>
 

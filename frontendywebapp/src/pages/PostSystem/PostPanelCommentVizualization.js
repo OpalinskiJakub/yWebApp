@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Button, Form,DropdownButton,Dropdown} from "react-bootstrap";
 
 
-class Comment extends Component {
+class PostPanelCommentVizualization extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,7 +38,7 @@ class Comment extends Component {
         };
 
         const buttonStyle = {
-            fontSize: '0.8em', // Jeszcze mniejsza czcionka
+            fontSize: '0.8em',
             padding: '1px 3px',
         };
 
@@ -56,7 +56,7 @@ class Comment extends Component {
                 </DropdownButton>
 
                 {comment.replies && comment.replies.map((reply, index) => (
-                    <Comment
+                    <PostPanelCommentVizualization
                         key={index}
                         comment={reply}
                         handleReply={handleReply}
@@ -86,4 +86,4 @@ class Comment extends Component {
     }
 }
 
-export default Comment;
+export default PostPanelCommentVizualization;
