@@ -5,18 +5,14 @@ class Post{
         this.name = name;
         this.content = content;
         this.author = author;
-        this.comments = comments.map(comment => new Comment(
-            comment.commentId,
-            comment.author,
-            comment.content,
-            comment.answers
-        ));
+        this.comments = comments;
 
-        comments.forEach(comment => {
-            console.log(comment.commentId);
-            console.log(comment.author);
-            console.log(comment.content);
-            console.log(comment.answers);
+        const valuesArray = Object.values(this.comments);
+
+        valuesArray.forEach(element => {
+            console.log(element.commentId);
+            console.log(element.author);
+            console.log(element.content);
         });
     }
 

@@ -3,17 +3,17 @@ import Author from "./Model/Author";
 import Post from "./Model/Post";
 import Comment from "./Model/Comment";
 import React from "react";
+import PostIndexDB from "./PostIndexDB"
 class PostApiConnector extends React.Component {
     static APIADDRESS = "http://localhost:8080/post1";
-
     async getPostById() {
         try {
             let response = await axios.get(PostApiConnector.APIADDRESS);
             let data = response.data;
-            let post = new Post(data.postId,data.name,data.content,data.author,data.comments)
-
+            let store = new PostIndexDB();
+            store.savePostToIndexedDB(data);
             //console.log(post);
-            return post;
+
         } catch (e) {
             console.error('Błąd pobierania danych:', e);
             throw e;
@@ -26,8 +26,6 @@ class PostApiConnector extends React.Component {
             </div>
         );
     }
-
-
 }
 
 const test = new PostApiConnector();
