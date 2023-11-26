@@ -1,27 +1,40 @@
 import axios from "axios";
-
-class PostApiConnector {
-    static APIADDRESS = "http://localhost:8080/post";
+import Author from "./Model/Author";
+import Post from "./Model/Post";
+import Comment from "./Model/Comment";
+import React from "react";
+class PostApiConnector extends React.Component {
+    static APIADDRESS = "http://localhost:8080/post1";
 
     async getPostById() {
         try {
             let response = await axios.get(PostApiConnector.APIADDRESS);
             let data = response.data;
-            console.log("Dane:", data);
-            return data;
+            let post = new Post(data.postId,data.name,data.content,data.author,data.comments)
+
+            //console.log(post);
+            return post;
         } catch (e) {
             console.error('Błąd pobierania danych:', e);
             throw e;
         }
     }
+    render() {
+        return (
+            <div>
+                <p>Test</p>
+            </div>
+        );
+    }
+
 
 }
 
 const test = new PostApiConnector();
 
-test.getPost()
+test.getPostById()
     .then((data) => {
-        console.log("Dane z then:", data);
+
     })
     .catch((error) => {
         console.error('Błąd:', error);

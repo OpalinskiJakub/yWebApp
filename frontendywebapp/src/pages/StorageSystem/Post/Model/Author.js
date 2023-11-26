@@ -5,3 +5,5 @@ class Author{
         this.surname=surname;
     }
 }
+
+export default Author;
