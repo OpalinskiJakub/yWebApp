@@ -1,24 +1,35 @@
 import axios from "axios";
-import Author from "./Model/Author";
-import Post from "./Model/Post";
-import Comment from "./Model/Comment";
 import React from "react";
-import PostIndexDB from "./PostIndexDB"
+import PostIndexDB from "./PostIndexDB";
+
 class PostApiConnector extends React.Component {
     static APIADDRESS = "http://localhost:8080/post1";
-    async getPostById() {
-        try {
-            let response = await axios.get(PostApiConnector.APIADDRESS);
-            let data = response.data;
-            let store = new PostIndexDB();
-            store.savePostToIndexedDB(data);
-            //console.log(post);
 
-        } catch (e) {
-            console.error('Błąd pobierania danych:', e);
-            throw e;
-        }
+    constructor(props) {
+        super(props);
+        this.db = new PostIndexDB();
     }
+
+    async _sendRequest(address) {
+            let response = await axios.get(address);
+            return response.data;
+    }
+
+    getPostById(){
+        this._sendRequest(PostApiConnector.APIADDRESS)
+            .then((data) => {
+                this.db.savePostToIndexedDB(data);
+                this.db.mapPostsDataToPosts();
+            })
+            .catch((error) => {
+                console.error("Error during fetching data from API:", error);
+            });
+    }
+
+    componentDidMount() {
+        this.getPostById();
+    }
+
     render() {
         return (
             <div>
@@ -27,15 +38,5 @@ class PostApiConnector extends React.Component {
         );
     }
 }
-
-const test = new PostApiConnector();
-
-test.getPostById()
-    .then((data) => {
-
-    })
-    .catch((error) => {
-        console.error('Błąd:', error);
-    });
 
 export default PostApiConnector;

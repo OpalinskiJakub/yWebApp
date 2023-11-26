@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostIndexDB.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model/Post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostApiConnector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostApiConnector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/dbPostSchema.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostIndexDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostIndexDB.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +32,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2XA7Dvl5EcoKKpiEVTac17VYedF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -111,7 +110,7 @@
       <workItem from="1700877659022" duration="2455000" />
       <workItem from="1700901692422" duration="10516000" />
       <workItem from="1700929671270" duration="25458000" />
-      <workItem from="1700990857296" duration="5808000" />
+      <workItem from="1700990857296" duration="14192000" />
     </task>
     <servers />
   </component>
