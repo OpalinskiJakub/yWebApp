@@ -3,9 +3,14 @@ GET /posts/{USER_ID}/{POST_ID}
 GET /posts //main page
 GET /posts?searchValue={SEARCH_VALUE}
 POST /posts/{USER_ID} //create post
-PUT
+PUT /posts/{USER_ID}/{POST_ID} //edit post
 
 For user API:
-GET /user
-GET
+GET /users/{USER_ID}
+POST /users
+PUT /users/{USER_ID}
+
+
+
+GET /health
 

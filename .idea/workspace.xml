@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Documentation/Endpoints" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostIndexDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostIndexDB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Endpoints" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Endpoints" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +111,7 @@
       <workItem from="1701105206103" duration="12000" />
       <workItem from="1701105246216" duration="5774000" />
       <workItem from="1701350928427" duration="1306000" />
-      <workItem from="1701382941282" duration="872000" />
+      <workItem from="1701382941282" duration="1173000" />
     </task>
     <servers />
   </component>
