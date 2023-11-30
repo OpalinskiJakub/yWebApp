@@ -30,14 +30,17 @@ class PostIndexDB {
         return postsData;
     }
 
-    mapPostsDataToPosts(){
+     async mapPostsDataToPosts(){
+        let post;
             this._fetchDataFromIndexedDB()
                 .then((data) => {
-                        let post = data.map(post => new Post(post.postId,
+                        post = data.map(post => new Post(post.postId,
                             post.name,
                             post.content,
                             post.author, post.comments))
-                        console.log(post);
+
+
+
                         }
 
                 ).catch((error) => {

@@ -1,0 +1,11 @@
+For post API:
+GET /posts/{USER_ID}/{POST_ID}
+GET /posts //main page
+GET /posts?searchValue={SEARCH_VALUE}
+POST /posts/{USER_ID} //create post
+PUT
+
+For user API:
+GET /user
+GET
+

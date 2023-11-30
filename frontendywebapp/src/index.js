@@ -21,7 +21,7 @@ root.render(
                 <Route path="/" element={<Home />} >
                     <Route path="/" element={<MainPagePostsWizualization />} />
                     <Route path="/post" element={<PostPanel />} />
-
+                    <Route path="/Api" element={<PostApiConnector />} />
                 </Route>
             </Routes>
         </BrowserRouter>
