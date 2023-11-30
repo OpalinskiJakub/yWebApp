@@ -5,7 +5,7 @@ GET /posts?searchValue={SEARCH_VALUE}
 POST /posts/ //create post
 PUT /posts/{POST_ID} //edit post
 POST /posts/{POST_ID}/comments //add comment
-PUT /posts/{USER_ID}/{POST_ID}/comments/{COMMENT_ID} //edit comment
+PUT /posts/{POST_ID}/comments/{COMMENT_ID} //edit comment
 
 For user API:
 GET /users/{USER_ID}
