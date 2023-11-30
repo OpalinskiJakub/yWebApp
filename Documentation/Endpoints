@@ -10,7 +10,7 @@ PUT /posts/{POST_ID}/comments/{COMMENT_ID} //edit comment
 For user API:
 GET /users/{USER_ID}
 POST /users
-PUT /users/{USER_ID}
+PUT /users
 
 
 
