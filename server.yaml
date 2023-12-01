@@ -1,0 +1,10 @@
+-   url: "http://dev.api/{version}.com:{port}"
+    description: Development server
+    variables:
+        port:
+            default: '8070'
+        version:
+            enum:
+                - 'v1'
+                - 'v2'
+            default: 'v1.1'
