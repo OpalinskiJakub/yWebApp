@@ -5,17 +5,18 @@
           description: Returns user data
           summary: Find users by ID
           operationId: getUserById
+          deprecated: false
           responses:
             '200':
-              description: pet response
+              description: Proper response for a userId request
               content:
                 '*/*' :
                   schema:
-                    type: array
+                    type: object
                     items:
-                      $ref: '#/components/schemas/Pet'
+                      $ref: '#/components/schemas/User'
             default:
-              description: error payload
+              description: Error payload
               content:
                 'text/html':
                   schema:
