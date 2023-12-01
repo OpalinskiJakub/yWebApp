@@ -1,95 +1,355 @@
 openapi: 3.0.0
 info:
-  version: 1.0.0
-  title: Y platform WEB REST API
-  description: The platform's API represents an interface to basic CRUD operations for Y platform.
+    version: 1.0.0
+    title: Y platform WEB REST API
+    description: The platform's API represents an interface to basic CRUD operations for Y platform.
 servers:
-  - url: https://7821f539-948c-4a01-b659-752d77cfc313.mock.pstmn.io
+    - url: https://dfed38ed-4ef9-40df-8899-443c3275de54.mock.pstmn.io/
 tags:
-  - name: users
-    description: Opertations on users data
-  - name: posts
-    description: Operations on posts data
-  - name: comments
-    description: Operations on comments data
+    - name: users
+      description: Opertations on users data
+    - name: posts
+      description: Operations on posts data
+    - name: comments
+      description: Operations on comments data
 paths:
-  /users/{userId}:
-    parameters:
-      - name: userId
-        description: The unique identifier of the user
-        in: path
-        required: true
-        schema:
-          type: integer
-    summary: Find user by specifying userId.
-    description: Use this endpoint to find a specific user.
-    get:
-      tags:          
-          - users    
-      description: Returns user data
-      summary: Find users by ID
-      operationId: getUserById
-      deprecated: false
-      responses:
-        '200':
-          description: Proper response for a userId request
-          content:
-            application/json:
-              example:
-                        id: 1
-                        username: FirstNickForUser
-                        description: A short description from users about themsleves 
-                        email: fisr@user.com
-                        age: 23
-                        role: noAdmin
-                        avatar_URL: https://some/endpoint.jpg
-                        active: true
-              schema:
-                type: object
-                required:
-                  - id
-                  - username
-                  - email
-                  - role
-                  - active
-                  - age
-                properties:
-                  id:
-                    type: integer
-                    description: UserId of a certain user
-                  username:
-                    type: string
-                    description: Username of a user
-                  description:
-                    type: string
-                    description: Description from a user
-                  email:
-                    type: string
-                    format: email
-                    description: The email address of the user
-                  age:
-                    type: integer
-                    description: The age of the user
-                  avatar_URL:
-                    type: string
-                    description: URL to source for user's avatar
-                  role:
-                    type: string
-                    description: Role for authorization of a user
-                  active:
-                    type: boolean
-                    description: Indicates if the user is active
-        default:
-          description: Error payload
-          content:
-            text/html:
-              schema:
-                type: string
+    /users/{userId}:
+        parameters:
+            - $ref: "#/components/parameters/userId"
+        summary: Find user by specifying userId.
+        description: Use this endpoint to find a specific user.
+        patch:
+            tags:
+                - users
+            responses:
+                "405":
+                    $ref: "#/components/responses/ForbiddenMethod"
+        trace:
+            tags:
+                - users
+            responses:
+                "405":
+                    $ref: "#/components/responses/ForbiddenMethod"
+        options:
+            tags:
+                - users
+            responses:
+                "405":
+                    $ref: "#/components/responses/ForbiddenMethod"
+        head:
+            tags:
+                - users
+            responses:
+                "405":
+                    $ref: "#/components/responses/ForbiddenMethod"
+        get:
+            tags:
+                - users
+            description: Returns user data
+            summary: Find users by ID
+            operationId: getUserById
+            deprecated: false
+            responses:
+                "200":
+                    description: Proper response for a userId request
+                    content:
+                        application/json:
+                            example:
+                                id: 1
+                                username: FirstNickForUser
+                                description: A short description from users about themsleves
+                                email: fisr@user.com
+                                age: 23
+                                role: noAdmin
+                                avatar_URL: https://some/endpoint.jpg
+                                active: true
+                            schema:
+                                type: object
+                                required:
+                                    - id
+                                    - username
+                                    - email
+                                    - role
+                                    - active
+                                    - age
+                                properties:
+                                    id:
+                                        type: integer
+                                        description: UserId of a certain user
+                                    username:
+                                        type: string
+                                        description: Username of a user
+                                    description:
+                                        type: string
+                                        description: Description from a user
+                                    email:
+                                        type: string
+                                        format: email
+                                        description: The email address of the user
+                                    age:
+                                        type: integer
+                                        description: The age of the user
+                                    avatar_URL:
+                                        type: string
+                                        description: URL to source for user's avatar
+                                    role:
+                                        type: string
+                                        description: Role for authorization of a user
+                                    active:
+                                        type: boolean
+                                        description: Indicates if the user is active
+                "400":
+                    $ref: "#/components/responses/BadRequestResponse"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedResponse"
+                "403":
+                    $ref: "#/components/responses/ForbiddenResponse"
+                "404":
+                    $ref: "#/components/responses/NotFoundResponse"
+                "500":
+                    $ref: "#/components/responses/InternalServerErrorResponse"
+                "501":
+                    $ref: "#/components/responses/NotImplementedResponse"
+                "502":
+                    $ref: "#/components/responses/BadGatewayResponse"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavailableResponse"
+                default:
+                    description: Bad Request
+                    content:
+                        application/json:
+                            example: { "message": "Bad Request" }
+    /posts:
+        summary: Get all posts from application.
+        description: Use this endpoint to fetch all posts from database.
+        patch:
+            tags:
+                - posts
+            responses:
+                "405":
+                    $ref: "#/components/responses/ForbiddenMethod"
+        trace:
+            tags:
+                - posts
+            responses:
+                "405":
+                    $ref: "#/components/responses/ForbiddenMethod"
+        options:
+            tags:
+                - posts
+            responses:
+                "405":
+                    $ref: "#/components/responses/ForbiddenMethod"
+        head:
+            tags:
+                - posts
+            responses:
+                "405":
+                    $ref: "#/components/responses/ForbiddenMethod"
+        get:
+            tags:
+                - posts
+            description: Returns posts data
+            summary: Fetch all posts data.
+            operationId: getUserById
+            responses:
+                "200":
+                    description: Proper response for posts get operation.
+                    content:
+                        application/json:
+                            examples:
+                                "application/json":
+                                    value:
+                                        - id: 1
+                                          title: My First Post
+                                          content: This is my first post on the platform.
+                                          author_ID: 1
+                                          author_username: FirstNickForUser
+                                          avatar_URL: "https://some/endpoint.jpg"
+                                          creation_date: "2023-12-01T22:43:39.123Z"
+                                          permalink: "https://platform.com/posts/1"
+                                          reported: false
+                                          upvotes: 10
+                                          comments:
+                                              - id: 1
+                                                author_ID: 2
+                                                author_username: SecondNickForUser
+                                                upvotes: 5
+                                                parent_id: null
+                                                content: Great first post!
+                                              - id: 2
+                                                author_ID: 3
+                                                author_username: ThirdNickForUser
+                                                upvotes: 2
+                                                parent_id: 1
+                                                content: I agree with SecondNickForUser. This is a great post.
+                                              - id: 3
+                                                author_ID: 65
+                                                author_username: DickNickForUser
+                                                upvotes: 1
+                                                parent_id: null
+                                                content: That shit is insane bro!!!
+                                              - id: 4
+                                                author_ID: 6
+                                                author_username: SiemaSiema
+                                                upvotes: 0
+                                                parent_id: 2
+                                                content: I don't agree. It is not a great post.
+                            schema:
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        id:
+                                            type: integer
+                                            description: The unique identifier for the item.
+                                        title:
+                                            type: string
+                                            description: The title of the item.
+                                        content:
+                                            type: string
+                                            description: The content of the item.
+                                        author_ID:
+                                            type: integer
+                                            description: The unique identifier of the author.
+                                        author_username:
+                                            type: string
+                                            description: The username of the author.
+                                        avatar_URL:
+                                            type: string
+                                            description: The URL of the author's avatar.
+                                        creation_date:
+                                            type: string
+                                            format: date-time
+                                            description: The date and time when the item was created.
+                                        permalink:
+                                            type: string
+                                            description: The permalink of the item.
+                                        reported:
+                                            type: boolean
+                                            description: Indicates if the item has been reported.
+                                        upvotes:
+                                            type: integer
+                                            description: The number of upvotes the item has received.
+                                        comments:
+                                            type: array
+                                            description: An array of comments associated with the item.
+                                            items:
+                                                type: object
+                                                properties:
+                                                    id:
+                                                        type: integer
+                                                        description: The unique identifier for the comment.
+                                                    author_ID:
+                                                        type: integer
+                                                        description: The unique identifier of the comment author.
+                                                    author_username:
+                                                        type: string
+                                                        description: The username of the comment author.
+                                                    upvotes:
+                                                        type: integer
+                                                        description: The number of upvotes the comment has received.
+                                                    parent_id:
+                                                        type: integer
+                                                        nullable: true
+                                                        description: The parent object of the comment. NULL indicates the parent is the post item.
+                                                    content:
+                                                        type: string
+                                                        description: The content of the comment.
+                "400":
+                    $ref: "#/components/responses/BadRequestResponse"
+                "401":
+                    $ref: "#/components/responses/UnauthorizedResponse"
+                "403":
+                    $ref: "#/components/responses/ForbiddenResponse"
+                "404":
+                    $ref: "#/components/responses/NotFoundResponse"
+                "500":
+                    $ref: "#/components/responses/InternalServerErrorResponse"
+                "501":
+                    $ref: "#/components/responses/NotImplementedResponse"
+                "502":
+                    $ref: "#/components/responses/BadGatewayResponse"
+                "503":
+                    $ref: "#/components/responses/ServiceUnavailableResponse"
+                default:
+                    description: Bad Request
+                    content:
+                        application/json:
+                            example: { "message": "Bad Request" }
 components:
-  securitySchemes:
-    ApiKey:
-      type: apiKey
-      in: header
-      name: X-Api-Key
+    responses:
+        SuccessResponse:
+            description: Successful response
+            content:
+                application/json:
+                    example: { "message": "Success" }
+
+        ForbiddenMethod:
+            description: This operation is forbidden.
+            content:
+                application/json:
+                    example: { "message": "Bad operation" }
+
+        BadRequestResponse:
+            description: Bad Request
+            content:
+                application/json:
+                    example: { "message": "Bad Request" }
+
+        UnauthorizedResponse:
+            description: Unauthorized
+            content:
+                application/json:
+                    example: { "message": "Unauthorized" }
+
+        ForbiddenResponse:
+            description: Forbidden
+            content:
+                application/json:
+                    example: { "message": "Forbidden" }
+
+        NotFoundResponse:
+            description: Not Found
+            content:
+                application/json:
+                    example: { "message": "Not Found" }
+
+        InternalServerErrorResponse:
+            description: Internal Server Error
+            content:
+                application/json:
+                    example: { "message": "Internal Server Error" }
+
+        NotImplementedResponse:
+            description: Not Implemented
+            content:
+                application/json:
+                    example: { "message": "Not Implemented" }
+
+        BadGatewayResponse:
+            description: Bad Gateway
+            content:
+                application/json:
+                    example: { "message": "Bad Gateway" }
+
+        ServiceUnavailableResponse:
+            description: Service Unavailable
+            content:
+                application/json:
+                    example: { "message": "Service Unavailable" }
+    parameters:
+        userId:
+            name: userId
+            description: The unique identifier of the user
+            in: path
+            required: true
+            schema:
+                type: integer
+    securitySchemes:
+        ApiKey:
+            type: apiKey
+            in: header
+            name: X-Api-Key
 security:
     - ApiKey: []
