@@ -38,6 +38,11 @@ class UserIndexDb {
         }
     }
 
+    async getUserFromDb(){
+        let data = await this.db.user.toArray();
+        return data;
+    }
+
 }
 
 export default UserIndexDb;

@@ -10,3 +10,4 @@ class User{
         this.avatar_URL=avatar_URL;
     }
 }
+export default User;

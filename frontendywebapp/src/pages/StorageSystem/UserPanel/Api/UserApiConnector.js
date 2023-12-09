@@ -14,7 +14,6 @@ class UserApiConnector{
     async getUserFromApi(userId){
         let address = this.#apiAdress+userId;
         let response = await axios.get(address);
-        //console.log(response.data);
         return response.data;
     }
 

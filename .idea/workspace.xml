@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api/UserApiConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Db/UserIndexDb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Model/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/UserService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model/Author.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/Model/Author.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/Model/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/Model/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostApiConnector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/PostApiConnector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/PostIndexDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/PostIndexDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/postUtilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/postUtilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api/UserApiConnector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api/UserApiConnector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Db/UserIndexDb.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Db/UserIndexDb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Model/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/UserService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +135,7 @@
       <workItem from="1701467924430" duration="708000" />
       <workItem from="1702002290646" duration="107000" />
       <workItem from="1702026100335" duration="1742000" />
-      <workItem from="1702121105374" duration="26384000" />
+      <workItem from="1702121105374" duration="30001000" />
     </task>
     <servers />
   </component>
