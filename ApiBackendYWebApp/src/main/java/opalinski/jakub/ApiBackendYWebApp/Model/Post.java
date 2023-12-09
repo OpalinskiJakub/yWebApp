@@ -6,16 +6,16 @@ public class Post {
 
     private long postId;
 
-    private String name;
+    private String title;
     private String content;
 
     private User author;
 
     private ArrayList<Comment> comments;
 
-    public Post(long postId, String name, String content, User author) {
+    public Post(long postId, String title, String content, User author) {
         this.postId = postId;
-        this.name = name;
+        this.title = title;
         this.content = content;
         this.author = author;
         this.comments = new ArrayList<>();
@@ -29,12 +29,12 @@ public class Post {
         this.postId = postId;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = name;
     }
 
     public String getContent() {

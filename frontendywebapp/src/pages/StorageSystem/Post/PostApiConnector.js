@@ -2,12 +2,18 @@ import axios from "axios";
 import React from "react";
 import PostIndexDB from "./PostIndexDB";
 
+
+
 class PostApiConnector extends React.Component {
     static APIADDRESS = "http://localhost:8080/post1";
 
     constructor(props) {
         super(props);
         this.db = new PostIndexDB();
+    }
+
+    getDb(){
+        return this.db;
     }
 
     async _sendRequest(address) {
@@ -20,10 +26,12 @@ class PostApiConnector extends React.Component {
             .then((data) => {
                 this.db.savePostToIndexedDB(data);
                 this.db.mapPostsDataToPosts();
+
             })
             .catch((error) => {
                 console.error("Error during fetching data from API:", error);
             });
+
     }
 
     componentDidMount() {

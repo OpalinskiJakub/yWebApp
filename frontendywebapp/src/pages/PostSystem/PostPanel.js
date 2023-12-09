@@ -3,6 +3,9 @@ import {Button, Card, Form} from "react-bootstrap";
 import PostPanelCommentVizualization from "./PostPanelCommentVizualization";
 import PostIndexDB from "../StorageSystem/Post/PostIndexDB";
 import data from "bootstrap/js/src/dom/data";
+import PostApiConnector from "../StorageSystem/Post/PostApiConnector";
+
+global.Api = new PostApiConnector();
 
 
 class PostPanel extends Component {
@@ -10,22 +13,27 @@ class PostPanel extends Component {
 
     constructor(props) {
         super(props);
-
-
-
         this.state = {
-            test:'',
+            title:'',
+            content:'',
             comments: [],
             newComment: ''
         };
-       // console.log(this.tempPost);
     }
-    componentDidMount() {
-        let db = new PostIndexDB();
-        console.log('1213');
-        db._fetchDataFromIndexedDB().then(data => console.log(data[0]));
+    async componentDidMount() {
+        try {
+            await global.Api.getPostById();
+            let db = await global.Api.getDb();
+            let result = await db.mapPostsDataToPosts();
+            this.setState({ title: result[0].title });
+            this.setState({ content: result[0].content})
+            console.log(this.result);
+        } catch (error) {
+            console.error('Error during mapping posts data:', error);
+        }
+    }
 
-    }
+
 
     handleAddComment = () => {
         const comment = {
@@ -48,9 +56,11 @@ class PostPanel extends Component {
         return (
             <Card data-bs-theme="dark" className="m-3">
                 <Card.Body>
-                    <Card.Title>{this.state.test}</Card.Title>
+                    <Card.Title>
+                        <p>{this.state.title}</p>
+                    </Card.Title>
                     <Card.Text>
-                        Tresc posta
+                        <p>{this.state.content}</p>
                     </Card.Text>
 
                     <div>

@@ -1,11 +1,14 @@
 import Dexie from "dexie";
 
 import Post from "./Model/Post";
+import PostApiConnector from "./PostApiConnector";
+import comment from "./Model/Comment";
 const db = new Dexie('postIndexDB');
 
 
+
 db.version(1).stores({
-    posts: 'postId, name, content, author, comments'
+    posts: 'postId, title, content, author, comments'
 });
 db.open().catch(err => {
     console.error(err.stack || err);
@@ -13,10 +16,10 @@ db.open().catch(err => {
 class PostIndexDB {
     savePostToIndexedDB(data) {
         db.transaction('rw', db.posts, async () => {
-
+            console.log('wdb'+data.title)
             await db.posts.add({
                 postId: data.postId,
-                name: data.name,
+                title: data.title,
                 content: data.content,
                 author: data.author,
                 comments: data.comments
@@ -27,27 +30,29 @@ class PostIndexDB {
     }
     async _fetchDataFromIndexedDB() {
         const postsData = await db.posts.toArray();
+
         return postsData;
     }
 
-     async mapPostsDataToPosts(){
-        let post;
+    async mapPostsDataToPosts() {
+        return new Promise((resolve, reject) => {
             this._fetchDataFromIndexedDB()
                 .then((data) => {
-                        post = data.map(post => new Post(post.postId,
-                            post.name,
-                            post.content,
-                            post.author, post.comments))
-
-
-
-                        }
-
-                ).catch((error) => {
+                    const posts = data.map(post => new Post(
+                        post.postId,
+                        post.title,
+                        post.content,
+                        post.author,
+                        post.comments
+                    ));
+                    resolve(posts);
+                })
+                .catch((error) => {
                     console.error('Error during fetching data from IndexedDB:', error);
+                    reject(error);
                 });
+        });
     }
-
 
 };
 
