@@ -16,7 +16,6 @@ db.open().catch(err => {
 class PostIndexDB {
     savePostToIndexedDB(data) {
         db.transaction('rw', db.posts, async () => {
-            console.log('wdb'+data.title)
             await db.posts.add({
                 postId: data.postId,
                 title: data.title,

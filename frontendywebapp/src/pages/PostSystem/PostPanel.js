@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {Button, Card, Form} from "react-bootstrap";
 import PostPanelCommentVizualization from "./PostPanelCommentVizualization";
-import PostIndexDB from "../StorageSystem/Post/PostIndexDB";
+import PostIndexDB from "../StorageSystem/PostPanel/PostIndexDB";
 import data from "bootstrap/js/src/dom/data";
-import PostApiConnector from "../StorageSystem/Post/PostApiConnector";
+import PostApiConnector from "../StorageSystem/PostPanel/PostApiConnector";
 
 global.Api = new PostApiConnector();
 
