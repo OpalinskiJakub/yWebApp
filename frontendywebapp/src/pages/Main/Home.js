@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.css';
 import {Badge,Button,Dropdown,Form,Offcanvas} from "react-bootstrap";
 import React from "react";
+import UserPage from "../UserPanelVisualization/UserPage";
 
 
 function Home() {
@@ -19,8 +20,7 @@ function Home() {
                                 <h4>Y</h4>
                             </Badge>
                         </Navbar.Brand>
-                        <div style={{width:"70%"}}>
-
+                        <div style={{width:"50%"}}>
                         <Form className="d-flex">
                             <Form.Control
                                 type="search"
@@ -28,7 +28,7 @@ function Home() {
                                 className="me-2"
                                 aria-label="Wyszukaj"
                             />
-                            <Button variant="outline-success">Search</Button>
+                            <Button variant="outline-primary">Search</Button>
                         </Form>
                         </div>
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -45,7 +45,7 @@ function Home() {
                             </Offcanvas.Header>
                             <Offcanvas.Body data-bs-theme="dark">
                                 <Nav className="justify-content-end flex-grow-1 pe-3" data-bs-theme="dark">
-                                    <Nav.Link href="/home">Dane użytkownika</Nav.Link>
+                                    <Nav.Link href="/UserPage">Dane użytkownika</Nav.Link>
                                     <Nav.Link href="/post">Twoje posty</Nav.Link>
                                     <NavDropdown
                                         title="Wybierz język"
