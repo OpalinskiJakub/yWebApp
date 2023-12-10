@@ -3,14 +3,13 @@ import UserApiConnector from "./Api/UserApiConnector";
 import UserIndexDb from "./Db/UserIndexDb";
 import User from "./Model/User";
 
-class UserService extends Component {
+class UserService {
     constructor(props) {
-        super(props);
         this.api = new UserApiConnector();
         this.db = new UserIndexDb();
     }
 
-    async add() {
+    async getUser() {
         let data = await this.api.getUserFromApi(1);
         await this.db.saveRawUserToDb(data);
         let rowUserData = await this.db.getUserFromDb();
@@ -24,18 +23,11 @@ class UserService extends Component {
             rowUserData.age,
             rowUserData.description,
             rowUserData.avatar_URL)
-        console.log(user);
+        return user;
     }
 
-    async componentDidMount() {
-        this.add();
-    }
 
-    render() {
-        return (
-            <p>Test</p>
-        )
-    }
+
 }
 
 export default UserService;

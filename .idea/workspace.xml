@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserDataEditPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserDataPanel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/Main/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/Main/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/MainPagePostsWizualization.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/MainPagePostsWizualization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api/UserApiConnector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api/UserApiConnector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Db/UserIndexDb.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Db/UserIndexDb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/UserService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserDataPanel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,34 +43,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ApiBackendYWebAppApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/jakub/IdeaProjects/yWebApp/Documentation",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "a52bf50cfcf89ec7311c3ccefe4a5095",
-    "ts.external.directory.path": "/snap/intellij-idea-ultimate/467/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ApiBackendYWebAppApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jakub/IdeaProjects/yWebApp/Documentation&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;a52bf50cfcf89ec7311c3ccefe4a5095&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/snap/intellij-idea-ultimate/467/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api" />
@@ -136,7 +134,8 @@
       <workItem from="1701467924430" duration="708000" />
       <workItem from="1702002290646" duration="107000" />
       <workItem from="1702026100335" duration="1742000" />
-      <workItem from="1702121105374" duration="44301000" />
+      <workItem from="1702121105374" duration="45292000" />
+      <workItem from="1702205540610" duration="3723000" />
     </task>
     <servers />
   </component>

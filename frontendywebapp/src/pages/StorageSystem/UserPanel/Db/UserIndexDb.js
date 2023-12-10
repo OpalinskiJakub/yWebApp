@@ -4,9 +4,9 @@ class UserIndexDb {
     static instance = null;
 
     constructor() {
-        if (UserIndexDb.instance) {
-            return UserIndexDb.instance;
-        }
+       // if (UserIndexDb.instance) {
+      //      return UserIndexDb.instance;
+      //  }
 
         this.db = new Dexie('userIndexDB');
         this.db.version(1).stores({
