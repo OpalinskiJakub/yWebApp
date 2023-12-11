@@ -85,12 +85,12 @@ class PostPanelComment extends Component {
 
                     </Col>
                     <Col>
-                        <Button variant="outline-primary" style={buttonStyle} onClick={() => this.setState({ showReplyForm: !this.state.showReplyForm })}>
+                        <Button variant="outline-primary" style={buttonStyle} >
                             Polub
                         </Button>
                     </Col>
                     <Col>
-                        <Button variant="outline-primary" style={buttonStyle2}>
+                        <Button variant="outline-primary" style={buttonStyle2} onClick={() => this.setState({ showReplyForm: !this.state.showReplyForm })}>
                             Odpowiedz
                         </Button>
                     </Col>
@@ -123,7 +123,7 @@ class PostPanelComment extends Component {
                                 onChange={(e) => this.setState({ newReply: e.target.value })}
                             />
                         </Form.Group>
-                        <Button variant="primary" onClick={this.handleAddReply} style={buttonStyle}>
+                        <Button variant="outline-primary" onClick={this.handleAddReply} style={{padding:4 ,fontSize:15, marginTop:10}}>
                             Dodaj Odpowiedź
                         </Button>
 

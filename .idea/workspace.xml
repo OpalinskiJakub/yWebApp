@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Repository/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Repository/PostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/Main/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/MainPagePostsWizualization.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/MainPagePostsWizualization.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem/PostPanelCommentVizualization.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanelComment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/PostIndexDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/PostIndexDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserDataPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanelComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanelComment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +133,8 @@
       <workItem from="1702002290646" duration="107000" />
       <workItem from="1702026100335" duration="1742000" />
       <workItem from="1702121105374" duration="45292000" />
-      <workItem from="1702205540610" duration="31325000" />
+      <workItem from="1702205540610" duration="32373000" />
+      <workItem from="1702293204862" duration="1310000" />
     </task>
     <servers />
   </component>

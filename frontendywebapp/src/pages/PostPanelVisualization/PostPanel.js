@@ -75,7 +75,9 @@ class PostPanel extends Component {
                                     onChange={(e) => this.setState({ newComment: e.target.value })}
                                 />
                             </Form.Group>
-                            <Button variant="primary" onClick={this.handleAddComment}>Dodaj Komentarz</Button>
+                            <Button variant="outline-primary" onClick={this.handleAddComment} style={{padding:4 ,fontSize:15, marginTop:10}}>
+                                Dodaj Komentarz
+                            </Button>
                         </Card.Text>
                     </Card>
                 </Card.Body>
