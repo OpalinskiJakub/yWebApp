@@ -14,13 +14,13 @@ class UserDataPanel extends Component{
     }
 
     async componentDidMount() {
-        let user = await this.service.getUser();
+        /*let user = await this.service.getUser();
         this.setState({
             username: user.username,
             email: user.email,
             age: user.age,
             description: user.description
-        });
+        });*/
     }
 
     render() {

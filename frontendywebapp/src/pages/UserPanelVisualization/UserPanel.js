@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Card, Nav } from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
 
-class UserPage extends Component {
+class UserPanel extends Component {
     constructor() {
         super();
         this.state = {
-            activeTab: "/UserPage",
+            activeTab: "/UserPanel",
         };
     }
 
@@ -23,18 +23,18 @@ class UserPage extends Component {
                     <Nav variant="tabs" activeKey={activeTab}>
                         <Nav.Item>
                             <Link
-                                to="/UserPage"
+                                to="/UserPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/UserPage")}
+                                onClick={() => this.handleTabChange("/UserPanel")}
                             >
                                 Twoje Dane
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/UserPage/UserDataEditPanel"
+                                to="/UserPanel/UserDataEditPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/UserPage/UserDataEditPanel")}
+                                onClick={() => this.handleTabChange("/UserPanel/UserDataEditPanel")}
                             >
                                 Zmień dane
                             </Link>
@@ -49,4 +49,4 @@ class UserPage extends Component {
     }
 }
 
-export default UserPage;
+export default UserPanel;
