@@ -20,8 +20,10 @@ class Home extends Component{
                     <Navbar key={expand} expand={expand} className="bg-body-tertiary" data-bs-theme="dark" sticky="top">
                         <Container fluid>
                             <Navbar.Brand href="/">
-                                <Badge bg="secondary" style={{width:"50px", height:"37px"}}>
-                                    <h4>Y</h4>
+                                <Badge variant="dark" style={{width:"50px", height:"37px"}}>
+                                    <h4 style={{ color: "black", fontFamily: "sans-serif" }}>Y</h4>
+
+
                                 </Badge>
                             </Navbar.Brand>
                             <div style={{width:"50%"}}>

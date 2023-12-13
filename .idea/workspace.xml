@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanelComment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization/PostPanelComment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,9 +32,6 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
   <component name="ProjectId" id="2XA7Dvl5EcoKKpiEVTac17VYedF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -50,12 +47,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ApiBackendYWebAppApplication.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jakub/IdeaProjects/yWebApp/Documentation&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/Jakub/IdeaProjects/yWebApp/Documentation&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -65,17 +60,17 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;a52bf50cfcf89ec7311c3ccefe4a5095&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/snap/intellij-idea-ultimate/467/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/Jakub/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/231.9161.38/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel" />
-      <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/PostPanelVisualization" />
-      <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api" />
       <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post/Model" />
       <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/Post" />
+      <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/Main" />
+      <recent name="$PROJECT_DIR$/frontendywebapp/src/pages/PostSystem" />
+      <recent name="$PROJECT_DIR$/frontendywebapp/src/pages" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="opalinski.jakub.ApiBackendYWebApp" />
@@ -89,13 +84,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-86fc8109" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -125,31 +113,13 @@
       <workItem from="1701105206103" duration="12000" />
       <workItem from="1701105246216" duration="5774000" />
       <workItem from="1701350928427" duration="1306000" />
-      <workItem from="1701382941282" duration="4020000" />
-      <workItem from="1701464013345" duration="199000" />
-      <workItem from="1701464218512" duration="951000" />
-      <workItem from="1701465923208" duration="887000" />
-      <workItem from="1701467924430" duration="708000" />
-      <workItem from="1702002290646" duration="107000" />
-      <workItem from="1702026100335" duration="1742000" />
-      <workItem from="1702121105374" duration="45292000" />
-      <workItem from="1702205540610" duration="32373000" />
-      <workItem from="1702293204862" duration="1310000" />
+      <workItem from="1701382941282" duration="4633000" />
+      <workItem from="1702314948949" duration="1844000" />
+      <workItem from="1702319394322" duration="56000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
