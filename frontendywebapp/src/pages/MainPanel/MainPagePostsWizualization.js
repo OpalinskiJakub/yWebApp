@@ -25,7 +25,7 @@ function MainPagePostsWizualization(props){
                 </Card.Text>
             </Card.Body>
             <Card.Footer className="text-center">
-                <Button variant="outline-primary" href="post/${post.id}">Zobacz post</Button>
+                <Button variant="outline-primary" href="post">Zobacz post</Button>
             </Card.Footer>
         </Card>
         );

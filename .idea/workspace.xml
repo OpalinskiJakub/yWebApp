@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/AdminPanelVisualization/AdminPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/AdminPanelVisualization/UsersDataAdminPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/AdminPanelVisualization/UsersDataAdminPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/AdminPanelVisualization/UsersDataAdminPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/MainPagePostsWizualization.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/MainPagePostsWizualization.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +33,10 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 6
+}]]></component>
   <component name="ProjectId" id="2XA7Dvl5EcoKKpiEVTac17VYedF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -52,6 +55,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "corretto-17",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/Jakub/IdeaProjects/yWebApp/Documentation",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -118,6 +122,7 @@
       <workItem from="1701382941282" duration="4633000" />
       <workItem from="1702314948949" duration="1844000" />
       <workItem from="1702319394322" duration="56000" />
+      <workItem from="1702730312557" duration="7705000" />
     </task>
     <servers />
   </component>
