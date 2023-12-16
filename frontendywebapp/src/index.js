@@ -10,6 +10,8 @@ import UserService from "./pages/StorageSystem/UserPanel/UserService";
 import UserPanel from "./pages/UserPanelVisualization/UserPanel";
 import UserDataPanel from "./pages/UserPanelVisualization/UserDataPanel";
 import UserDataEditPanel from "./pages/UserPanelVisualization/UserDataEditPanel";
+import AdminPanel from "./pages/AdminPanelVisualization/AdminPanel";
+import UsersDataAdminPanel from "./pages/AdminPanelVisualization/UsersDataAdminPanel";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
@@ -30,8 +32,14 @@ root.render(
                     <Route index element={<UserDataPanel />} />
                     <Route path="UserDataEditPanel" element={<UserDataEditPanel />} />
                 </Route>
+                <Route path="AdminPanel" element={<AdminPanel />}>
+                    <Route index element={<UsersDataAdminPanel />} />
+
+                </Route>
             </Route>
         </Routes>
     </BrowserRouter>
 
 );
+//<Route index element={<UserDataPanel />} />
+//s<Route path="UserDataEditPanel" element={<UserDataEditPanel />} />

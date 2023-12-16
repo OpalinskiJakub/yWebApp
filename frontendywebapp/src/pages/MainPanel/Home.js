@@ -22,8 +22,6 @@ class Home extends Component{
                             <Navbar.Brand href="/">
                                 <Badge variant="dark" style={{width:"50px", height:"37px"}}>
                                     <h4 style={{ color: "black", fontFamily: "sans-serif" }}>Y</h4>
-
-
                                 </Badge>
                             </Navbar.Brand>
                             <div style={{width:"50%"}}>
@@ -53,6 +51,7 @@ class Home extends Component{
                                     <Nav className="justify-content-end flex-grow-1 pe-3" data-bs-theme="dark">
                                         <Nav.Link href="/UserPanel">Dane użytkownika</Nav.Link>
                                         <Nav.Link href="/post">Twoje posty</Nav.Link>
+                                        <Nav.Link href="/AdminPanel">Panel administratora</Nav.Link>
                                         <NavDropdown
                                             title="Wybierz język"
                                             id={`offcanvasNavbarDropdown-expand-${expand}`}
