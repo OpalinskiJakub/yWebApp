@@ -1,15 +1,26 @@
 Grupa 3:
 1. Brak możliwości skomentowania posta bez kliknięcia “zobacz post”
-2.Brak wsparcia dla zarejestrowania przez konto Google/facebook/apple
-3.Brak wyświetlenia autora posta
-4.Brak możliwości podania daty urodzenia, tylko możliwość wpisania wieku przy rejestracji
-5.W formularzu odwołania brak możliwości wybrania konkretnego posta/komentarza, który łamie regulamin
+Nasz system nie przewiduje komentowania posta z poziomu panelu głównego.
+2.Brak wsparcia dla zarejestrowania przez konto Google/facebook/apple.
+Nasz system obsługuje wsparcie dla zarejestrowania tylko poprzez github.
+3.Brak wyświetlenia autora posta.
+W końcowej wersji będzie wyświetlony autor posta.
+4.Brak możliwości podania daty urodzenia, tylko możliwość wpisania wieku przy rejestracji.
+Z uwagi na powody implementacyjne, Nasz system obsługuje tylko podanie wieku.
+5.W formularzu odwołania brak możliwości wybrania konkretnego posta/komentarza, który łamie regulamin.
+ 
 
 Grupa 2:
 
 (strona 1) nie ma możliwości polubienia postów
+W końcowej wersji będzie możliwość polubienia postów.
 (5) nie wiadomo czy jest możliwość polubienia komentarza - lista rozwijalna z opcjami nie jest intuicyjna
+W końcowej wersji będzie możliwość polubienia komentarza 
 (6) "Odwołaj się" nie najlepiej sugeruje co oznacza ten przycisk
+W końcowej wersji nazwa przycisku będzie bardziej szczegolowa.
 brak możliwości zobaczenia postów jakiegoś użytkownika
+W końcowej wersji będzie można zobaczyć posty użytkownika na jego profilu.
 (10) brak wyszukiwania użytkowników - jeśli będzie ich dużo ciężko będzie znaleźć konkretnego
+Nasza aplikacja nie przewiduje wyszukiwania użytkowników.
 (13) pole "wpisz mail" wygląda trochę jak przycisk, może powinno być trochę dluższe/zjustowane do lewej
+W końcowej wersji będzie to poprawione.
