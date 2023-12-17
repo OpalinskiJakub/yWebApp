@@ -8,6 +8,7 @@ W końcowej wersji będzie wyświetlony autor posta.
 4.Brak możliwości podania daty urodzenia, tylko możliwość wpisania wieku przy rejestracji.
 Z uwagi na powody implementacyjne, Nasz system obsługuje tylko podanie wieku.
 5.W formularzu odwołania brak możliwości wybrania konkretnego posta/komentarza, który łamie regulamin.
+Z uwagi na bezpieczeństwo aplikacji , nie przewidujemy tego.
  
 
 Grupa 2:
