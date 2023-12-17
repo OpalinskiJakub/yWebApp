@@ -3,7 +3,7 @@ import {ListGroup,Table,Button} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import User from "../StorageSystem/UserPanel/Model/User";
 
-class UsersDataAdminPanel extends Component{
+class ActiveUsersAdminPanel extends Component{
     constructor(props) {
         super(props);
         this.state={
@@ -28,7 +28,6 @@ class UsersDataAdminPanel extends Component{
                     <th>Nazwa Użytkownika</th>
                     <th>Email</th>
                     <th>Wiek</th>
-                    <th>Status</th>
                     <th>Opcje</th>
                 </tr>
                 </thead>
@@ -39,7 +38,6 @@ class UsersDataAdminPanel extends Component{
                         <th>{user.username}</th>
                         <th>{user.email}</th>
                         <th>{user.age}</th>
-                        <th>{user.active}</th>
                         <th>
                             <Button variant="outline-primary">
                                 Zablokuj
@@ -56,4 +54,4 @@ class UsersDataAdminPanel extends Component{
 
 }
 
-export default UsersDataAdminPanel;
+export default ActiveUsersAdminPanel;

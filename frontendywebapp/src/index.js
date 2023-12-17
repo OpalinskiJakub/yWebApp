@@ -11,7 +11,7 @@ import UserPanel from "./pages/UserPanelVisualization/UserPanel";
 import UserDataPanel from "./pages/UserPanelVisualization/UserDataPanel";
 import UserDataEditPanel from "./pages/UserPanelVisualization/UserDataEditPanel";
 import AdminPanel from "./pages/AdminPanelVisualization/AdminPanel";
-import UsersDataAdminPanel from "./pages/AdminPanelVisualization/UsersDataAdminPanel";
+import ActiveUsersAdminPanel from "./pages/AdminPanelVisualization/ActiveUsersAdminPanel";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
@@ -33,7 +33,7 @@ root.render(
                     <Route path="UserDataEditPanel" element={<UserDataEditPanel />} />
                 </Route>
                 <Route path="AdminPanel" element={<AdminPanel />}>
-                    <Route index element={<UsersDataAdminPanel />} />
+                    <Route index element={<ActiveUsersAdminPanel />} />
 
                 </Route>
             </Route>
