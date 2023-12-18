@@ -12,7 +12,7 @@ import AdminPanel from "./pages/AdminPanelVisualization/AdminPanel";
 import UsersAdminPanel from "./pages/AdminPanelVisualization/UsersAdminPanel";
 import PostsAdminPanel from "./pages/AdminPanelVisualization/PostsAdminPanel";
 import CommentsAdminPanel from "./pages/AdminPanelVisualization/CommentsAdminPanel";
-import ReportAdminPanel from "./pages/AdminPanelVisualization/ReportAdminPanel";
+import ReportsAdminPanel from "./pages/AdminPanelVisualization/ReportsAdminPanel";
 import AppealAdminPanel from "./pages/AdminPanelVisualization/AppealAdminPanel";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
@@ -38,7 +38,7 @@ root.render(
                     <Route index element={<UsersAdminPanel />} />
                     <Route path="PostsAdminPanel" element={<PostsAdminPanel />} />
                     <Route path="CommentsAdminPanel" element={<CommentsAdminPanel />} />
-                    <Route path="ReportAdminPanel" element={<ReportAdminPanel />} />
+                    <Route path="ReportsAdminPanel" element={<ReportsAdminPanel />} />
                     <Route path="AppealAdminPanel" element={<AppealAdminPanel />} />
 
                 </Route>

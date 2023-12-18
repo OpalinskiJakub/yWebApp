@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Card, Nav} from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
 import AppealAdminPanel from "./AppealAdminPanel";
-import ReportAdminPanel from "./ReportAdminPanel";
+import ReportsAdminPanel from "./ReportsAdminPanel";
 
 
 class AdminPanel extends Component{
@@ -52,9 +52,9 @@ class AdminPanel extends Component{
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/AdminPanel/ReportAdminPanel"
+                                to="/AdminPanel/ReportsAdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/AdminPanel/ReportAdminPanel")}
+                                onClick={() => this.handleTabChange("/AdminPanel/ReportsAdminPanel")}
                             >
                                 Panel zgłoszeń
                             </Link>

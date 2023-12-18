@@ -1,7 +1,7 @@
 import {Component} from "react";
 import {Table} from "react-bootstrap";
 
-class ReportAdminPanel extends Component {
+class ReportsAdminPanel extends Component {
     constructor() {
         super();
     }
@@ -26,4 +26,4 @@ class ReportAdminPanel extends Component {
         )
     }
 }
-export default ReportAdminPanel;
+export default ReportsAdminPanel;
