@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {Card, Nav} from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
+import AppealAdminPanel from "./AppealAdminPanel";
+import ReportAdminPanel from "./ReportAdminPanel";
 
 
 class AdminPanel extends Component{
@@ -27,25 +29,43 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/AdminPanel")}
                             >
-                                Panel aktywnych użytkowników
+                                Panel użytkowników
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/UserPanel/UserDataEditPanel"
+                                to="/AdminPanel/PostsAdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/UserPanel/UserDataEditPanel")}
+                                onClick={() => this.handleTabChange("/AdminPanel/PostsAdminPanel")}
                             >
-                                Panel dezaktywowanych użytkowników
+                                Panel postów
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/UserPanel/UserDataEditPanel"
+                                to="/AdminPanel/CommentsAdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/UserPanel/UserDataEditPanel")}
+                                onClick={() => this.handleTabChange("/AdminPanel/CommentsAdminPanel")}
+                            >
+                                Panel komentarzy
+                            </Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Link
+                                to="/AdminPanel/ReportAdminPanel"
+                                className="nav-link"
+                                onClick={() => this.handleTabChange("/AdminPanel/ReportAdminPanel")}
                             >
                                 Panel zgłoszeń
+                            </Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Link
+                                to="/AdminPanel/AppealAdminPanel"
+                                className="nav-link"
+                                onClick={() => this.handleTabChange("/AdminPanel/AppealAdminPanel")}
+                            >
+                                Panel odwołań
                             </Link>
                         </Nav.Item>
                     </Nav>

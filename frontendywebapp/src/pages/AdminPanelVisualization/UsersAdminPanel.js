@@ -3,7 +3,7 @@ import {ListGroup,Table,Button} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import User from "../StorageSystem/UserPanel/Model/User";
 
-class ActiveUsersAdminPanel extends Component{
+class UsersAdminPanel extends Component{
     constructor(props) {
         super(props);
         this.state={
@@ -12,7 +12,7 @@ class ActiveUsersAdminPanel extends Component{
     }
 
     componentDidMount() {
-        let data =new User(1,'Jan','jan@o.pl','noAdmin',true,19,'https://123.pl');
+        let data =new User(1,'Jan','jan@o.pl','noAdmin',false,19,'https://123.pl');
         let data2 =new User(1,'Marek','jan@o.pl','noAdmin',true,20,'https://123.pl');
         let updatedUsers=[...this.state.users,data,data2];
         this.setState({users:updatedUsers});
@@ -28,6 +28,7 @@ class ActiveUsersAdminPanel extends Component{
                     <th>Nazwa Użytkownika</th>
                     <th>Email</th>
                     <th>Wiek</th>
+                    <th>Status</th>
                     <th>Opcje</th>
                 </tr>
                 </thead>
@@ -39,9 +40,17 @@ class ActiveUsersAdminPanel extends Component{
                         <th>{user.email}</th>
                         <th>{user.age}</th>
                         <th>
-                            <Button variant="outline-primary">
+                            {user.active===true ?
+                            'Aktywny':'Nieaktywny'}
+                        </th>
+                        <th>
+                            {user.active===true ?
+                                <Button variant="outline-danger">
                                 Zablokuj
-                            </Button>
+                                </Button> :
+                                <Button variant="outline-success">
+                                Odblokuj
+                                </Button>}
                         </th>
                     </tr>))
                 }
@@ -54,4 +63,4 @@ class ActiveUsersAdminPanel extends Component{
 
 }
 
-export default ActiveUsersAdminPanel;
+export default UsersAdminPanel;
