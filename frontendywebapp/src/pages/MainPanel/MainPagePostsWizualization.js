@@ -8,8 +8,8 @@ import {Button} from "react-bootstrap";
 function MainPagePostsWizualization(props){
     const post={
         id:1,
-        title:"react",
-        content:"javascript"
+        title:"Post",
+        content:"Tresc Postu"
     }
 
     let cards=[]

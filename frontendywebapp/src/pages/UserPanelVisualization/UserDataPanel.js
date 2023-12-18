@@ -28,7 +28,7 @@ class UserDataPanel extends Component{
             <Container>
                 <Row>
                 <Col xs={5} md={3}>
-                <Image src="https://iili.io/JTuYaUP.jpg" thumbnail />
+                <Image src="" thumbnail />
                 </Col>
 
                     <Col xs={12} md={6}>

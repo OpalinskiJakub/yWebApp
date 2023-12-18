@@ -5,7 +5,7 @@ import PostIndexDB from "./PostIndexDB";
 
 
 class PostApiConnector extends React.Component {
-    static APIADDRESS = "http://localhost:8080/post1";
+    static APIADDRESS = "";
 
     constructor(props) {
         super(props);

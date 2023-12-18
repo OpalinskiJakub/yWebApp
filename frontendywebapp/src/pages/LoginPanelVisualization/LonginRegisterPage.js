@@ -24,13 +24,13 @@ class LonginRegisterPage extends Component{
                             <Col md={{ span: 3, offset: 2 }} className="mt-5" style={{paddingTop:'10%'}}>
                                 <Card style={{padding:'10%'}}>
 
-                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home/post">
+                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home">
                                         Zaloguj się
                                     </Button>
-                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home/post">
+                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home">
                                         Zarejstruj sie
                                     </Button>
-                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home/post">
+                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home">
                                         Przejdz do Y
                                     </Button>
 

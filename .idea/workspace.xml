@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/LoginPanelVisualization/LonginRegisterPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/LoginPanelVisualization/MainLoginRegisterPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/LoginPanelVisualization/LonginRegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/LoginPanelVisualization/LonginRegisterPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/MainPagePostsWizualization.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/MainPanel/MainPagePostsWizualization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/PostApiConnector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/PostPanel/PostApiConnector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api/UserApiConnector.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/StorageSystem/UserPanel/Api/UserApiConnector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserDataPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/UserPanelVisualization/UserDataPanel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

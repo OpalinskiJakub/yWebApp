@@ -16,14 +16,11 @@ import ReportsAdminPanel from "./pages/AdminPanelVisualization/ReportsAdminPanel
 import AppealAdminPanel from "./pages/AdminPanelVisualization/AppealAdminPanel";
 
 import LonginRegisterPage from "./pages/LoginPanelVisualization/LonginRegisterPage";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
-const post={
-    id:1,
-    title:"react",
-    content:"javascript"
-}
+
 root.render(
 
     <BrowserRouter>
