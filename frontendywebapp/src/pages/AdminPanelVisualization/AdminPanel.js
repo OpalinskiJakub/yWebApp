@@ -43,15 +43,6 @@ class AdminPanel extends Component{
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/home/AdminPanel/CommentsAdminPanel"
-                                className="nav-link"
-                                onClick={() => this.handleTabChange("/home/AdminPanel/CommentsAdminPanel")}
-                            >
-                                Panel komentarzy
-                            </Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Link
                                 to="/home/AdminPanel/ReportsAdminPanel"
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel/ReportsAdminPanel")}
