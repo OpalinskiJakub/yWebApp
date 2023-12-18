@@ -9,7 +9,7 @@ class AdminPanel extends Component{
     constructor() {
         super();
         this.state={
-            activeTab:'/AdminPanel'
+            activeTab:'/home/AdminPanel'
         }
     }
 
@@ -25,45 +25,45 @@ class AdminPanel extends Component{
                     <Nav variant="tabs" activeKey={this.state.activeTab}>
                         <Nav.Item>
                             <Link
-                                to="/AdminPanel"
+                                to="/home/AdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/AdminPanel")}
+                                onClick={() => this.handleTabChange("/home/AdminPanel")}
                             >
                                 Panel użytkowników
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/AdminPanel/PostsAdminPanel"
+                                to="/home/AdminPanel/PostsAdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/AdminPanel/PostsAdminPanel")}
+                                onClick={() => this.handleTabChange("/home/AdminPanel/PostsAdminPanel")}
                             >
                                 Panel postów
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/AdminPanel/CommentsAdminPanel"
+                                to="/home/AdminPanel/CommentsAdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/AdminPanel/CommentsAdminPanel")}
+                                onClick={() => this.handleTabChange("/home/AdminPanel/CommentsAdminPanel")}
                             >
                                 Panel komentarzy
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/AdminPanel/ReportsAdminPanel"
+                                to="/home/AdminPanel/ReportsAdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/AdminPanel/ReportsAdminPanel")}
+                                onClick={() => this.handleTabChange("/home/AdminPanel/ReportsAdminPanel")}
                             >
                                 Panel zgłoszeń
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/AdminPanel/AppealAdminPanel"
+                                to="/home/AdminPanel/AppealAdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/AdminPanel/AppealAdminPanel")}
+                                onClick={() => this.handleTabChange("/home/AdminPanel/AppealAdminPanel")}
                             >
                                 Panel odwołań
                             </Link>

@@ -6,7 +6,7 @@ class UserPanel extends Component {
     constructor() {
         super();
         this.state = {
-            activeTab: "/UserPanel",
+            activeTab: "/home/UserPanel",
         };
     }
 
@@ -23,18 +23,18 @@ class UserPanel extends Component {
                     <Nav variant="tabs" activeKey={activeTab}>
                         <Nav.Item>
                             <Link
-                                to="/UserPanel"
+                                to="/home/UserPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/UserPanel")}
+                                onClick={() => this.handleTabChange("/home/UserPanel")}
                             >
                                 Twoje Dane
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/UserPanel/UserDataEditPanel"
+                                to="/home/UserPanel/UserDataEditPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/UserPanel/UserDataEditPanel")}
+                                onClick={() => this.handleTabChange("/home/UserPanel/UserDataEditPanel")}
                             >
                                 Zmień dane
                             </Link>
