@@ -4,37 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/ApiBackendYWebApp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/DemoEndpoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/auth/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/auth/AuthenticationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/auth/AuthenticationResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/auth/AuthenticationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/auth/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config/ApplicationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/user/Permission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/user/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/user/SystemUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/user/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="JWT token authorization with register and login endpoint + mongodb adapter for persistent users">
+      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/haslo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/test/java/opalinski/jakub/ApiBackendYWebApp/AuthorizationGrantIT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/ApiBackendYWebAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/ApiBackendYWebAppApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Configuration/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Controller/PostController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/Comment.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/Post.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/Repository/PostRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/DemoEndpoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/DemoEndpoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/user/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,43 +42,46 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
   <component name="ProjectId" id="2XA7Dvl5EcoKKpiEVTac17VYedF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "api-development",
-    "jdk.selected.JAVA_MODULE": "corretto-17",
-    "last_opened_file_path": "/Users/piotrwojtowicz/IdeaProjects/y/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "a52bf50cfcf89ec7311c3ccefe4a5095",
-    "ts.external.directory.path": "/home/Jakub/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/231.9161.38/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;api-development&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/piotrwojtowicz/IdeaProjects/y/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;a52bf50cfcf89ec7311c3ccefe4a5095&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/Jakub/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/231.9161.38/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ApiBackendYWebApp/src/main/java/opalinski/jakub/ApiBackendYWebApp/config" />
@@ -131,7 +111,9 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -162,10 +144,24 @@
       <workItem from="1700252285634" duration="1215000" />
       <workItem from="1700877659022" duration="2455000" />
       <workItem from="1700901692422" duration="10516000" />
+      <workItem from="1702903825289" duration="6402000" />
     </task>
+    <task id="LOCAL-00001" summary="JWT token authorization with register and login endpoint + mongodb adapter for persistent users">
+      <option name="closed" value="true" />
+      <created>1702819837005</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702819837005</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="JWT token authorization with register and login endpoint + mongodb adapter for persistent users" />
+    <option name="LAST_COMMIT_MESSAGE" value="JWT token authorization with register and login endpoint + mongodb adapter for persistent users" />
   </component>
 </project>
