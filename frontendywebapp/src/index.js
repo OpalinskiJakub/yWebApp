@@ -14,7 +14,8 @@ import PostsAdminPanel from "./pages/AdminPanelVisualization/PostsAdminPanel";
 import CommentsAdminPanel from "./pages/AdminPanelVisualization/CommentsAdminPanel";
 import ReportsAdminPanel from "./pages/AdminPanelVisualization/ReportsAdminPanel";
 import AppealAdminPanel from "./pages/AdminPanelVisualization/AppealAdminPanel";
-import MainLoginRegisterPage from "./pages/LoginPanelVisualization/MainLoginRegisterPage";
+
+import LonginRegisterPage from "./pages/LoginPanelVisualization/LonginRegisterPage";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
@@ -27,7 +28,7 @@ root.render(
 
     <BrowserRouter>
         <Routes>
-            <Route index="/" element={<MainLoginRegisterPage />} />
+            <Route index="/" element={<LonginRegisterPage />} />
             <Route path="/home" element={<Home />}>
                 <Route index element={<MainPagePostsWizualization />} />
                 <Route path="post" element={<PostPanel />} />
