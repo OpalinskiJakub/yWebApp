@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {Badge, Button, Card, Col, Row} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 import Container from "react-bootstrap/Container";
-class LonginRegisterPage extends Component{
+class LogoPanel extends Component{
     constructor(props) {
         super(props);
 
@@ -21,22 +21,7 @@ class LonginRegisterPage extends Component{
                                 </Badge>
                             </Col>
 
-                            <Col md={{ span: 3, offset: 2 }} className="mt-5" style={{paddingTop:'10%'}}>
-                                <Card style={{padding:'10%'}}>
-
-                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home">
-                                        Zaloguj się
-                                    </Button>
-                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home">
-                                        Zarejstruj sie
-                                    </Button>
-                                    <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home">
-                                        Przejdz do Y
-                                    </Button>
-
-
-                                </Card>
-                            </Col>
+                            <Outlet/>
 
                         </Row>
                     </Card>
@@ -48,4 +33,4 @@ class LonginRegisterPage extends Component{
     }
 
 }
-export default LonginRegisterPage;
+export default LogoPanel;
