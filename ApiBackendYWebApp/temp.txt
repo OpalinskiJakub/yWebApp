@@ -1,0 +1,13 @@
+root.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route path={"/"} element={<Home />}>
+                    <Route path={"post"} element={<PostPanel />}/>
+                    <Route path={"posts"} element={<Post />}/>
+
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>
+);

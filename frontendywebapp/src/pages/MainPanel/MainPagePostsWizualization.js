@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button} from "react-bootstrap";
 
 
-function Post(props){
+function MainPagePostsWizualization(props){
     const post={
         id:1,
         title:"react",
@@ -25,7 +25,7 @@ function Post(props){
                 </Card.Text>
             </Card.Body>
             <Card.Footer className="text-center">
-                <Button variant="primary" href="post/${post.id}">Zobacz post</Button>
+                <Button variant="outline-primary" href="post">Zobacz post</Button>
             </Card.Footer>
         </Card>
         );
@@ -38,6 +38,6 @@ function Post(props){
     );
 };
 
-export default Post;
+export default MainPagePostsWizualization;
 
 

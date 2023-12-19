@@ -88,6 +88,30 @@
 			<scope>test</scope>
 		</dependency>
 
+
+		<dependency>
+			<groupId>com.github.tomakehurst</groupId>
+			<artifactId>wiremock-jre8-standalone</artifactId>
+			<version>2.32.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version> <!-- Użyj odpowiedniej wersji -->
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.epages</groupId>
+			<artifactId>wiremock-spring-boot-starter</artifactId>
+			<version>0.8.7</version>
+			<type>pom</type>
+		</dependency>
+
+
+
+
+
 	</dependencies>
 
 	<build>

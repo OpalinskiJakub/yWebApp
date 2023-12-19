@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PostApiConnector from "./pages/StorageSystem/PostPanel/PostApiConnector";
+import Home from "./pages/MainPanel/Home";
 
-import PostPanel from "./pages/PostSystem/PostPanel";
-
-import Home from "./pages/Main/Home";
-
-import Post from "./pages/PostSystem/Post";
-import MyComponent from "./pages/Test/App";
-import App from "./pages/Test/App";
-
-
+import MainPagePostsWizualization from "./pages/MainPanel/MainPagePostsWizualization";
+import PostPanel from "./pages/PostPanelVisualization/PostPanel";
+import UserService from "./pages/StorageSystem/UserPanel/UserService";
+import UserPanel from "./pages/UserPanelVisualization/UserPanel";
+import UserDataPanel from "./pages/UserPanelVisualization/UserDataPanel";
+import UserDataEditPanel from "./pages/UserPanelVisualization/UserDataEditPanel";
+import AdminPanel from "./pages/AdminPanelVisualization/AdminPanel";
+import UsersDataAdminPanel from "./pages/AdminPanelVisualization/UsersDataAdminPanel";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
@@ -20,14 +21,25 @@ const post={
     content:"javascript"
 }
 root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route path={"/"} element={<App/>}>
 
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />}>
+                <Route index element={<MainPagePostsWizualization />} />
+                <Route path="post" element={<PostPanel />} />
+                <Route path="Api" element={<PostApiConnector />} />
+                <Route path="UserPanel" element={<UserPanel />}>
+                    <Route index element={<UserDataPanel />} />
+                    <Route path="UserDataEditPanel" element={<UserDataEditPanel />} />
+                </Route>
+                <Route path="AdminPanel" element={<AdminPanel />}>
+                    <Route index element={<UsersDataAdminPanel />} />
 
                 </Route>
-            </Routes>
-        </BrowserRouter>
-    </React.StrictMode>
+            </Route>
+        </Routes>
+    </BrowserRouter>
+
 );
+//<Route index element={<UserDataPanel />} />
+//s<Route path="UserDataEditPanel" element={<UserDataEditPanel />} />
