@@ -1,42 +1,56 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import PostApiConnector from "./pages/StorageSystem/PostPanel/PostApiConnector";
 import Home from "./pages/MainPanel/Home";
-
 import MainPagePostsWizualization from "./pages/MainPanel/MainPagePostsWizualization";
 import PostPanel from "./pages/PostPanelVisualization/PostPanel";
-import UserService from "./pages/StorageSystem/UserPanel/UserService";
 import UserPanel from "./pages/UserPanelVisualization/UserPanel";
 import UserDataPanel from "./pages/UserPanelVisualization/UserDataPanel";
 import UserDataEditPanel from "./pages/UserPanelVisualization/UserDataEditPanel";
 import AdminPanel from "./pages/AdminPanelVisualization/AdminPanel";
-import UsersDataAdminPanel from "./pages/AdminPanelVisualization/UsersDataAdminPanel";
+import UsersAdminPanel from "./pages/AdminPanelVisualization/UsersAdminPanel";
+import PostsAdminPanel from "./pages/AdminPanelVisualization/PostsAdminPanel";
+import CommentsAdminPanel from "./pages/AdminPanelVisualization/CommentsAdminPanel";
+import ReportsAdminPanel from "./pages/AdminPanelVisualization/ReportsAdminPanel";
+import AppealAdminPanel from "./pages/AdminPanelVisualization/AppealAdminPanel";
+
+import App from "./pages/LoginPanelVisualization/LogoPanel";
+import Post from "./pages/StorageSystem/PostPanel/Model/Post";
+import LoginPanel from "./pages/LoginPanelVisualization/LoginPanel";
+import LogoPanel from "./pages/LoginPanelVisualization/LogoPanel";
+import AccessPanel from "./pages/LoginPanelVisualization/AccessPanel";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
-const post={
-    id:1,
-    title:"react",
-    content:"javascript"
-}
+
 root.render(
 
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Home />}>
-                <Route index element={<MainPagePostsWizualization />} />
+            <Route path="/" element={<Navigate to="/access" />} />
+                <Route path="/access" element={<LogoPanel />}>
+                    <Route index element={<AccessPanel />} />
+                    <Route path="LoginPanel" element={<LoginPanel />}/>
+                </Route>
+                <Route path="/home" element={<Home />}>
+                    <Route index element={<MainPagePostsWizualization />} />
                 <Route path="post" element={<PostPanel />} />
-                <Route path="Api" element={<PostApiConnector />} />
-                <Route path="UserPanel" element={<UserPanel />}>
+                <Route path="userPanel" element={<UserPanel />}>
                     <Route index element={<UserDataPanel />} />
-                    <Route path="UserDataEditPanel" element={<UserDataEditPanel />} />
+                    <Route path="userDataEditPanel" element={<UserDataEditPanel />} />
+                    <Route path="login1" element={<PostPanel />} />
                 </Route>
-                <Route path="AdminPanel" element={<AdminPanel />}>
-                    <Route index element={<UsersDataAdminPanel />} />
+                <Route path="adminPanel" element={<AdminPanel />}>
+                    <Route index element={<UsersAdminPanel />} />
+                    <Route path="postsAdminPanel" element={<PostsAdminPanel />} />
+                    <Route path="commentsAdminPanel" element={<CommentsAdminPanel />} />
+                    <Route path="reportsAdminPanel" element={<ReportsAdminPanel />} />
+                    <Route path="appealAdminPanel" element={<AppealAdminPanel />} />
+                </Route>
+                </Route>
 
-                </Route>
-            </Route>
         </Routes>
     </BrowserRouter>
 

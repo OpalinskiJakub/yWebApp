@@ -3,7 +3,7 @@ import {ListGroup,Table,Button} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import User from "../StorageSystem/UserPanel/Model/User";
 
-class UsersDataAdminPanel extends Component{
+class UsersAdminPanel extends Component{
     constructor(props) {
         super(props);
         this.state={
@@ -12,7 +12,7 @@ class UsersDataAdminPanel extends Component{
     }
 
     componentDidMount() {
-        let data =new User(1,'Jan','jan@o.pl','noAdmin',true,19,'https://123.pl');
+        let data =new User(1,'Jan','jan@o.pl','noAdmin',false,19,'https://123.pl');
         let data2 =new User(1,'Marek','jan@o.pl','noAdmin',true,20,'https://123.pl');
         let updatedUsers=[...this.state.users,data,data2];
         this.setState({users:updatedUsers});
@@ -39,11 +39,18 @@ class UsersDataAdminPanel extends Component{
                         <th>{user.username}</th>
                         <th>{user.email}</th>
                         <th>{user.age}</th>
-                        <th>{user.active}</th>
                         <th>
-                            <Button variant="outline-primary">
+                            {user.active===true ?
+                            'Aktywny':'Nieaktywny'}
+                        </th>
+                        <th>
+                            {user.active===true ?
+                                <Button variant="outline-danger">
                                 Zablokuj
-                            </Button>
+                                </Button> :
+                                <Button variant="outline-success">
+                                Odblokuj
+                                </Button>}
                         </th>
                     </tr>))
                 }
@@ -56,4 +63,4 @@ class UsersDataAdminPanel extends Component{
 
 }
 
-export default UsersDataAdminPanel;
+export default UsersAdminPanel;

@@ -8,12 +8,12 @@ import {Button} from "react-bootstrap";
 function MainPagePostsWizualization(props){
     const post={
         id:1,
-        title:"react",
-        content:"javascript"
+        title:"Post",
+        content:"Tresc Postu"
     }
 
     let cards=[]
-    for(let i=0;i<100;i++) {
+    for(let i=0;i<10;i++) {
         cards.push(
         <Card className="mx-auto" style={{width: '80%',margin:'10px'}}>
             <Card.Body>
@@ -25,7 +25,7 @@ function MainPagePostsWizualization(props){
                 </Card.Text>
             </Card.Body>
             <Card.Footer className="text-center">
-                <Button variant="outline-primary" href="post">Zobacz post</Button>
+                <Button variant="outline-primary" href="/home/post">Zobacz post</Button>
             </Card.Footer>
         </Card>
         );

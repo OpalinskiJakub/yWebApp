@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="JWT token authorization with register and login endpoint + mongodb adapter for persistent users" />
+    <list default="true" id="f63089fe-a918-4cea-be6a-d5949c2aaaed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/LoginPanelVisualization/AccessPanel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/LoginPanelVisualization/LoginPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontendywebapp/src/pages/LoginPanelVisualization/LonginRegisterPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontendywebapp/src/pages/LoginPanelVisualization/LogoPanel.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +41,7 @@
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2XA7Dvl5EcoKKpiEVTac17VYedF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -137,6 +143,19 @@
       <workItem from="1700877659022" duration="2455000" />
       <workItem from="1700901692422" duration="10516000" />
       <workItem from="1702903825289" duration="6402000" />
+      <workItem from="1700929671270" duration="25458000" />
+      <workItem from="1700990857296" duration="14192000" />
+      <workItem from="1701027160590" duration="727000" />
+      <workItem from="1701105206103" duration="12000" />
+      <workItem from="1701105246216" duration="5774000" />
+      <workItem from="1701350928427" duration="1306000" />
+      <workItem from="1701382941282" duration="4633000" />
+      <workItem from="1702314948949" duration="1844000" />
+      <workItem from="1702319394322" duration="56000" />
+      <workItem from="1702730312557" duration="7705000" />
+      <workItem from="1702810543618" duration="2605000" />
+      <workItem from="1702855939860" duration="18509000" />
+      <workItem from="1702919689095" duration="18468000" />
     </task>
     <task id="LOCAL-00001" summary="JWT token authorization with register and login endpoint + mongodb adapter for persistent users">
       <option name="closed" value="true" />
