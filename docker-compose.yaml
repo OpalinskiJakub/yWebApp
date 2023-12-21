@@ -4,7 +4,8 @@ services:
     image: mongo
     container_name: mongodb
     networks:
-      - backend
+      backend:
+        ipv4_address: 172.23.0.3
     ports:
       - 27017:27017
     volumes:
@@ -20,7 +21,8 @@ services:
     ports:
       - 8081:8081
     networks:
-      - backend
+      backend:
+        ipv4_address: 172.23.0.2
     environment:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=admin
@@ -34,7 +36,8 @@ services:
     ports:
       - 8080:8080
     networks:
-      - backend
+      backend:
+        ipv4_address: 172.23.0.4
 
 volumes:
   data: {}
@@ -42,3 +45,7 @@ volumes:
 networks:
   backend:
     name: backend
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.23.0.0/16

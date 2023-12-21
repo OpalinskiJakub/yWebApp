@@ -13,5 +13,5 @@ spring:
       password: admin
       database: ywebapp
       port: 27017
-      host: localhost
+      host: 172.23.0.3
       auto-index-creation: true
