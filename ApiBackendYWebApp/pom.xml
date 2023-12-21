@@ -11,6 +11,7 @@
 	<groupId>opalinski.jakub</groupId>
 	<artifactId>ApiBackendYWebApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>ApiBackendYWebApp</name>
 	<description>ApiBackendYWebApp</description>
 	<properties>

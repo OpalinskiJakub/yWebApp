@@ -3,6 +3,8 @@ services:
   mongodb:
     image: mongo
     container_name: mongodb
+    networks:
+      - backend
     ports:
       - 27017:27017
     volumes:
@@ -10,19 +12,33 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
+
   mongo-express:
     image: mongo-express
     container_name: mongo-express
     restart: always
     ports:
       - 8081:8081
+    networks:
+      - backend
     environment:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=admin
       - ME_CONFIG_MONGODB_SERVER=mongodb
+
+  backend:
+    build:
+      context: ./ApiBackendYWebApp
+    container_name: apibackendwebapp
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - backend
+
 volumes:
   data: {}
 
 networks:
-  default:
-    name: mongodb_networkll
+  backend:
+    name: backend
