@@ -21,6 +21,8 @@ import LoginPanel from "./pages/AccessPanelVisualization/LoginPanel";
 import LogoPanel from "./pages/AccessPanelVisualization/LogoPanel";
 import AccessPanel from "./pages/AccessPanelVisualization/AccessPanel";
 import RegisterPanel from "./pages/AccessPanelVisualization/RegisterPanel";
+import RegisterTypePanel from "./pages/AccessPanelVisualization/RegisterTypePanel";
+import AppealForm from "./pages/AccessPanelVisualization/AppealForm";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
@@ -34,7 +36,9 @@ root.render(
                 <Route path="/access" element={<LogoPanel />}>
                     <Route index element={<AccessPanel />} />
                     <Route path="LoginPanel" element={<LoginPanel />}/>
+                    <Route path="registerType" element={<RegisterTypePanel />}/>
                     <Route path="registerPanel" element={<RegisterPanel />}/>
+                    <Route path="AppealForm" element={<AppealForm />}/>
                 </Route>
 
                 <Route path="/home" element={<Home />}>

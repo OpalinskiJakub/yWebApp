@@ -11,16 +11,19 @@ class AccessPanel extends Component{
 
     render() {
         return(
-            <Col md={{ span: 3, offset: 2 }} style={{marginTop:'10%'}}>
+            <Col md={{ span: 3, offset: 2 }} style={{marginTop:'8%'}}>
             <Card style={{padding:'16%'}}>
                 <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/access/LoginPanel">
                     Zaloguj się
                 </Button>
-                <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/access/registerPanel">
+                <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/access/registerType">
                     Zarejstruj sie
                 </Button>
                 <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home">
                     Przejdz do Y
+                </Button>
+                <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/access/AppealForm">
+                    Formularz odwolania
                 </Button>
             </Card>
                 </Col>
