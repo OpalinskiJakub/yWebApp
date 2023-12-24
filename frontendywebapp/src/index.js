@@ -15,11 +15,12 @@ import CommentsAdminPanel from "./pages/AdminPanelVisualization/CommentsAdminPan
 import ReportsAdminPanel from "./pages/AdminPanelVisualization/ReportsAdminPanel";
 import AppealAdminPanel from "./pages/AdminPanelVisualization/AppealAdminPanel";
 
-import App from "./pages/LoginPanelVisualization/LogoPanel";
+import App from "./pages/AccessPanelVisualization/LogoPanel";
 import Post from "./pages/StorageSystem/PostPanel/Model/Post";
-import LoginPanel from "./pages/LoginPanelVisualization/LoginPanel";
-import LogoPanel from "./pages/LoginPanelVisualization/LogoPanel";
-import AccessPanel from "./pages/LoginPanelVisualization/AccessPanel";
+import LoginPanel from "./pages/AccessPanelVisualization/LoginPanel";
+import LogoPanel from "./pages/AccessPanelVisualization/LogoPanel";
+import AccessPanel from "./pages/AccessPanelVisualization/AccessPanel";
+import RegisterPanel from "./pages/AccessPanelVisualization/RegisterPanel";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
@@ -33,7 +34,9 @@ root.render(
                 <Route path="/access" element={<LogoPanel />}>
                     <Route index element={<AccessPanel />} />
                     <Route path="LoginPanel" element={<LoginPanel />}/>
+                    <Route path="registerPanel" element={<RegisterPanel />}/>
                 </Route>
+
                 <Route path="/home" element={<Home />}>
                     <Route index element={<MainPagePostsWizualization />} />
                 <Route path="post" element={<PostPanel />} />
