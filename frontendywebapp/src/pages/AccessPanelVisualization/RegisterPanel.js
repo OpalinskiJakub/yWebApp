@@ -19,7 +19,7 @@ class RegisterPanel extends Component {
 
     render() {
         return (
-            <Col md={{ span: 4, offset: 2 } }>
+            <Col md={{ span: 4, offset: 1 } }>
                 <Card style={{ padding: '7%' }}>
                     {true ? (
                         <Alert
@@ -94,7 +94,7 @@ class RegisterPanel extends Component {
                             />
                         </Form.Group>
 
-                        <Button onClick={() => console.log(this.state.formData)}>Submit</Button>
+                        <Button variant="outline-primary" >Zarejstruj sie</Button>
                     </Form>
                 </Card>
             </Col>

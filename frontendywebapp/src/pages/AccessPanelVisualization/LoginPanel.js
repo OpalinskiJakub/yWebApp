@@ -84,7 +84,7 @@ class LoginPanel extends Component {
 
                         </Form.Group>
 
-                        <Button onClick={this.validate}>Submit</Button>
+                        <Button variant="outline-primary" onClick={this.validate}>Zaloguj sie</Button>
                     </Form>
 
                 </Card>
