@@ -1,68 +1,93 @@
-import React, { Component } from 'react';
-import {Form, Button, Card, Col} from 'react-bootstrap';
-import {Outlet} from "react-router-dom";
+import React, {Component} from 'react';
+import {Button, Card, Col, Form} from 'react-bootstrap';
+import Alert from "react-bootstrap/Alert";
 
 class LoginPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            validated: false,
+            validateAlert: false,
             formData: {
                 name: '',
                 password: '',
-            }
+            },
+            cardPadding: '8%',
         };
+        this.handleInputChange = this.handleInputChange.bind(this);
     };
 
-    handleInputChange = (event) => {
-        const { name, value } = event.target;
+    handleInputChange (event){
+        const {name, value} = event.target;
+        console.log(name, value)
         this.setState((prevState) => ({
             formData: {
                 ...prevState.formData,
                 [name]: value,
-        }}));
+            }
+        }));
     };
 
+    closeValidateAlert=()=>{
+        this.setState({
+            validateAlert: false,
+            cardPadding: '8%',
+        })
+    }
 
-
+    validate=()=>{
+        this.setState({
+            validateAlert: true,
+            cardPadding: '5%',
+        })
+        console.log(this.state.validateAlert)
+    }
 
 
     render() {
-        const { validated, formData } = this.state;
+        const {formData} = this.state;
 
         return (
-            <Col md={{ span: 3, offset: 2 }} style={{paddingTop:'5%'}}>
-                <Card style={{padding:'6%'}}>
-            <Form noValidate validated={validated} >
-                <Form.Group controlId="formName" style={{padding:'4%'}}>
-                    <Form.Label>Nazwa użytkownika</Form.Label>
-                    <Form.Control
-                        required
-                        type="text"
-                        placeholder="Enter your name"
-                        name="name"
-                        value={formData.name}
-                        onChange={this.handleInputChange}
-                    />
-                </Form.Group>
+            <Col md={{span: 3, offset: 2}} style={{marginTop: this.state.cardPadding}}>
+                <Card style={{padding: '7%'}}>
+                    {
+                        this.state.validateAlert ? (
+                            <Alert variant="danger" onClose={this.closeValidateAlert} dismissible>
+                                Niepoprawne dane
+                            </Alert>
 
-                <Form.Group controlId="formPassword" style={{padding:'4%'}}>
-                    <Form.Label>Hasło</Form.Label>
-                    <Form.Control
-                        required
-                        type="password"
-                        placeholder="Enter your password"
-                        name="password"
-                        value={formData.password}
-                        onChange={this.handleInputChange}
-                    />
+                        ) : null
+                    }
 
-                </Form.Group>
+                    <Form>
+                        <Form.Group controlId="formName" style={{padding: '4%'}}>
+                            <Form.Label>Nazwa użytkownika</Form.Label>
+                            <Form.Control
+                                required
+                                type="text"
+                                placeholder="Enter your name"
+                                name="name"
+                                value={formData.name}
+                                onChange={this.handleInputChange}
+                            />
+                        </Form.Group>
 
-                <Button >Submit</Button>
-            </Form>
+                        <Form.Group controlId="formPassword" style={{padding: '4%'}}>
+                            <Form.Label>Hasło</Form.Label>
+                            <Form.Control
+                                required
+                                type="password"
+                                placeholder="Enter your password"
+                                name="password"
+                                value={formData.password}
+                                onChange={this.handleInputChange}
+                            />
 
-            </Card>
+                        </Form.Group>
+
+                        <Button onClick={this.validate}>Submit</Button>
+                    </Form>
+
+                </Card>
             </Col>
         );
     }
