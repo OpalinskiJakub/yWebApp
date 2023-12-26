@@ -17,19 +17,6 @@ class UserApiConnector{
         return response.data;
     }
 
-    async sendLoginRequest(email,password){
-        console.log(email,password)
-        try {
-            const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', {
-                email:email,
-                password:password
-            });
-
-            console.log('Odpowiedź serwera:', response.data);
-        } catch (error) {
-            console.error('Błąd podczas wysyłania żądania POST1:', error);
-        }
-    }
 
 }
 export default UserApiConnector;

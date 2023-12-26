@@ -3,7 +3,7 @@ import {Button, Card, Form} from "react-bootstrap";
 import PostPanelComment from "./PostPanelComment";
 import PostIndexDB from "../StorageSystem/PostPanel/PostIndexDB";
 import data from "bootstrap/js/src/dom/data";
-import PostApiConnector from "../StorageSystem/PostPanel/PostApiConnector";
+import PostApiConnector from "../ApiServices/PostRequests/PostApiConnector";
 
 global.Api = new PostApiConnector();
 

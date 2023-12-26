@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserApiConnector from "./Api/UserApiConnector";
+import UserApiConnector from "../../ApiServices/UserRequests/UserApiConnector";
 import UserIndexDb from "./Db/UserIndexDb";
 import User from "./Model/User";
 

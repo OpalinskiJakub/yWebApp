@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import UserApiConnector from "../../StorageSystem/UserPanel/Api/UserApiConnector";
+import UserApiConnector from "../../ApiServices/UserRequests/UserApiConnector";
+import LoginRequests from "../../ApiServices/AutorizationRequests/LoginRequests";
 
 class UserAuthorization extends Component {
     constructor() {
@@ -8,15 +9,14 @@ class UserAuthorization extends Component {
         this.state = {
             auth: true,
         };
-        this.connector=new UserApiConnector();
+        this.connector=new LoginRequests();
     }
 
-    login(email,password){
-        console.log("usAu"+email,password)
-        this.connector.sendLoginRequest(email,password);
+    login=(email,password)=>{
+         return this.connector.sendLoginRequest(email,password);
     }
 
-    authorize() {
+    authorize=()=>{
         return this.state.auth ? <Outlet /> : <Navigate to="access" />;
     }
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import PostIndexDB from "./PostIndexDB";
+import PostIndexDB from "../../StorageSystem/PostPanel/PostIndexDB";
 
 
 

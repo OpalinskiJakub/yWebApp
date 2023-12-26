@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {Button, Card, Col, Form} from 'react-bootstrap';
 import Alert from "react-bootstrap/Alert";
-import userAutorization from "../Autorization/User/UserAutorization";
-
+import userAutorization from "../Autorization/UserAutorization/UserAutorization";
+import {Navigate} from "react-router-dom";
 class LoginPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            shouldRedirect:false,
             validateAlert: false,
             formData: {
                 name: '',
@@ -14,14 +15,15 @@ class LoginPanel extends Component {
             },
             cardPadding: '8%',
         };
-        this.handleInputChange = this.handleInputChange.bind(this);
+
         this.autorization= new userAutorization();
     };
 
-    handleInputChange (event){
+    handleInputChange= (event)=>{
         const {name, value} = event.target;
         console.log(name, value)
         this.setState((prevState) => ({
+            shouldRedirect:false,
             formData: {
                 ...prevState.formData,
                 [name]: value,
@@ -29,16 +31,26 @@ class LoginPanel extends Component {
         }));
     };
 
-    closeValidateAlert=()=>{
+    closeValidateAlert=() =>{
         this.setState({
             validateAlert: false,
             cardPadding: '8%',
         })
     }
 
-    validate=()=>{
-        console.log(this.state.formData.name,this.state.formData.password)
-        this.autorization.login(this.state.formData.name,this.state.formData.password);
+    validate = async()=>{
+        let response = await this.autorization.login(this.state.formData.name,this.state.formData.password);
+
+        if(response===true){
+            this.setState({
+                shouldRedirect:true
+            })
+        }else {
+            this.setState({
+                validateAlert:true
+            })
+        }
+
     }
 
 
@@ -85,7 +97,7 @@ class LoginPanel extends Component {
 
                         <Button variant="outline-primary" onClick={this.validate}>Zaloguj sie</Button>
                     </Form>
-
+                    {this.state.shouldRedirect ? <Navigate to="/home" /> : null}
                 </Card>
             </Col>
         );
