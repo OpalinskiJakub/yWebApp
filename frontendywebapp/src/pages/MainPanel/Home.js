@@ -52,6 +52,7 @@ class Home extends Component{
                                         <Nav.Link href="/home/UserPanel">Dane użytkownika</Nav.Link>
                                         <Nav.Link href="/home/post">Twoje posty</Nav.Link>
                                         <Nav.Link href="/home/AdminPanel">Panel administratora</Nav.Link>
+                                        <Nav.Link href="/home/AdminPanel">Wyloguj sie</Nav.Link>
                                         <NavDropdown
                                             title="Wybierz język"
                                             id={`offcanvasNavbarDropdown-expand-${expand}`}

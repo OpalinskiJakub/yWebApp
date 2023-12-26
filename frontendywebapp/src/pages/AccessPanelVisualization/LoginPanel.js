@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Card, Col, Form} from 'react-bootstrap';
 import Alert from "react-bootstrap/Alert";
+import userAutorization from "../Autorization/User/UserAutorization";
 
 class LoginPanel extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class LoginPanel extends Component {
             cardPadding: '8%',
         };
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.autorization= new userAutorization();
     };
 
     handleInputChange (event){
@@ -35,11 +37,8 @@ class LoginPanel extends Component {
     }
 
     validate=()=>{
-        this.setState({
-            validateAlert: true,
-            cardPadding: '5%',
-        })
-        console.log(this.state.validateAlert)
+        console.log(this.state.formData.name,this.state.formData.password)
+        this.autorization.login(this.state.formData.name,this.state.formData.password);
     }
 
 

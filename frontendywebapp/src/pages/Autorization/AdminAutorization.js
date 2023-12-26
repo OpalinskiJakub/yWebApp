@@ -11,7 +11,7 @@ class AdminAuthorization extends Component {
 
 
     authorize() {
-        return this.state.auth ? <Outlet /> : <Navigate to="access" />;
+        return this.state.auth ? <Outlet /> : <Navigate to="" />;
     }
 
     render() {

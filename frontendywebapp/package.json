@@ -12,6 +12,7 @@
     "country-flag-icons": "^1.5.7",
     "dexie": "^3.2.4",
     "flag-icon-css": "^4.1.7",
+    "js-cookie": "^3.0.5",
     "mdb-react-ui-kit": "^7.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
