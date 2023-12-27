@@ -3,7 +3,7 @@ package opalinski.jakub.ApiBackendYWebApp.auth;
 import lombok.RequiredArgsConstructor;
 import opalinski.jakub.ApiBackendYWebApp.config.JwtService;
 import opalinski.jakub.ApiBackendYWebApp.user.Role;
-import opalinski.jakub.ApiBackendYWebApp.user.SystemUser;
+import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
 import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -43,7 +43,7 @@ public class AuthenticationService {
                         request.getPassword()
                 )
         );
-        var user = repository.findUserByEmail(request.getEmail())
+        var user = repository.findSystemUserByEmailAndActiveTrue(request.getEmail())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
