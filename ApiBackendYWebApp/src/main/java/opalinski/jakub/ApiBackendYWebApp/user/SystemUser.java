@@ -1,4 +1,6 @@
 package opalinski.jakub.ApiBackendYWebApp.user;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -46,13 +48,17 @@ public class SystemUser implements UserDetails {
     @Indexed(unique = true)
     private String email;
     private String description;
+    @JsonIgnore
     private String password;
+    @JsonIgnore
     private Boolean active;
     private Integer age;
+    @JsonIgnore
     private Role role;
     private String avatarUrl;
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return role.getAuthorities();
     }
@@ -61,8 +67,11 @@ public class SystemUser implements UserDetails {
     public String getPassword() {
         return password;
     }
+    @JsonProperty("username")
+    public String getEmail(){ return username;}
 
     @Override
+    @JsonProperty("email")
     public String getUsername() {
         return email;
     }
@@ -83,6 +92,7 @@ public class SystemUser implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public boolean isEnabled() {
         return true;
     }
