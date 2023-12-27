@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Alert from 'react-bootstrap/Alert';
-import { Button, Card, Col, Form } from "react-bootstrap";
+import {Button, Card, Col, Form, Row} from "react-bootstrap";
+import {Link} from "react-router-dom";
+import Container from "react-bootstrap/Container";
 
 class RegisterPanel extends Component {
     constructor() {
         super();
         this.state = {
-            validateAlert: false,
+            createdAlert: false,
+            errorAlert:false,
             formData: {
                 email: '',
                 username: '',
@@ -15,6 +18,21 @@ class RegisterPanel extends Component {
                 password: ''
             }
         };
+    }
+
+
+    handleInputChange = (event) => {
+        const {name,value} = event.target;
+        this.setState((prevState) => ({
+            formData: {
+                ...prevState.formData,
+                [name]: value,
+            }
+        }));
+    };
+
+    register = () => {
+
     }
 
     render() {
@@ -32,16 +50,40 @@ class RegisterPanel extends Component {
                         </Alert>
                     ) : null}
 
+                    {true ? (
+
+                        <Alert
+                            variant="success"
+                            onClose={() => this.setState({ validateAlert: false })}
+                            dismissible
+                            style={{ fontSize: 'smaller' }}
+                        >
+                            <Container>
+                                <Row>
+                                    Pomyślnie zarejestrowano
+                                </Row>
+                                <Row>
+                                    <Button variant="outline-success" style={{marginTop:"3%"}} as={Link} to="/acces">
+                                        Przejdz do logowania
+                                    </Button>
+                                </Row>
+                            </Container>
+                        </Alert>
+
+                    ) : null}
+
+
+
                     <Form>
                         <Form.Group controlId="formName" style={{ padding: '4%' }}>
                             <Form.Label>Email</Form.Label>
-                            <Form.Control
+                            < Form.Control
                                 required
                                 type="text"
                                 placeholder="Enter your name"
                                 name="username"
                                 value={this.state.formData.username}
-                                onChange={(e) => this.setState({ formData: { ...this.state.formData, username: e.target.value } })}
+                                onChange={this.handleInputChange}
                             />
                         </Form.Group>
 
@@ -53,7 +95,7 @@ class RegisterPanel extends Component {
                                 placeholder="Enter your password"
                                 name="password"
                                 value={this.state.formData.password}
-                                onChange={(e) => this.setState({ formData: { ...this.state.formData, password: e.target.value } })}
+                                onChange={this.handleInputChange}
                             />
                         </Form.Group>
 
@@ -66,7 +108,7 @@ class RegisterPanel extends Component {
                                 placeholder="Enter your description"
                                 name="description"
                                 value={this.state.formData.description}
-                                onChange={(e) => this.setState({ formData: { ...this.state.formData, description: e.target.value } })}
+                                onChange={this.handleInputChange}
                             />
                         </Form.Group>
 
@@ -78,7 +120,7 @@ class RegisterPanel extends Component {
                                 placeholder="Enter your name"
                                 name="username"
                                 value={this.state.formData.username}
-                                onChange={(e) => this.setState({ formData: { ...this.state.formData, username: e.target.value } })}
+                                onChange={this.handleInputChange}
                             />
                         </Form.Group>
 
@@ -90,7 +132,7 @@ class RegisterPanel extends Component {
                                 placeholder="Enter your name"
                                 name="username"
                                 value={this.state.formData.username}
-                                onChange={(e) => this.setState({ formData: { ...this.state.formData, username: e.target.value } })}
+                                onChange={this.handleInputChange}
                             />
                         </Form.Group>
 
