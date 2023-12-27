@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 class LoginRequests {
+
     sendLoginRequest = async (email, password) => {
         console.log(email, password);
 
@@ -11,14 +12,16 @@ class LoginRequests {
             });
 
 
-                return true;
+                return {
+                    token:response.data.access_token,
+                    status:true
+                }
         } catch (error) {
-            if (error.response.status == '403') {
-                console.log(error.response.status);
-            } else {
-                console.error("blad wyslania:", error);
+
+            return {
+                token:'',
+                status:false
             }
-            return false;
         }
     };
 }

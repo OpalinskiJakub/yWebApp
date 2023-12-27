@@ -21,7 +21,6 @@ class LoginPanel extends Component {
 
     handleInputChange= (event)=>{
         const {name, value} = event.target;
-        console.log(name, value)
         this.setState((prevState) => ({
             shouldRedirect:false,
             formData: {
@@ -40,14 +39,14 @@ class LoginPanel extends Component {
 
     validate = async()=>{
         let response = await this.autorization.login(this.state.formData.name,this.state.formData.password);
-
-        if(response===true){
+        console.log(response.status)
+        if(response.status===false){
             this.setState({
-                shouldRedirect:true
+                validateAlert:true
             })
         }else {
             this.setState({
-                validateAlert:true
+                shouldRedirect:true
             })
         }
 
