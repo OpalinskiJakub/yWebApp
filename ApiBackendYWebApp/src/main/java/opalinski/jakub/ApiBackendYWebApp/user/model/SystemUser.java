@@ -1,7 +1,8 @@
-package opalinski.jakub.ApiBackendYWebApp.user;
+package opalinski.jakub.ApiBackendYWebApp.user.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import opalinski.jakub.ApiBackendYWebApp.user.Role;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -41,6 +42,7 @@ public class SystemUser implements UserDetails {
         this.avatarUrl = avatarUrl;
     }
 
+    @Getter
     @Id
     private String id;
     @Indexed(unique = true)
@@ -48,25 +50,22 @@ public class SystemUser implements UserDetails {
     @Indexed(unique = true)
     private String email;
     private String description;
-    @JsonIgnore
     private String password;
-    @JsonIgnore
     private Boolean active;
     private Integer age;
-    @JsonIgnore
     private Role role;
     private String avatarUrl;
 
     @Override
-    @JsonIgnore
+    //@JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return role.getAuthorities();
     }
-
     @Override
     public String getPassword() {
         return password;
     }
+
     @JsonProperty("username")
     public String getEmail(){ return username;}
 
@@ -74,6 +73,15 @@ public class SystemUser implements UserDetails {
     @JsonProperty("email")
     public String getUsername() {
         return email;
+    }
+    @JsonProperty("email")
+    public void setUsername(String email) {
+        this.email = email;
+    }
+
+    @JsonProperty("username")
+    public void setEmail(String username) {
+        this.username = username;
     }
 
     @Override
@@ -95,5 +103,20 @@ public class SystemUser implements UserDetails {
     @JsonIgnore
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "SystemUser{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", description='" + description + '\'' +
+                ", password='" + password + '\'' +
+                ", active=" + active +
+                ", age=" + age +
+                ", role=" + role +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                '}';
     }
 }

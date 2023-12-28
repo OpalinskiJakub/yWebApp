@@ -1,4 +1,4 @@
-package opalinski.jakub.ApiBackendYWebApp.auth;
+package opalinski.jakub.ApiBackendYWebApp.auth.model;
 
 
 import lombok.AllArgsConstructor;
