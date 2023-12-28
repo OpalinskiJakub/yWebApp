@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
 import java.util.List;
 
 @RestController
@@ -29,9 +30,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getUser(id));
     }
     @CrossOrigin
-    @GetMapping("/email")
-    public ResponseEntity<UserDataResponse> getUserByEmail(@RequestBody SystemUser systemUser) {
-        return ResponseEntity.ok(userService.getUserByEmail(systemUser.getUsername()));
+    @GetMapping("/email/{encodedEmail}")
+    public ResponseEntity<UserDataResponse> getUserByEmail(@PathVariable String encodedEmail) {
+        byte[] decodedBytes = Base64.getDecoder().decode(encodedEmail);
+        String email = new String(decodedBytes);
+        return ResponseEntity.ok(userService.getUserByEmail(email));
     }
     @CrossOrigin
     @GetMapping()
