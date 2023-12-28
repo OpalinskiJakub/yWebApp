@@ -18,7 +18,7 @@ public class UserController {
     private final UserService userService;
 
     @CrossOrigin
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<UserDataResponse> updateUser(@PathVariable String id, @RequestBody SystemUser systemUser) {
         return ResponseEntity.ok(userService.updateUser(id, systemUser));
     }
