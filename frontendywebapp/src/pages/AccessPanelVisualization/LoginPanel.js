@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Button, Card, Col, Form} from 'react-bootstrap';
 import Alert from "react-bootstrap/Alert";
-import userAutorization from "../Autorization/UserAutorization/LoginAutorization";
+import userAutorization from "../Authorisation/UserAuthorisation/UserAuthorization";
 import {Navigate} from "react-router-dom";
+import LoginService from "../Authorisation/UserAuthorisation/LoginService";
 class LoginPanel extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +17,7 @@ class LoginPanel extends Component {
             cardPadding: '8%',
         };
 
-        this.autorization= new userAutorization();
+        this.autorization= LoginService.getInstance();
     };
 
     handleInputChange= (event)=>{
@@ -38,7 +39,11 @@ class LoginPanel extends Component {
     }
 
     validate = async()=>{
-        let response = await this.autorization.login(this.state.formData.name,this.state.formData.password);
+        const data = {
+            email:this.state.formData.name,
+            password:this.state.formData.password
+        }
+        let response = await this.autorization.login(data);
         console.log(response.status)
         if(response.status===false){
             this.setState({

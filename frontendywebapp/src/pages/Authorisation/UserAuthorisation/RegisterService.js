@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import UserApiConnector from "../../ApiServices/UserRequests/UserApiConnector";
-import LoginRequests from "../../ApiServices/AutorizationRequests/LoginRequests";
+import LoginRequests from "../../ApiServices/AuthorisationRequests/LoginRequests";
 import UnsecuredTokenStorageSystem from "../../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
-import RegisterRequests from "../../ApiServices/AutorizationRequests/RegisterRequests";
+import RegisterRequests from "../../ApiServices/AuthorisationRequests/RegisterRequests";
 
-class RegisterAutorization {
+class RegisterService {
     constructor() {
         this.connector=new RegisterRequests();
     }
@@ -15,11 +15,10 @@ class RegisterAutorization {
     }
 
 
-    autoarizeRegister = async (data)=> {
+    authoriseRegister = async (data)=> {
         if(this.checkRegisterData(data)===false){
             return false;
         }
-        console.log(data);
         let response = await this.connector.sendRegisterRequest(data);
         return response;
     }
@@ -29,5 +28,5 @@ class RegisterAutorization {
     
 }
 
-export default RegisterAutorization;
+export default RegisterService;
 

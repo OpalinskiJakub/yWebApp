@@ -20,8 +20,8 @@ import AccessPanel from "./pages/AccessPanelVisualization/AccessPanel";
 import RegisterPanel from "./pages/AccessPanelVisualization/RegisterPanel";
 import RegisterTypePanel from "./pages/AccessPanelVisualization/RegisterTypePanel";
 import AppealForm from "./pages/AccessPanelVisualization/AppealForm";
-import UserAutorization from "./pages/Autorization/UserAutorization/LoginAutorization";
-import AdminAutorization from "./pages/Autorization/AdminAutorization/AdminAutorization";
+import UserAutorization from "./pages/Authorisation/UserAuthorisation/UserAuthorization";
+import AdminAutorization from "./pages/Authorisation/AdminAuthorisation/AdminAutorization";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';

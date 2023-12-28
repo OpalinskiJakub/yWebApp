@@ -3,7 +3,7 @@ import Alert from 'react-bootstrap/Alert';
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import RegisterAutorization from "../Autorization/UserAutorization/RegisterAutorization";
+import RegisterAutorization from "../Authorisation/UserAuthorisation/RegisterService";
 
 class RegisterPanel extends Component {
     constructor() {
@@ -42,9 +42,7 @@ class RegisterPanel extends Component {
                 password: this.state.formData.password
         }
 
-        console.log('tutaj',data)
-
-        let response = await this.autorization.autoarizeRegister(data);
+        let response = await this.autorization.authoriseRegister(data);
         console.log(response)
         if(response.status===true){
             this.setState({

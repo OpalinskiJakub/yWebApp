@@ -2,17 +2,14 @@ import axios from 'axios';
 
 class LoginRequests {
 
-    sendLoginRequest = async (email, password) => {
-        console.log(email, password);
-
+    sendLoginRequest = async (data) => {
         try {
-            const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', {
-                email: email,
-                password: password
-            });
+            console.log(data);
+            const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', data);
 
-
+                console.log(response);
                 return {
+                    email:data.email,
                     token:response.data.access_token,
                     status:true
                 }
