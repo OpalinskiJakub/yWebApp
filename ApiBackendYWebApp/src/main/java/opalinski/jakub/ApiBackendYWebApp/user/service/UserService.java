@@ -5,6 +5,7 @@ import opalinski.jakub.ApiBackendYWebApp.auth.model.AuthenticationRequest;
 import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
 import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
 import opalinski.jakub.ApiBackendYWebApp.user.model.UserDataResponse;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,6 +22,11 @@ public class UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+
+    public UserDataResponse getUserByEmail(String email){
+        Optional<SystemUser> systemUser = userRepository.findSystemUserByEmailAndActiveTrue(email);
+        return systemUser.map(UserDataResponse::new).orElse(null);
+    }
 
     public UserDataResponse getUser(String id) {
         Optional<SystemUser> systemUser = userRepository.findUserById(id);

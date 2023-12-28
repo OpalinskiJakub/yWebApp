@@ -17,16 +17,23 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
+    @CrossOrigin
     @PutMapping("/{id}")
     public ResponseEntity<UserDataResponse> updateUser(@PathVariable String id, @RequestBody SystemUser systemUser) {
         return ResponseEntity.ok(userService.updateUser(id, systemUser));
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<UserDataResponse> getSpecificUser(@PathVariable String id) {
         return ResponseEntity.ok(userService.getUser(id));
     }
-
+    @CrossOrigin
+    @GetMapping("/email")
+    public ResponseEntity<UserDataResponse> getUserByEmail(@RequestBody SystemUser systemUser) {
+        return ResponseEntity.ok(userService.getUserByEmail(systemUser.getUsername()));
+    }
+    @CrossOrigin
     @GetMapping()
     public ResponseEntity<List<UserDataResponse>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
