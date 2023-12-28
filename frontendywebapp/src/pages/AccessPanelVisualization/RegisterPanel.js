@@ -3,6 +3,7 @@ import Alert from 'react-bootstrap/Alert';
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import RegisterAutorization from "../Autorization/UserAutorization/RegisterAutorization";
 
 class RegisterPanel extends Component {
     constructor() {
@@ -18,6 +19,7 @@ class RegisterPanel extends Component {
                 password: ''
             }
         };
+        this.autorization = new RegisterAutorization();
     }
 
 
@@ -32,6 +34,27 @@ class RegisterPanel extends Component {
     };
 
     register = () => {
+        let data = {
+                email: this.state.email,
+                username:this.state.username,
+                description:this.state.description,
+                age:this.state.age,
+                password: this.state.password
+        }
+
+        let response = this.autorization.autoarizeRegister(data);
+        console.log(response)
+        if(response.status===true){
+            this.setState({
+                createdAlert: true,
+                errorAlert:false,
+            });
+        }else {
+            this.setState({
+                createdAlert: false,
+                errorAlert:true,
+            });
+        }
 
     }
 
@@ -39,7 +62,7 @@ class RegisterPanel extends Component {
         return (
             <Col md={{ span: 4, offset: 1 } }>
                 <Card style={{ padding: '7%' }}>
-                    {true ? (
+                    {this.state.errorAlert ? (
                         <Alert
                             variant="danger"
                             onClose={() => this.setState({ validateAlert: false })}
@@ -50,7 +73,7 @@ class RegisterPanel extends Component {
                         </Alert>
                     ) : null}
 
-                    {true ? (
+                    {this.state.createdAlert ? (
 
                         <Alert
                             variant="success"
@@ -136,7 +159,7 @@ class RegisterPanel extends Component {
                             />
                         </Form.Group>
 
-                        <Button variant="outline-primary" >Zarejstruj sie</Button>
+                        <Button variant="outline-primary" onClick={this.register}>Zarejstruj sie</Button>
                     </Form>
                 </Card>
             </Col>

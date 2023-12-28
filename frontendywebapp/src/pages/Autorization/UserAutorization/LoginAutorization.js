@@ -4,7 +4,7 @@ import UserApiConnector from "../../ApiServices/UserRequests/UserApiConnector";
 import LoginRequests from "../../ApiServices/AutorizationRequests/LoginRequests";
 import UnsecuredTokenStorageSystem from "../../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 
-class UserAuthorization extends Component {
+class LoginAuthorization extends Component {
     constructor() {
         super();
         this.state = {
@@ -14,15 +14,15 @@ class UserAuthorization extends Component {
         this.tokenStorage=UnsecuredTokenStorageSystem.getInstance();
     }
 
-    checkEmail(email){
+    checkLoginData(email){
         return true;
     }
-    checkPassword(password){
+    checkRegisterData(password){
         return true;
     }
 
     login  = async (email,password) => {
-        if((this.checkEmail(email)===false)||(this.checkPassword(password)===false)){
+        if(this.checkLoginData(email)==false){
             return {
                 token:'',
                 status:false
@@ -34,6 +34,9 @@ class UserAuthorization extends Component {
         this.tokenStorage.saveToken('Bearer '+response.token);
         return response;
     }
+
+
+
 
     savetoken = (token) =>{
         this.tokenStorage.saveToken(token);
@@ -48,5 +51,5 @@ class UserAuthorization extends Component {
     }
 }
 
-export default UserAuthorization;
+export default LoginAuthorization;
 

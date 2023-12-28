@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Card, Col, Form} from 'react-bootstrap';
 import Alert from "react-bootstrap/Alert";
-import userAutorization from "../Autorization/UserAutorization/UserAutorization";
+import userAutorization from "../Autorization/UserAutorization/LoginAutorization";
 import {Navigate} from "react-router-dom";
 class LoginPanel extends Component {
     constructor(props) {
