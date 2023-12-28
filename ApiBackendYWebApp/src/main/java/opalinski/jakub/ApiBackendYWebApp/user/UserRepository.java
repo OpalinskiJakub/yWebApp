@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface UserRepository extends MongoRepository<SystemUser, String> {
     Optional<SystemUser> findSystemUserByEmailAndActiveTrue(String email);
+    Optional<SystemUser> findSystemUserByEmailAndActiveFalse(String email);
     Optional<SystemUser> findUserById(String id);
     Optional<List<SystemUser>> findAllByActive(Boolean active);
 }

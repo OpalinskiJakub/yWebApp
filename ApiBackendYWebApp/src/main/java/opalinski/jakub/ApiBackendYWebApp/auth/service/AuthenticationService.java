@@ -1,14 +1,23 @@
-package opalinski.jakub.ApiBackendYWebApp.auth;
+package opalinski.jakub.ApiBackendYWebApp.auth.service;
 
 import lombok.RequiredArgsConstructor;
+import opalinski.jakub.ApiBackendYWebApp.auth.model.AuthenticationRequest;
+import opalinski.jakub.ApiBackendYWebApp.auth.model.AuthenticationResponse;
+import opalinski.jakub.ApiBackendYWebApp.auth.model.RegisterRequest;
 import opalinski.jakub.ApiBackendYWebApp.config.JwtService;
 import opalinski.jakub.ApiBackendYWebApp.user.Role;
 import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
 import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
+import opalinski.jakub.ApiBackendYWebApp.user.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -36,7 +45,7 @@ public class AuthenticationService {
                 .build();
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public AuthenticationResponse authenticate(AuthenticationRequest request) throws Exception {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -44,11 +53,10 @@ public class AuthenticationService {
                 )
         );
         var user = repository.findSystemUserByEmailAndActiveTrue(request.getEmail())
-                .orElseThrow();
+                .orElseThrow(Exception::new);
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .build();
     }
-
 }

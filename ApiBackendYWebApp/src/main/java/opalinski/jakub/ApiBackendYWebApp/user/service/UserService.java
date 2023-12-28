@@ -1,6 +1,7 @@
 package opalinski.jakub.ApiBackendYWebApp.user.service;
 
 import lombok.RequiredArgsConstructor;
+import opalinski.jakub.ApiBackendYWebApp.auth.model.AuthenticationRequest;
 import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
 import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
 import opalinski.jakub.ApiBackendYWebApp.user.model.UserDataResponse;
@@ -52,6 +53,11 @@ public class UserService {
         }
         userRepository.save(existingUser);
         return new UserDataResponse(existingUser);
+    }
+
+    public boolean checkUser(AuthenticationRequest request){
+        Optional<SystemUser> systemUser = userRepository.findSystemUserByEmailAndActiveFalse(request.getEmail());
+        return systemUser.isPresent();
     }
 
 }
