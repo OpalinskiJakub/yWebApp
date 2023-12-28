@@ -33,16 +33,18 @@ class RegisterPanel extends Component {
         }));
     };
 
-    register = () => {
+    register = async () => {
         let data = {
-                email: this.state.email,
-                username:this.state.username,
-                description:this.state.description,
-                age:this.state.age,
-                password: this.state.password
+                email: this.state.formData.email,
+                username:this.state.formData.username,
+                description:this.state.formData.description,
+                age:this.state.formData.age,
+                password: this.state.formData.password
         }
 
-        let response = this.autorization.autoarizeRegister(data);
+        console.log('tutaj',data)
+
+        let response = await this.autorization.autoarizeRegister(data);
         console.log(response)
         if(response.status===true){
             this.setState({
@@ -55,6 +57,8 @@ class RegisterPanel extends Component {
                 errorAlert:true,
             });
         }
+
+
 
     }
 
@@ -69,7 +73,7 @@ class RegisterPanel extends Component {
                             dismissible
                             style={{ fontSize: 'smaller' }}
                         >
-                            Niepoprawne dane
+                            Niepoprawne dane lub konto z podanymi danymi juz istnieje
                         </Alert>
                     ) : null}
 
@@ -86,7 +90,7 @@ class RegisterPanel extends Component {
                                     Pomyślnie zarejestrowano
                                 </Row>
                                 <Row>
-                                    <Button variant="outline-success" style={{marginTop:"3%"}} as={Link} to="/acces">
+                                    <Button variant="outline-success" style={{marginTop:"3%"}} as={Link} to="/access/LoginPanel">
                                         Przejdz do logowania
                                     </Button>
                                 </Row>
@@ -98,26 +102,26 @@ class RegisterPanel extends Component {
 
 
                     <Form>
-                        <Form.Group controlId="formName" style={{ padding: '4%' }}>
+                        <Form.Group controlId="formEmail" style={{ padding: '4%' }}>
                             <Form.Label>Email</Form.Label>
                             < Form.Control
                                 required
                                 type="text"
-                                placeholder="Enter your name"
-                                name="username"
-                                value={this.state.formData.username}
+                                placeholder="Enter your email"
+                                name="email"
+                                value={this.state.formData.email}
                                 onChange={this.handleInputChange}
                             />
                         </Form.Group>
 
-                        <Form.Group controlId="formPassword" style={{ padding: '4%' }}>
+                        <Form.Group controlId="formUsername" style={{ padding: '4%' }}>
                             <Form.Label>Username</Form.Label>
                             <Form.Control
                                 required
-                                type="password"
-                                placeholder="Enter your password"
-                                name="password"
-                                value={this.state.formData.password}
+                                type="text"
+                                placeholder="Enter your username"
+                                name="username"
+                                value={this.state.formData.username}
                                 onChange={this.handleInputChange}
                             />
                         </Form.Group>
@@ -135,26 +139,26 @@ class RegisterPanel extends Component {
                             />
                         </Form.Group>
 
-                        <Form.Group controlId="formName" style={{ padding: '4%' }}>
+                        <Form.Group controlId="formAge" style={{ padding: '4%' }}>
                             <Form.Label>Wiek</Form.Label>
                             <Form.Control
                                 required
                                 type="text"
-                                placeholder="Enter your name"
-                                name="username"
-                                value={this.state.formData.username}
+                                placeholder="Enter your age"
+                                name="age"
+                                value={this.state.formData.age}
                                 onChange={this.handleInputChange}
                             />
                         </Form.Group>
 
-                        <Form.Group controlId="formName" style={{ padding: '4%' }}>
+                        <Form.Group controlId="formPassword" style={{ padding: '4%' }}>
                             <Form.Label>Haslo</Form.Label>
                             <Form.Control
                                 required
-                                type="text"
-                                placeholder="Enter your name"
-                                name="username"
-                                value={this.state.formData.username}
+                                type="password"
+                                placeholder="Enter your password"
+                                name="password"
+                                value={this.state.formData.password}
                                 onChange={this.handleInputChange}
                             />
                         </Form.Group>

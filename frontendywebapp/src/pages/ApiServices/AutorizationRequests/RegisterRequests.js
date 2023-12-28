@@ -10,14 +10,13 @@ class RegisterRequests{
         console.log(data);
 
         try {
-            const response = await axios.post('localhost:8080/api/v1/auth/register', data);
-
+            const response = await axios.post('http://localhost:8080/api/v1/auth/register', data);
+            console.log(response)
 
             return {
                 status:true
             };
         } catch (error) {
-
             return {
                 status:false
             };
