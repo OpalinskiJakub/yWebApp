@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import opalinski.jakub.ApiBackendYWebApp.user.Role;
 
 @Data
 @Builder
@@ -19,6 +20,7 @@ public class UserDataResponse {
         this.username = systemUser.getUsername();
         this.email = systemUser.getEmail();
         this.description = systemUser.getDescription();
+        this.role = systemUser.getRole();
     }
 
     private String id;
@@ -26,6 +28,7 @@ public class UserDataResponse {
     private String username;
     @JsonProperty("username")
     private String email;
+    private Role role;
     private String description;
     private Integer age;
     private String avatarUrl;
