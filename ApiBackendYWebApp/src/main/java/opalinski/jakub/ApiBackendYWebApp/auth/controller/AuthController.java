@@ -28,7 +28,11 @@ public class AuthController {
     public ResponseEntity<AuthenticationResponse> register(
             @RequestBody RegisterRequest request
     ) {
-        return ResponseEntity.ok(service.register(request));
+        try {
+            return ResponseEntity.ok(service.register(request));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @CrossOrigin
@@ -39,7 +43,7 @@ public class AuthController {
         try {
             return ResponseEntity.ok(service.authenticate(request));
         } catch (Exception e) {
-            if(userService.checkUser(request)){
+            if (userService.checkUser(request)) {
                 return ResponseEntity.ok(AuthenticationResponse.builder().userStatus("userBlocked").build());
             }
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);

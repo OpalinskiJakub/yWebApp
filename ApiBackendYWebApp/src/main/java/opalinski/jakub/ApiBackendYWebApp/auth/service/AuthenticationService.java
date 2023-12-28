@@ -8,16 +8,10 @@ import opalinski.jakub.ApiBackendYWebApp.config.JwtService;
 import opalinski.jakub.ApiBackendYWebApp.user.Role;
 import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
 import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
-import opalinski.jakub.ApiBackendYWebApp.user.service.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +21,12 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    public AuthenticationResponse register(RegisterRequest request) throws Exception {
+        if (request.getEmail() == null || request.getUsername() == null || request.getDescription() == null
+                || request.getPassword() == null || request.getAge() == null) {
+            throw new Exception("All fields in the RegisterRequest must be non-null");
+        }
+
         var user = SystemUser.builder()
                 .email(request.getEmail())
                 .username(request.getUsername())
