@@ -9,7 +9,7 @@ class LoginPanel extends Component {
         super(props);
         this.state = {
             shouldRedirect:false,
-            validateAlert: false,
+            ErrorAlert: false,
             formData: {
                 name: '',
                 password: '',
@@ -47,7 +47,7 @@ class LoginPanel extends Component {
         console.log(response.status)
         if(response.status===false){
             this.setState({
-                validateAlert:true
+                ErrorAlert:true
             })
         }else {
             this.setState({
@@ -65,7 +65,7 @@ class LoginPanel extends Component {
             <Col md={{span: 3, offset: 2}} style={{marginTop: this.state.cardPadding}}>
                 <Card style={{padding: '7%'}}>
                     {
-                        this.state.validateAlert ? (
+                        this.state.ErrorAlert ? (
                             <Alert variant="danger" onClose={this.closeValidateAlert} dismissible>
                                 Niepoprawne dane
                             </Alert>

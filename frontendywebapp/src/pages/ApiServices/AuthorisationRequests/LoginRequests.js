@@ -4,10 +4,9 @@ class LoginRequests {
 
     sendLoginRequest = async (data) => {
         try {
-            console.log(data);
             const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', data);
 
-                console.log(response);
+
                 return {
                     email:data.email,
                     token:response.data.access_token,

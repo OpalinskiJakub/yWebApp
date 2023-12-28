@@ -35,7 +35,9 @@ class LoginService{
         }
         let response= await this.connector.sendLoginRequest(data);
         this.tokenStorage.saveToken('Bearer '+response.token);
+        console.log(response);
         let user = User.createUserWithOnlyEmail(response.email);
+        console.log(user)
         this.userStorage.saveUserToLocalStorage(user);
         return response;
     }
