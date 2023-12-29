@@ -8,16 +8,16 @@ class UnsecuredTokenStorageSystem {
         return this.#instance;
     }
 
-    saveToken(token) {
+    saveToken = (token) => {
         localStorage.setItem('UnsecuredUserToken', token);
     }
 
-    getToken() {
+    getToken = () => {
         const savedUserData = localStorage.getItem('UnsecuredUserToken');
         return savedUserData;
     }
 
-    removeToken() {
+    removeToken = () => {
         localStorage.removeItem('UnsecuredUserToken');
     }
 }

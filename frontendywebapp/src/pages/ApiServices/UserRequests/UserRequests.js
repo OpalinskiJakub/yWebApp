@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import UserBuilder from "../../StorageSystem/UserPanel/Model/UserBuilder";
+
 class UserRequests {
     static instance = null;
     #apiAddress = 'http://localhost:8080/api/v1/auth/authenticate';
@@ -15,16 +17,25 @@ class UserRequests {
         try {
             const encodedEmail = btoa(data.email);
 
-            const response = await axios.get("http://localhost:8080/api/v1/tokenmang/user/email", {
+            const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/user/email/${encodedEmail}`, {
                 headers: {
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJlazIxMTRAb3AucGwiLCJpYXQiOjE3MDM3OTc1ODcsImV4cCI6MTcwMzg4Mzk4N30.NDhd1PcrHi3U1UIK1KzSZWjPLVMaYAYUJhEsBGVjDkc',
+                    Authorization:'Bearer '+data.token,
                 },
             });
 
-            console.log(response.data);
-            return 'DAJE';
+            let sesseionUser = UserBuilder.Builder()
+                .setId(response.data.id)
+                .setEmail(response.data.email)
+                .setUsername(response.data.username)
+                .setDescription(response.data.description)
+                .setRole(response.data.role)
+                .setAge(response.data.age)
+                .setAvatarURL(response.data.avatarUrl)
+                .build();
+
+            return sesseionUser;
         } catch (error) {
-            console.error(error);
+            console.log(error)
             return false;
         }
     }
