@@ -36,7 +36,9 @@ class LoginService{
             }
         }
         let response= await this.connector.sendLoginRequest(data);
-        this.tokenStorage.saveToken('Bearer '+response.token);
+        let preparedToken = 'Bearer '+response.token;
+        response.token=preparedToken;
+        this.tokenStorage.saveToken(preparedToken);
         let user = await this.userRequests.getUserWithEmail(response);
         this.userStorage.saveUserToLocalStorage(user);
         return response;

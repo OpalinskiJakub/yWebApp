@@ -19,7 +19,7 @@ class UserRequests {
 
             const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/user/email/${encodedEmail}`, {
                 headers: {
-                    Authorization:'Bearer '+data.token,
+                    Authorization:data.token,
                 },
             });
 
