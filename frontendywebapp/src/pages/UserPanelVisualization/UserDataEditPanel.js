@@ -20,7 +20,7 @@ class UserDataEditPanel extends Component{
                                     aria-label="Nazwa uzytkownika"
                                     aria-describedby="basic-addon2"
                                 />
-                                <Button variant="outline-primary" id="button-addon2">
+                                <Button variant="outline-primary" id="button-addon2" onClick={this.props.logout}>
                                     Button
                                 </Button>
                             </InputGroup>

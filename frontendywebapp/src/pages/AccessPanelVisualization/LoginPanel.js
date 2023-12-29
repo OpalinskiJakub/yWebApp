@@ -44,15 +44,17 @@ class LoginPanel extends Component {
             password:this.state.formData.password
         }
         let response = await this.autorization.login(data);
-        console.log(response.status)
+
         if(response.status===false){
             this.setState({
                 ErrorAlert:true
             })
+
         }else {
             this.setState({
                 shouldRedirect:true
             })
+
         }
 
     }

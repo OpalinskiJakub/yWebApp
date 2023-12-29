@@ -22,45 +22,12 @@ import RegisterTypePanel from "./pages/AccessPanelVisualization/RegisterTypePane
 import AppealForm from "./pages/AccessPanelVisualization/AppealForm";
 import UserAutorization from "./pages/Authorisation/UserAuthorisation/UserAuthorization";
 import AdminAutorization from "./pages/Authorisation/AdminAuthorisation/AdminAutorization";
+import App from "./pages/App";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
 
 root.render(
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Navigate to="/access"/>}/>
-            <Route path="/access" element={<LogoPanel/>}>
-                <Route index element={<AccessPanel/>}/>
-                <Route path="LoginPanel" element={<LoginPanel/>}/>
-                <Route path="registerType" element={<RegisterTypePanel/>}/>
-                <Route path="registerPanel" element={<RegisterPanel/>}/>
-                <Route path="AppealForm" element={<AppealForm/>}/>
-            </Route>
-            <Route element={<UserAutorization/>}>
-                <Route path="/home" element={<Home/>}>
-                    <Route index element={<MainPagePostsWizualization/>}/>
-                    <Route path="post" element={<PostPanel/>}/>
-                    <Route path="userPanel" element={<UserPanel/>}>
-                        <Route index element={<UserDataPanel/>}/>
-                        <Route path="userDataEditPanel" element={<UserDataEditPanel/>}/>
-                        <Route path="login1" element={<PostPanel/>}/>
-                    </Route>
-                    <Route element={<AdminAutorization />}>
-                        <Route path="adminPanel" element={<AdminPanel/>}>
-                            <Route index element={<UsersAdminPanel/>}/>
-                            <Route path="postsAdminPanel" element={<PostsAdminPanel/>}/>
-                            <Route path="commentsAdminPanel" element={<CommentsAdminPanel/>}/>
-                            <Route path="reportsAdminPanel" element={<ReportsAdminPanel/>}/>
-                            <Route path="appealAdminPanel" element={<AppealAdminPanel/>}/>
-                        </Route>
-                    </Route>
-                </Route>
-            </Route>
-
-        </Routes>
-    </BrowserRouter>
+    <App />
 );
-//<Route index element={<UserDataPanel />} />
-//s<Route path="UserDataEditPanel" element={<UserDataEditPanel />} />

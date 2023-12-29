@@ -44,6 +44,7 @@ class LoginService{
 
     logut = () => {
         this.tokenStorage.removeToken();
+
     }
 
     checkTokenExist = () => {

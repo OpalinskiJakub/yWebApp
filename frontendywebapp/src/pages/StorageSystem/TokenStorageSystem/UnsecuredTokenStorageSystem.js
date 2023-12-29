@@ -20,6 +20,13 @@ class UnsecuredTokenStorageSystem {
     removeToken = () => {
         localStorage.removeItem('UnsecuredUserToken');
     }
+
+    isTokenValid = () => {
+        const savedUserData = this.getToken();
+        console.log(savedUserData);
+        console.log(savedUserData !== null)
+        return savedUserData !== null;
+    }
 }
 
 export default UnsecuredTokenStorageSystem;

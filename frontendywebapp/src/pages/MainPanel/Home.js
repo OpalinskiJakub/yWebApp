@@ -7,11 +7,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {Badge,Button,Dropdown,Form,Offcanvas} from "react-bootstrap";
 import React, {Component} from "react";
 import UserPanel from "../UserPanelVisualization/UserPanel";
-
+import UnsecuredTokenStorageSystem from "../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 
 class Home extends Component{
     constructor() {
         super();
+        this.tokenStorage = new UnsecuredTokenStorageSystem();
+    }
+
+    close = () => {
+        this.tokenStorage.removeToken();
+        this.props.closeUserSystem();
     }
     render() {
         return (
@@ -52,7 +58,7 @@ class Home extends Component{
                                         <Nav.Link href="/home/UserPanel">Dane użytkownika</Nav.Link>
                                         <Nav.Link href="/home/post">Twoje posty</Nav.Link>
                                         <Nav.Link href="/home/AdminPanel">Panel administratora</Nav.Link>
-                                        <Nav.Link href="/home/AdminPanel">Wyloguj sie</Nav.Link>
+                                        <Nav.Link href="/access" onClick={this.close}>Wyloguj sie</Nav.Link>
                                         <NavDropdown
                                             title="Wybierz język"
                                             id={`offcanvasNavbarDropdown-expand-${expand}`}
