@@ -1,6 +1,7 @@
 import {Component} from "react";
 import {Button, Card, Form,Nav,ListGroup ,Col,Image,Container,Row} from "react-bootstrap";
 import UserService from "../StorageSystem/UserPanel/UserService";
+import SessionUserStorageSystem from "../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
 class UserDataPanel extends Component{
     constructor() {
         super();
@@ -8,19 +9,21 @@ class UserDataPanel extends Component{
             username:'',
             email:'',
             age: '',
-            description: ''
+            description: '',
+            avatarUrl:''
         };
-        this.service= new UserService();
+        this.userSessionStorage = SessionUserStorageSystem.getInstance();
     }
 
     async componentDidMount() {
-        /*let user = await this.service.getUser();
+        let user = await this.userSessionStorage.getUserFromLocalStorage();
         this.setState({
-            username: user.username,
-            email: user.email,
-            age: user.age,
-            description: user.description
-        });*/
+            username:user.username,
+            email:user.email,
+            age:user.age,
+            description:user.description,
+            avatarUrl:user.avatarUrl
+        })
     }
 
     render() {

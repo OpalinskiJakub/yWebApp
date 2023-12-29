@@ -1,3 +1,5 @@
+import UserBuilder from "../UserPanel/Model/UserBuilder";
+
 class SessionUserStorageSystem {
     static #instance = null;
 
@@ -29,7 +31,17 @@ class SessionUserStorageSystem {
             return null;
         }
         const storedUserJSON = JSON.parse(localStorage.getItem('SessionUser'));
-        return storedUserJSON;
+        let user = UserBuilder.Builder()
+            .setId(storedUserJSON._id)
+            .setUsername(storedUserJSON._username)
+            .setEmail(storedUserJSON._email)
+            .setRole(storedUserJSON._role)
+            .setActive(storedUserJSON._active)
+            .setAge(storedUserJSON._age)
+            .setDescription(storedUserJSON._description)
+            .setAvatarURL(storedUserJSON._avatar_URL)
+            .build();
+        return user;
     }
 
     isAdmin = () => {
