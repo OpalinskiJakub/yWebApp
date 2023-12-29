@@ -14,15 +14,34 @@ class SessionUserStorageSystem {
         localStorage.setItem('SessionUser', userJSON);
     }
 
-
+    #isAlive(){
+        const storedUserJSON = localStorage.getItem('SessionUser');
+        if(storedUserJSON==null){
+            return false;
+        }else {
+            return true;
+        }
+    }
 
 
     getUserFromLocalStorage = () => {
-        const storedUserJSON = localStorage.getItem('SessionUser');
-        if (storedUserJSON) {
-            return JSON.parse(storedUserJSON);
+        if(!this.#isAlive()){
+            return null;
         }
-        return null;
+        const storedUserJSON = JSON.parse(localStorage.getItem('SessionUser'));
+        return storedUserJSON;
+    }
+
+    isAdmin = () => {
+        if(!this.#isAlive()){
+            return false;
+        }
+        const storedUserJSON = JSON.parse(localStorage.getItem('SessionUser'));
+        if(storedUserJSON._role=="ADMIN"){
+            return true;
+        }else {
+            return true;
+        }
     }
 }
 

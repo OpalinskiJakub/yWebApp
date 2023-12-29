@@ -1,9 +1,11 @@
 import {Component} from "react";
 import {Button, Card, Form,Nav,ListGroup ,Col,Image,Container,Row,InputGroup,Accordion} from "react-bootstrap";
+import SessionUserStorageSystem from "../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
 class UserDataEditPanel extends Component{
     constructor(props) {
         super(props);
 
+        this.test= SessionUserStorageSystem.getInstance();
     }
 
     render() {
@@ -20,7 +22,7 @@ class UserDataEditPanel extends Component{
                                     aria-label="Nazwa uzytkownika"
                                     aria-describedby="basic-addon2"
                                 />
-                                <Button variant="outline-primary" id="button-addon2" onClick={this.props.logout}>
+                                <Button variant="outline-primary" id="button-addon2" onClick={this.test.isAdmin}>
                                     Button
                                 </Button>
                             </InputGroup>
