@@ -2,6 +2,7 @@ import User from "../../StorageSystem/UserPanel/Model/User";
 import LoginRequests from "../../ApiServices/AuthorisationRequests/LoginRequests";
 import UnsecuredTokenStorageSystem from "../../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 import SessionUserStorageSystem from "../../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
+import UserRequests from "../../ApiServices/UserRequests/UserRequests";
 
 class LoginService{
 
@@ -19,6 +20,7 @@ class LoginService{
         this.connector=new LoginRequests();
         this.tokenStorage=UnsecuredTokenStorageSystem.getInstance();
         this.userStorage=new SessionUserStorageSystem();
+        this.userRequests=new UserRequests();
     }
     checkLoginData(email){
         return true;
@@ -34,11 +36,11 @@ class LoginService{
             }
         }
         let response= await this.connector.sendLoginRequest(data);
-        this.tokenStorage.saveToken('Bearer '+response.token);
+        //this.tokenStorage.saveToken('Bearer '+response.token);
         console.log(response);
-        let user = User.createUserWithOnlyEmail(response.email);
+        let user = await this.userRequests.getUserWithEmail(response);
         console.log(user)
-        this.userStorage.saveUserToLocalStorage(user);
+        //this.userStorage.saveUserToLocalStorage(user);
         return response;
     }
 

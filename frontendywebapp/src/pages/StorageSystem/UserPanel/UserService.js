@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import UserApiConnector from "../../ApiServices/UserRequests/UserApiConnector";
+import UserRequests from "../../ApiServices/UserRequests/UserRequests";
 import UserIndexDb from "./Db/UserIndexDb";
 import User from "./Model/User";
 
 class UserService {
     constructor(props) {
-        this.api = new UserApiConnector();
+        this.api = new UserRequests();
         this.db = new UserIndexDb();
     }
 

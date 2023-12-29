@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import UserApiConnector from "../../ApiServices/UserRequests/UserApiConnector";
+import UserRequests from "../../ApiServices/UserRequests/UserRequests";
 import LoginRequests from "../../ApiServices/AuthorisationRequests/LoginRequests";
 import UnsecuredTokenStorageSystem from "../../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 import SessionUserStorageSystem from "../../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
