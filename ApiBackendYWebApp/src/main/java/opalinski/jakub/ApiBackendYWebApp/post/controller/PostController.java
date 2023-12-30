@@ -16,15 +16,16 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/tokenmang/post")
-@PreAuthorize("hasRole('USER')")
+@RequestMapping("/api/v1")
 public class PostController {
 
     private final SystemPostService systemPostService;
     private final SystemCommentService systemCommentService;
 
+
+    @PreAuthorize("hasRole('USER')")
     @CrossOrigin
-    @PostMapping()
+    @PostMapping("/tokenmang/post")
     public ResponseEntity<SystemPost> savePost(@RequestBody SystemPost systemPost){
         try {
             return ResponseEntity.ok(systemPostService.savePost(systemPost));
@@ -33,8 +34,9 @@ public class PostController {
         }
     }
 
+
     @CrossOrigin
-    @GetMapping()
+    @GetMapping("/public/post")
     public ResponseEntity<List<PostDataResponse>> getAllPosts() {
         List<PostDataResponse> postDataResponseList = systemPostService.getAllPosts();
         if(postDataResponseList.isEmpty())
@@ -42,8 +44,10 @@ public class PostController {
         return ResponseEntity.ok(systemPostService.getAllPosts());
     }
 
+
+    @PreAuthorize("hasRole('USER')")
     @CrossOrigin
-    @PostMapping("/comment/{parentId}")
+    @PostMapping("/tokenmang/post/comment/{parentId}")
     public ResponseEntity<SystemComment> saveComment(@PathVariable String parentId, @RequestBody SystemComment systemComment){
         try {
             return ResponseEntity.ok(systemCommentService.saveComment(parentId, systemComment));
@@ -52,8 +56,10 @@ public class PostController {
         }
     }
 
+
+    @PreAuthorize("hasRole('USER')")
     @CrossOrigin
-    @GetMapping("/{id}")
+    @GetMapping("/tokenmang/post/{id}")
     public ResponseEntity<SystemPost> getSpecificPost(@PathVariable String id){
         try {
             return ResponseEntity.ok(systemPostService.getPostById(id));
@@ -62,8 +68,10 @@ public class PostController {
         }
     }
 
+
+    @PreAuthorize("hasRole('USER')")
     @CrossOrigin
-    @PatchMapping("/{entityId}/upvote/{userId}")
+    @PatchMapping("/tokenmang/post/{entityId}/upvote/{userId}")
     public ResponseEntity<SystemPost> upvotePost(@PathVariable String entityId, @PathVariable String userId){
         try {
             return ResponseEntity.ok(systemPostService.upvotePost(entityId, userId));
