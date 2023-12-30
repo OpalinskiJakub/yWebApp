@@ -1,5 +1,6 @@
 import PostRequests from "../../ApiServices/PostRequests/PostRequests";
 import SessionUserStorageSystem from "../../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
+import UnsecuredTokenStorageSystem from "../../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 
 class PostService{
 
@@ -15,16 +16,23 @@ class PostService{
     constructor() {
         this.postRequests = PostRequests.getInstance();
         this.sessionUserStorageSystem = SessionUserStorageSystem.getInstance();
+        this.tokenStorage = UnsecuredTokenStorageSystem.getInstance();
     }
     validateAndSendPost = async (data) => {
+        console.log(data)
         let user = await this.sessionUserStorageSystem. getUserFromLocalStorage();
-        let post = {
-            ownerId:user.id,
-            ownerName:user.username,
-            content:data.content,
-            title:data.title
+        let token = await this.tokenStorage.getToken();
+        let request = {
+            post: {
+                ownerId: user.id,
+                ownerName: user.username,
+                content: data.content,
+                title: data.title
+            },
+            token:token
         }
-        let response = await this.postRequests.getAllPosts();
+        console.log(request)
+        let response = await this.postRequests.sendPost(request);
         return response;
     }
 

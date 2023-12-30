@@ -34,9 +34,10 @@ class CreatePostPanel extends Component{
 
     createPost = async () => {
         let data = {
-            content:this.state.content,
-            title:this.state.title
+            content:this.state.formData.content,
+            title:this.state.formData.title
         }
+        console.log(data)
         let response = await this.postService.validateAndSendPost(data);
         if(response===true){
             this.setState({
@@ -78,16 +79,7 @@ class CreatePostPanel extends Component{
                             dismissible
                             style={{ fontSize: 'smaller' }}
                         >
-                            <Container>
-                                <Row>
-                                    Pomyślnie zarejestrowano
-                                </Row>
-                                <Row>
-                                    <Button variant="outline-success" style={{marginTop:"3%"}} as={Link} to="/access/LoginPanel">
-                                        Przejdz do logowania
-                                    </Button>
-                                </Row>
-                            </Container>
+                           Post stworzony
                         </Alert>
 
                     ) : null}

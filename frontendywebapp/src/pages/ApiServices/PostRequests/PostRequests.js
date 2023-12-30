@@ -22,10 +22,11 @@ class PostRequests {
     sendPost = async (data) => {
         try {
 
-            const response = await axios.patch(`http://localhost:8080/api/v1/tokenmang/post`,
-                data.value,
+            const response = await axios.post(`http://localhost:8080/api/v1/tokenmang/post`,
+                data.post,
                 {
                     headers: {
+                        'Content-Type': 'application/json',
                         'Authorization': data.token,
                     },
                 });
