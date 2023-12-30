@@ -84,5 +84,26 @@ public class SystemPostService {
         Optional<List<SystemComment>> systemCommentList = commentRepository.findAllByParentId(parentId);
         return systemCommentList.orElse(null);
     }
+
+    public SystemPost upvotePost(String postId, String userId) throws Exception {
+        if (postId == null || userId == null) {
+            throw new Exception("Request params not satisfied.");
+        }
+        Optional<SystemPost> systemPost = postRepository.findById(postId);
+        if (systemPost.isEmpty()) {
+            throw new Exception("Error while processing post entity.");
+        }
+        var postData = systemPost.get();
+        if (postData.getUpvoteUserId().contains(userId)){
+            postData.setUpvote(postData.getUpvote()-1);
+            postData.getUpvoteUserId().remove(userId);
+        }
+        else{
+            postData.setUpvote(postData.getUpvote()+1);
+            postData.getUpvoteUserId().add(userId);
+        }
+        postRepository.save(postData);
+        return postData;
+    }
 }
 

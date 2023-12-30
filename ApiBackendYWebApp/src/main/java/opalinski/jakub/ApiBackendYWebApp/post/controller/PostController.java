@@ -56,6 +56,17 @@ public class PostController {
     }
 
     @CrossOrigin
+    @PreAuthorize("hasRole('USER')")
+    @PatchMapping("/tokenmang/post/{entityId}/upvote/{userId}")
+    public ResponseEntity<SystemPost> upvotePost(@PathVariable String entityId, @PathVariable String userId){
+        try {
+            return ResponseEntity.ok(systemPostService.upvotePost(entityId, userId));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @CrossOrigin
     @GetMapping("/public/post")
     public ResponseEntity<List<PostDataResponse>> getAllPosts() {
         List<PostDataResponse> postDataResponseList = systemPostService.getAllPosts();
