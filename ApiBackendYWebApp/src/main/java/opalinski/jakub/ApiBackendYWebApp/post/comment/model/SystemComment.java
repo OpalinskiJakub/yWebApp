@@ -1,32 +1,29 @@
-package opalinski.jakub.ApiBackendYWebApp.post.model;
+
+package opalinski.jakub.ApiBackendYWebApp.post.comment.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+
 
 @Data
 @NoArgsConstructor
 @Document
 @Builder
 @AllArgsConstructor
-public class SystemPost {
+public class SystemComment {
     @Id
     private String id;
     private String ownerId;
     private String ownerName;
-    @Indexed(unique = true)
-    private String title;
-    private String content;
+    private String parentId;
     private Integer upvote;
-    private Boolean reported;
-    private List<SystemComment> systemCommentList;
+    private String content;
     private List<String> upvoteUserId;
+    private List<SystemComment> systemCommentList;
 }
-

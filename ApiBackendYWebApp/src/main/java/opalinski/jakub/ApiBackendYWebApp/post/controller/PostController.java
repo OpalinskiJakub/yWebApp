@@ -1,6 +1,8 @@
 package opalinski.jakub.ApiBackendYWebApp.post.controller;
 
 import lombok.RequiredArgsConstructor;
+import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
+import opalinski.jakub.ApiBackendYWebApp.post.comment.service.SystemCommentService;
 import opalinski.jakub.ApiBackendYWebApp.post.model.PostDataResponse;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
 import opalinski.jakub.ApiBackendYWebApp.post.service.SystemPostService;
@@ -14,14 +16,15 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value ="/api/v1/tokenmang/post", consumes = MediaType.APPLICATION_JSON_VALUE)
-@PreAuthorize("hasRole('USER')")
+@RequestMapping(value ="/api/v1", consumes = MediaType.APPLICATION_JSON_VALUE)
 public class PostController {
 
     private final SystemPostService systemPostService;
+    private final SystemCommentService systemCommentService;
 
     @CrossOrigin
-    @PostMapping()
+    @PreAuthorize("hasRole('USER')")
+    @PostMapping("/tokenmang/post")
     public ResponseEntity<SystemPost> savePost(@RequestBody SystemPost systemPost){
         try {
             return ResponseEntity.ok(systemPostService.savePost(systemPost));
@@ -29,8 +32,31 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
     @CrossOrigin
-    @GetMapping()
+    @PreAuthorize("hasRole('USER')")
+    @PostMapping("/tokenmang/post/comment/{parentId}")
+    public ResponseEntity<SystemComment> saveComment(@PathVariable String parentId, @RequestBody SystemComment systemComment){
+        try {
+            return ResponseEntity.ok(systemCommentService.saveComment(parentId, systemComment));
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @CrossOrigin
+    @PreAuthorize("hasRole('USER')")
+    @GetMapping("/tokenmang/post/{id}")
+    public ResponseEntity<SystemPost> getSpecificPost(@PathVariable String id){
+        try {
+            return ResponseEntity.ok(systemPostService.getPostById(id));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @CrossOrigin
+    @GetMapping("/public/post")
     public ResponseEntity<List<PostDataResponse>> getAllPosts() {
         List<PostDataResponse> postDataResponseList = systemPostService.getAllPosts();
         if(postDataResponseList.isEmpty())
