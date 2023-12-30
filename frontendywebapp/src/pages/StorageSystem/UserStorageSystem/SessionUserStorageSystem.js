@@ -12,7 +12,6 @@ class SessionUserStorageSystem {
 
     saveUserToLocalStorage = (user) => {
         const userJSON = JSON.stringify(user);
-        console.log(userJSON);
         localStorage.setItem('SessionUser', userJSON);
     }
 

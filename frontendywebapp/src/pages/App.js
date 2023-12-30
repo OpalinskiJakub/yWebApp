@@ -47,7 +47,7 @@ class App extends Component{
                 </Route>
 
                 <Route element={<UserAutorization/>}>
-                    <Route path="/home" element={<Home closeUserSystem={this.closeUserSystem}/>}>
+                    <Route path="/home" element={<Home />}>
                         <Route index element={<MainPagePostsWizualization/>}/>
                         <Route path="post" element={<PostPanel/>}/>
                         <Route path="userPanel" element={<UserPanel/>}>
