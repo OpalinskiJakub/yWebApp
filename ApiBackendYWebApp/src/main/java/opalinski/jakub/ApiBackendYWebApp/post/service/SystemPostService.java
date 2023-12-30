@@ -105,5 +105,18 @@ public class SystemPostService {
         postRepository.save(postData);
         return postData;
     }
+
+    public SystemPost updateUser(String id, SystemPost systemPost) {
+        Optional<SystemPost> optionalSystemPost = postRepository.findSystemPostById(id);
+
+        if(optionalSystemPost.isEmpty()){
+            return null;
+        }
+
+        var systemPostData = optionalSystemPost.get();
+        systemPostData.setContent(systemPost.getContent() != null ? systemPost.getContent() : systemPostData.getContent());
+        postRepository.save(systemPostData);
+        return systemPostData;
+    }
 }
 

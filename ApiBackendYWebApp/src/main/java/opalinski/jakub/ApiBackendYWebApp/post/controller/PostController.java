@@ -68,6 +68,17 @@ public class PostController {
         }
     }
 
+    @PreAuthorize("hasRole('USER')")
+    @CrossOrigin
+    @PatchMapping("/tokenmang/post/{id}")
+    public ResponseEntity<SystemPost> updatePost(@PathVariable String id, @RequestBody SystemPost systemPost){
+        try {
+            return ResponseEntity.ok(systemPostService.updateUser(id, systemPost));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 
     @PreAuthorize("hasRole('USER')")
     @CrossOrigin
