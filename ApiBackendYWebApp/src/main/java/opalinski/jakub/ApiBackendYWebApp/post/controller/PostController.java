@@ -16,15 +16,15 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value ="/api/v1", consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping("/api/v1/tokenmang/post")
+@PreAuthorize("hasRole('USER')")
 public class PostController {
 
     private final SystemPostService systemPostService;
     private final SystemCommentService systemCommentService;
 
     @CrossOrigin
-    @PreAuthorize("hasRole('USER')")
-    @PostMapping("/tokenmang/post")
+    @PostMapping()
     public ResponseEntity<SystemPost> savePost(@RequestBody SystemPost systemPost){
         try {
             return ResponseEntity.ok(systemPostService.savePost(systemPost));
@@ -34,8 +34,16 @@ public class PostController {
     }
 
     @CrossOrigin
-    @PreAuthorize("hasRole('USER')")
-    @PostMapping("/tokenmang/post/comment/{parentId}")
+    @GetMapping()
+    public ResponseEntity<List<PostDataResponse>> getAllPosts() {
+        List<PostDataResponse> postDataResponseList = systemPostService.getAllPosts();
+        if(postDataResponseList.isEmpty())
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        return ResponseEntity.ok(systemPostService.getAllPosts());
+    }
+
+    @CrossOrigin
+    @PostMapping("/comment/{parentId}")
     public ResponseEntity<SystemComment> saveComment(@PathVariable String parentId, @RequestBody SystemComment systemComment){
         try {
             return ResponseEntity.ok(systemCommentService.saveComment(parentId, systemComment));
@@ -45,8 +53,7 @@ public class PostController {
     }
 
     @CrossOrigin
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping("/tokenmang/post/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<SystemPost> getSpecificPost(@PathVariable String id){
         try {
             return ResponseEntity.ok(systemPostService.getPostById(id));
@@ -56,22 +63,12 @@ public class PostController {
     }
 
     @CrossOrigin
-    @PreAuthorize("hasRole('USER')")
-    @PatchMapping("/tokenmang/post/{entityId}/upvote/{userId}")
+    @PatchMapping("/{entityId}/upvote/{userId}")
     public ResponseEntity<SystemPost> upvotePost(@PathVariable String entityId, @PathVariable String userId){
         try {
             return ResponseEntity.ok(systemPostService.upvotePost(entityId, userId));
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
-
-    @CrossOrigin
-    @GetMapping("/public/post")
-    public ResponseEntity<List<PostDataResponse>> getAllPosts() {
-        List<PostDataResponse> postDataResponseList = systemPostService.getAllPosts();
-        if(postDataResponseList.isEmpty())
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        return ResponseEntity.ok(systemPostService.getAllPosts());
     }
 }
