@@ -7,8 +7,8 @@ import RegisterTypePanel from "./AccessPanelVisualization/RegisterTypePanel";
 import RegisterPanel from "./AccessPanelVisualization/RegisterPanel";
 import AppealForm from "./AccessPanelVisualization/AppealForm";
 import UserAutorization from "./Authorisation/UserAuthorisation/UserAuthorization";
-import Home from "./MainPanel/Home";
-import MainPagePostsWizualization from "./MainPanel/MainPagePostsWizualization";
+import Home from "./MainPanelVisualization/Home";
+import MainPagePostsWizualization from "./MainPanelVisualization/MainPagePostsWizualization";
 import PostPanel from "./PostPanelVisualization/PostPanel";
 import UserPanel from "./UserPanelVisualization/UserPanel";
 import UserDataPanel from "./UserPanelVisualization/UserDataPanel";
@@ -23,6 +23,7 @@ import AppealAdminPanel from "./AdminPanelVisualization/AppealAdminPanel";
 import React, {Component} from "react";
 import UnsecuredTokenStorageSystem from "./StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 import PreviewAuthorization from "./Authorisation/PreviewAuthorization";
+import CreatePostPanel from "./PostPanelVisualization/CreatePostPanel";
 
 
 class App extends Component{
@@ -50,6 +51,7 @@ class App extends Component{
                     <Route path="/home" element={<Home />}>
                         <Route index element={<MainPagePostsWizualization/>}/>
                         <Route path="post" element={<PostPanel/>}/>
+                        <Route path="postCreator" element={<CreatePostPanel/>}/>
                         <Route path="userPanel" element={<UserPanel/>}>
                             <Route index element={<UserDataPanel/>}/>
                             <Route path="userDataEditPanel" element={<UserDataEditPanel/>}/>

@@ -1,7 +1,7 @@
 import Dexie from "dexie";
 
 import Post from "./Model/Post";
-import PostApiConnector from "../../ApiServices/PostRequests/PostApiConnector";
+import PostRequests from "../../ApiServices/PostRequests/PostRequests";
 import comment from "./Model/Comment";
 const db = new Dexie('postIndexDB');
 

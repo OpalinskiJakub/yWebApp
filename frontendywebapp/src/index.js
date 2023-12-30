@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import Home from "./pages/MainPanel/Home";
-import MainPagePostsWizualization from "./pages/MainPanel/MainPagePostsWizualization";
+import Home from "./pages/MainPanelVisualization/Home";
+import MainPagePostsWizualization from "./pages/MainPanelVisualization/MainPagePostsWizualization";
 import PostPanel from "./pages/PostPanelVisualization/PostPanel";
 import UserPanel from "./pages/UserPanelVisualization/UserPanel";
 import UserDataPanel from "./pages/UserPanelVisualization/UserDataPanel";

@@ -1,50 +1,61 @@
 import axios from "axios";
 import React from "react";
 import PostIndexDB from "../../StorageSystem/PostPanel/PostIndexDB";
+import UserBuilder from "../../StorageSystem/UserPanel/Model/UserBuilder";
 
 
 
-class PostApiConnector extends React.Component {
-    static APIADDRESS = "";
+class PostRequests {
 
-    constructor(props) {
-        super(props);
-        this.db = new PostIndexDB();
+    static #instance = null;
+
+    static getInstance() {
+        if (!this.#instance) {
+            this.#instance = new this();
+        }
+        return this.#instance;
     }
 
-    getDb(){
-        return this.db;
+    constructor() {
     }
 
-    async _sendRequest(address) {
-            let response = await axios.get(address);
-            return response.data;
+    sendPost = async (data) => {
+        try {
+
+            const response = await axios.patch(`http://localhost:8080/api/v1/tokenmang/post`,
+                data.value,
+                {
+                    headers: {
+                        'Authorization': data.token,
+                    },
+                });
+
+            return true;
+        } catch (error) {
+            console.log(error)
+            return false;
+        }
     }
 
-    getPostById(){
-        this._sendRequest(PostApiConnector.APIADDRESS)
-            .then((data) => {
-                this.db.savePostToIndexedDB(data);
-                this.db.mapPostsDataToPosts();
+    getAllPosts = async (data) => {
+        try {
 
-            })
-            .catch((error) => {
-                console.error("Error during fetching data from API:", error);
+
+            const response = await axios.get(`http://localhost:8080/api/v1/public/post`, {
+                headers: {
+                    Authorization:data.token,
+                },
             });
+                console.log(response+"Tutaj");
+            return response.data;
+        } catch (error) {
+            console.log("TutajE");
 
+            return false;
+        }
     }
 
-    componentDidMount() {
-        this.getPostById();
-    }
 
-    render() {
-        return (
-            <div>
-                <p>Test</p>
-            </div>
-        );
-    }
 }
 
-export default PostApiConnector;
+export default PostRequests;

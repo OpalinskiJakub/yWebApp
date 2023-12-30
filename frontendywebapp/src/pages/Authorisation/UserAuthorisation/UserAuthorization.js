@@ -6,7 +6,7 @@ import UnsecuredTokenStorageSystem from "../../StorageSystem/TokenStorageSystem/
 import SessionUserStorageSystem from "../../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
 import User from "../../StorageSystem/UserPanel/Model/User";
 import PostPanel from "../../PostPanelVisualization/PostPanel";
-import MainPagePostsWizualization from "../../MainPanel/MainPagePostsWizualization";
+import MainPagePostsWizualization from "../../MainPanelVisualization/MainPagePostsWizualization";
 class UserAuthorization extends Component {
     constructor(props) {
         super(props);

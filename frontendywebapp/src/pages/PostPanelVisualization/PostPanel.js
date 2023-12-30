@@ -3,9 +3,9 @@ import {Button, Card, Form} from "react-bootstrap";
 import PostPanelComment from "./PostPanelComment";
 import PostIndexDB from "../StorageSystem/PostPanel/PostIndexDB";
 import data from "bootstrap/js/src/dom/data";
-import PostApiConnector from "../ApiServices/PostRequests/PostApiConnector";
+import PostRequests from "../ApiServices/PostRequests/PostRequests";
 
-global.Api = new PostApiConnector();
+global.Api = new PostRequests();
 
 
 class PostPanel extends Component {

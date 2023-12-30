@@ -69,7 +69,7 @@ class UserRequests {
 
      async changeUserDataById(data){
         try {
-            console.log(data.value)
+
             const response = await axios.patch(`http://localhost:8080/api/v1/tokenmang/user/${data.id}`,
                 data.value,
                 {
