@@ -38,7 +38,17 @@ class PostService{
 
 
     getAllPostPreview = async () => {
-        let response = await this.postRequests.getAllPostPreview()
+        let response = await this.postRequests.getAllPostPreview();
+        return response;
+    }
+
+    getPostById = async (data) => {
+        let token = this.tokenStorage.getToken();
+        let request = {
+            postId:data,
+            token:token
+        }
+        let response = await this.postRequests.getPostById(request);
         return response;
     }
 

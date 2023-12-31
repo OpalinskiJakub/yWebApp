@@ -1,3 +1,4 @@
+import Post from "./Post";
 class PostBuilder {
     constructor() {
         this.post = new Post(
@@ -71,3 +72,4 @@ class PostBuilder {
         return this.post;
     }
 }
+export default PostBuilder;

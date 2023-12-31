@@ -3,6 +3,7 @@ import {Button, Card, Form} from "react-bootstrap";
 import PostPanelComment from "./PostPanelComment";
 import PostRequests from "../ApiServices/PostRequests/PostRequests";
 import { useParams } from 'react-router-dom';
+import PostService from "../Authorisation/PostAuthorisation/PostService";
 
 
 
@@ -12,20 +13,20 @@ class PostPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title:'',
-            author:'',
-            content:'',
-            comments: [],
-            newComment: ''
+            postId:this.props.params.postId,
+            title:''
         };
+        this.postService = PostService.getInstance();
     }
     async componentDidMount() {
-        const { postId } = this.props.params;
-        this.setState({
-            title:postId
-        })
-
+        await this.refresh();
     }
+
+    refresh = async () => {
+        let response = await this.postService.getPostById(this.state.postId);
+        console.log(response);
+    }
+
     handleAddComment = () => {
 
     };
@@ -52,20 +53,7 @@ class PostPanel extends Component {
                             Komentarze:
                         </Card.Title>
                         <Card.Text>
-                            {this.state.comments.map((comment, index) => (
-                                <PostPanelComment key={index} comment={comment} />
-                            ))}
-                            <Form.Group>
-                                <Form.Control
-                                    as="textarea"
-                                    placeholder="Dodaj komentarz..."
-                                    value={this.state.newComment}
-                                    onChange={(e) => this.setState({ newComment: e.target.value })}
-                                />
-                            </Form.Group>
-                            <Button variant="outline-primary" onClick={this.handleAddComment} style={{padding:4 ,fontSize:15, marginTop:10}}>
-                                Dodaj Komentarz
-                            </Button>
+
                         </Card.Text>
                     </Card>
                 </Card.Body>
@@ -81,3 +69,19 @@ export default (props) => (
         params={useParams()}
     />
 );
+/*
+{this.state.comments.map((comment, index) => (
+                                <PostPanelComment key={index} comment={comment} />
+                            ))}
+                            <Form.Group>
+                                <Form.Control
+                                    as="textarea"
+                                    placeholder="Dodaj komentarz..."
+                                    value={this.state.newComment}
+                                    onChange={(e) => this.setState({ newComment: e.target.value })}
+                                />
+                            </Form.Group>
+                            <Button variant="outline-primary" onClick={this.handleAddComment} style={{padding:4 ,fontSize:15, marginTop:10}}>
+                                Dodaj Komentarz
+                            </Button>
+ */

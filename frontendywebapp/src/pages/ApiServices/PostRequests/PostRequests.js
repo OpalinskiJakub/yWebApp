@@ -1,7 +1,8 @@
 import axios from "axios";
 import React from "react";
 import PostPreviewBuilder from "../../StorageSystem/PostPanel/Model/PostPreviewBuilder";
-
+import UserBuilder from "../../StorageSystem/UserPanel/Model/UserBuilder";
+import PostBuilder from "../../StorageSystem/PostPanel/Model/PostBuilder";
 
 class PostRequests {
 
@@ -68,9 +69,19 @@ class PostRequests {
                     Authorization:data.token,
                 },
             });
-            console.log(response);
+            let post = PostBuilder.Builder()
+                .setId(response.data.id)
+                .setOwnerId(response.data.ownerId)
+                .setOwnerName(response.data.ownerName)
+                .setTitle(response.data.title)
+                .setContent(response.data.content)
+                .setUpvote(response.data.upvote)
+                .setReported(response.data.response)
+                .setSystemCommentList(response.data.systemCommentList)
+                .setUpvoteUserId(response.data.upvoteUserId)
+                .build()
 
-            return response.data;
+            return post;
         } catch (error) {
 
 
