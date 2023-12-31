@@ -1,11 +1,9 @@
 import React, {Component} from "react";
 import {Button, Card, Form} from "react-bootstrap";
 import PostPanelComment from "./PostPanelComment";
-import PostIndexDB from "../StorageSystem/PostPanel/PostIndexDB";
-import data from "bootstrap/js/src/dom/data";
 import PostRequests from "../ApiServices/PostRequests/PostRequests";
+import { useParams } from 'react-router-dom';
 
-global.Api = new PostRequests();
 
 
 class PostPanel extends Component {
@@ -22,21 +20,11 @@ class PostPanel extends Component {
         };
     }
     async componentDidMount() {
-        try {
-            await global.Api.getPostById();
-            let db = await global.Api.getDb();
-            //let result = await db.mapPostsDataToPosts();
-            let result={"postId":1,"title":"Post nr 1","content":"Post o reakcie","author":{"userId":1,"name":"Jan","surname":"Kowalski"},"comments":[{"commentId":1,"author":{"userId":1,"name":"Jan","surname":"Kowalski"},"content":"Komentarz glowny #1","answers":[{"commentId":3,"author":{"userId":3,"name":"Krzysztof","surname":"Krakowski"},"content":"Odpowiedz do komentarza #1 #1","answers":[]},{"commentId":3,"author":{"userId":3,"name":"Krzysztof","surname":"Krakowski"},"content":"Odpowiedz do komentarza #1 #2","answers":[{"commentId":3,"author":{"userId":3,"name":"Krzysztof","surname":"Krakowski"},"content":"Odpowiedz do komentarza #1 #1","answers":[{"commentId":3,"author":{"userId":3,"name":"Krzysztof","surname":"Krakowski"},"content":"Odpowiedz do komentarza #1 #1","answers":[{"commentId":3,"author":{"userId":3,"name":"Krzysztof","surname":"Krakowski"},"content":"Odpowiedz do komentarza #1 #1","answers":[{"commentId":3,"author":{"userId":3,"name":"Krzysztof","surname":"Krakowski"},"content":"Odpowiedz do komentarza #1 #1","answers":[{"commentId":3,"author":{"userId":3,"name":"Krzysztof","surname":"Krakowski"},"content":"Odpowiedz do komentarza #1 #1","answers":[{"commentId":4,"author":{"userId":2,"name":"Marek","surname":"Mazowiecki"},"content":"Odpowiedz do komentarza #1 #2","answers":[]}]}]}]}]}]}]}]},{"commentId":2,"author":{"userId":2,"name":"Marek","surname":"Mazowiecki"},"content":"Kometarz glowny #2","answers":[{"commentId":5,"author":{"userId":1,"name":"Jan","surname":"Kowalski"},"content":"Odpowiedz do komentarza #2","answers":[]}]}]}
-            result = result;
-            this.setState({author:result.author.name})
-            this.setState({ title: result.title});
-            this.setState({ content: result.content});
-            this.setState({comments:result.comments})
+        const { postId } = this.props.params;
+        this.setState({
+            title:postId
+        })
 
-        } catch (error) {
-
-            console.error('Error during mapping posts data:', error);
-        }
     }
     handleAddComment = () => {
 
@@ -86,4 +74,10 @@ class PostPanel extends Component {
     }
 }
 
-export default PostPanel;
+
+export default (props) => (
+    <PostPanel
+        {...props}
+        params={useParams()}
+    />
+);

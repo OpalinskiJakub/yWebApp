@@ -50,7 +50,7 @@ class App extends Component{
                 <Route element={<UserAutorization/>}>
                     <Route path="/home" element={<Home />}>
                         <Route index element={<MainPagePostsWizualization/>}/>
-                        <Route path="post" element={<PostPanel/>}/>
+                        <Route path="post/:postId" element={<PostPanel/>}/>
                         <Route path="postCreator" element={<CreatePostPanel/>}/>
                         <Route path="userPanel" element={<UserPanel/>}>
                             <Route index element={<UserDataPanel/>}/>

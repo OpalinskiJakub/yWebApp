@@ -20,27 +20,36 @@ class MainPagePostsWizualization extends Component {
         this.setState({
             posts: response,
         });
+        console.log(response);
+        console.log(this.state.posts.length)
     }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(this.state.posts.length)
+    }
+
 
     render() {
         return (
             <Container>
-                {this.state.posts.map((post, index) => (
-                    <Card key={index} className="mx-auto" style={{ width: '80%', margin: '10px' }}>
-                        <Card.Body>
-                            <Card.Title>{post.title}</Card.Title>
-                            <Card.Text>{post.content}</Card.Text>
-                        </Card.Body>
-                        <Card.Footer className="text-center">
-                            <Button variant="outline-primary" href={`/home/post/${post.id}`}>
-                                Zobacz post
-                            </Button>
-                        </Card.Footer>
-                    </Card>
-                ))}
+                {this.state.posts.length >= 1 ?  (
+                    this.state.posts.map((post, index) => (
+                        <Card key={index} className="mx-auto" style={{ width: '80%', margin: '10px' }}>
+                            <Card.Body>
+                                <Card.Title>{post.ownerName}</Card.Title>
+                                <Card.Text>{post.title}</Card.Text>
+                            </Card.Body>
+                            <Card.Footer className="text-center">
+                                <Button variant="outline-primary" href={`/home/post/${post.id}`}>
+                                    Zobacz post
+                                </Button>
+                            </Card.Footer>
+                        </Card>
+                    ))
+                ): null}
             </Container>
         );
     }
+
 }
 
 export default MainPagePostsWizualization;

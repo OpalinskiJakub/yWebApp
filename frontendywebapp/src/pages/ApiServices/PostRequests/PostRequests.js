@@ -1,9 +1,6 @@
 import axios from "axios";
 import React from "react";
-import PostIndexDB from "../../StorageSystem/PostPanel/PostIndexDB";
-import UserBuilder from "../../StorageSystem/UserPanel/Model/UserBuilder";
-import comment from "../../StorageSystem/PostPanel/Model/Comment";
-
+import PostPreviewBuilder from "../../StorageSystem/PostPanel/Model/PostPreviewBuilder";
 
 
 class PostRequests {
@@ -41,11 +38,22 @@ class PostRequests {
 
     getAllPostPreview = async (data) => {
         try {
-
-
             const response = await axios.get(`http://localhost:8080/api/v1/public/post`);
 
-            return response.data;
+            let postPreviewArray = []
+            response.data.forEach(postData => {
+                const postPreview = PostPreviewBuilder.Builder()
+                    .setId(postData.id)
+                    .setOwnerId(postData.ownerId)
+                    .setOwnerName(postData.ownerName)
+                    .setTitle(postData.title)
+                    .setUpvote(postData.upvote)
+                    .build();
+
+                postPreviewArray.push(postPreview);
+            });
+
+            return postPreviewArray;
         } catch (error) {
 
 
