@@ -55,8 +55,6 @@ class PostRequests {
 
     getPostById = async (data) => {
         try {
-
-
             const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/post/${data.postId}`, {
                 headers: {
                     Authorization:data.token,
