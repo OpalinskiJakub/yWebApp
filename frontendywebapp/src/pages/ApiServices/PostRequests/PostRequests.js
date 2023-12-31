@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import PostIndexDB from "../../StorageSystem/PostPanel/PostIndexDB";
 import UserBuilder from "../../StorageSystem/UserPanel/Model/UserBuilder";
+import comment from "../../StorageSystem/PostPanel/Model/Comment";
 
 
 
@@ -38,19 +39,34 @@ class PostRequests {
         }
     }
 
-    getAllPosts = async (data) => {
+    getAllPostPreview = async (data) => {
         try {
 
 
-            const response = await axios.get(`http://localhost:8080/api/v1/public/post`, {
+            const response = await axios.get(`http://localhost:8080/api/v1/public/post`);
+
+            return response.data;
+        } catch (error) {
+
+
+            return false;
+        }
+    }
+
+    getPostById = async (data) => {
+        try {
+
+
+            const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/post/${data.postId}`, {
                 headers: {
                     Authorization:data.token,
                 },
             });
-                console.log(response+"Tutaj");
+            console.log(response);
+
             return response.data;
         } catch (error) {
-            console.log("TutajE");
+
 
             return false;
         }

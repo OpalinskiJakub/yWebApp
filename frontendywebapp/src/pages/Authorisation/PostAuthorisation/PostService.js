@@ -37,6 +37,12 @@ class PostService{
     }
 
 
+    getAllPostPreview = async () => {
+        let response = await this.postRequests.getAllPostPreview()
+        return response;
+    }
+
+
 
 }
 export default PostService;
