@@ -57,7 +57,9 @@ class PostPanelComment extends Component {
     }
 
     removeComment = async () => {
-
+        await this.postService.validateAndRemoveComment(this.props.comment.id);
+        const { refresh } = this.props;
+        await refresh();
     }
 
 
@@ -179,7 +181,11 @@ class PostPanelComment extends Component {
                         </Button>
                     </Col>
                     <Col>
-                        <Button variant="outline-primary" style={buttonStyle} >
+                        <Button
+                            variant="outline-primary"
+                            style={buttonStyle}
+                            onClick={this.removeComment}
+                        >
                             Usuń
                         </Button>
                     </Col>

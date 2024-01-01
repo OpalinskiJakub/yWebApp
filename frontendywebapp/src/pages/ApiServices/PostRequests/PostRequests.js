@@ -184,6 +184,23 @@ class PostRequests {
         }
     }
 
+    removeCommentById = async (data) => {
+        try {
+            const response = await axios.delete(`http://localhost:8080/api/v1/tokenmang/comment/${data.commentId}`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': data.token,
+                    },
+                });
+
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
 }
 
 export default PostRequests;

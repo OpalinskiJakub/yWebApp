@@ -162,6 +162,15 @@ class PostService{
         return await this.postRequests.addVoteCommentById(request);
     }
 
+    validateAndRemoveComment = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        const request = {
+            commentId:data,
+            token:token
+        }
+        return await this.postRequests.removeCommentById(request);
+    }
+
 
 }
 export default PostService;
