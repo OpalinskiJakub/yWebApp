@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Button, Form, DropdownButton, Dropdown, Card,Row,Col} from "react-bootstrap";
+import PostService from "../Authorisation/PostAuthorisation/PostService";
 
 
 class PostPanelComment extends Component {
@@ -9,22 +10,31 @@ class PostPanelComment extends Component {
             showReplyForm: false,
             newReply: ''
         };
+        this.postService = PostService.getInstance();
 
     }
 
-    handleAddReply = () => {
-        this.props.handleReply(this.props.comment, this.state.newReply);
-        this.setState({ newReply: '', showReplyForm: false });
-    };
+
+
+    addReply = async () => {
+        let data= {
+            content:this.state.newReply,
+            commentId:this.props.comment.id,
+        }
+        let response = await this.postService.addReplyComment(data);
+        const { refresh } = this.props;
+        await refresh();
+        console.log(response)
+    }
 
     render() {
         const { comment, handleReply, isReply } = this.props;
 
         const replyStyle = {
             borderLeft: isReply ? '3px solid blue' : 'none',
-            paddingLeft: isReply ? '5%' : '0',
+            paddingLeft: isReply ? '5%' : '1%',
             marginLeft: isReply ? '5%' : '1%',
-            marginRight: isReply ? '5%' : '1%',
+            marginRight: isReply ? '5%' : '3%',
             marginTop: isReply ? '0' : '1%'
         };
 
@@ -48,6 +58,8 @@ class PostPanelComment extends Component {
             fontSize: '90%',
             padding: '7%',
         };
+
+        const { refresh } = this.props;
 
         return (
             <div style={replyStyle}>
@@ -118,7 +130,7 @@ class PostPanelComment extends Component {
                                 onChange={(e) => this.setState({ newReply: e.target.value })}
                             />
                         </Form.Group>
-                        <Button variant="outline-primary" onClick={this.handleAddReply} style={{padding:4 ,fontSize:15, marginTop:10}}>
+                        <Button variant="outline-primary" onClick={this.addReply} style={{padding:4 ,fontSize:15, marginTop:10}}>
                             Dodaj Odpowiedź
                         </Button>
 
@@ -128,7 +140,7 @@ class PostPanelComment extends Component {
             </Card>
                 {Array.isArray(this.props.comment.systemCommentList) &&
                     this.props.comment.systemCommentList.map((comment, index) => (
-                        <PostPanelComment key={index} comment={comment} />
+                        <PostPanelComment key={index} comment={comment} refresh={refresh} />
                     ))}
 
 

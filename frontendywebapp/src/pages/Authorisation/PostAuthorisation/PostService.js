@@ -109,6 +109,21 @@ class PostService{
         return await this.postRequests.addCommentToPost(request);
     }
 
+    addReplyComment = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+        const request = {
+            value:{
+                ownerId:user.id,
+                ownerName:user.username,
+                content:data.content,
+            },
+            postId:data.commentId,
+            token:token,
+        }
+        return await this.postRequests.addCommentToPost(request);
+    }
+
 
 }
 export default PostService;

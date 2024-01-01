@@ -164,7 +164,7 @@ class PostPanel extends Component {
                         <Card.Title>Komentarze:</Card.Title>
                         {Array.isArray(this.state.post.systemCommentList) &&
                             this.state.post.systemCommentList.map((comment, index) => (
-                                <PostPanelComment key={index} comment={comment} />
+                                <PostPanelComment key={index} comment={comment} refresh={this.refresh} />
                             ))}
                         <Form.Group>
                             <Form.Control
