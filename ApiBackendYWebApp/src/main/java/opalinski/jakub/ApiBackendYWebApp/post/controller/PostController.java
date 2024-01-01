@@ -40,7 +40,7 @@ public class PostController {
     public ResponseEntity<List<PostDataResponse>> getAllPosts() {
         List<PostDataResponse> postDataResponseList = systemPostService.getAllPosts();
         if(postDataResponseList.isEmpty())
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         return ResponseEntity.ok(systemPostService.getAllPosts());
     }
 
@@ -73,7 +73,29 @@ public class PostController {
     @PatchMapping("/tokenmang/post/{id}")
     public ResponseEntity<SystemPost> updatePost(@PathVariable String id, @RequestBody SystemPost systemPost){
         try {
-            return ResponseEntity.ok(systemPostService.updateUser(id, systemPost));
+            return ResponseEntity.ok(systemPostService.updatePost(id, systemPost));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @CrossOrigin
+    @PatchMapping("/tokenmang/post/{id}/report")
+    public ResponseEntity<SystemPost> updatePost(@PathVariable String id){
+        try {
+            return ResponseEntity.ok(systemPostService.reportPost(id));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @CrossOrigin
+    @DeleteMapping("/tokenmang/post/{id}")
+    public ResponseEntity<SystemPost> delete(@PathVariable String id){
+        try {
+            return ResponseEntity.ok(systemPostService.removePost(id));
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

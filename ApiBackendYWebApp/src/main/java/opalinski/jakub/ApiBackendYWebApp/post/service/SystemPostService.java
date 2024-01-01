@@ -94,22 +94,21 @@ public class SystemPostService {
             throw new Exception("Error while processing post entity.");
         }
         var postData = systemPost.get();
-        if (postData.getUpvoteUserId().contains(userId)){
-            postData.setUpvote(postData.getUpvote()-1);
+        if (postData.getUpvoteUserId().contains(userId)) {
+            postData.setUpvote(postData.getUpvote() - 1);
             postData.getUpvoteUserId().remove(userId);
-        }
-        else{
-            postData.setUpvote(postData.getUpvote()+1);
+        } else {
+            postData.setUpvote(postData.getUpvote() + 1);
             postData.getUpvoteUserId().add(userId);
         }
         postRepository.save(postData);
         return postData;
     }
 
-    public SystemPost updateUser(String id, SystemPost systemPost) {
+    public SystemPost updatePost(String id, SystemPost systemPost) {
         Optional<SystemPost> optionalSystemPost = postRepository.findSystemPostById(id);
 
-        if(optionalSystemPost.isEmpty()){
+        if (optionalSystemPost.isEmpty()) {
             return null;
         }
 
@@ -117,6 +116,25 @@ public class SystemPostService {
         systemPostData.setContent(systemPost.getContent() != null ? systemPost.getContent() : systemPostData.getContent());
         postRepository.save(systemPostData);
         return systemPostData;
+    }
+
+    public SystemPost removePost(String id) throws Exception {
+        return postRepository.findById(id)
+                .map(systemPost -> {
+                    postRepository.delete(systemPost);
+                    return systemPost;
+                })
+                .orElseThrow(() -> new Exception("Could not find entity with ID: " + id));
+    }
+
+    public SystemPost reportPost(String id) throws Exception {
+        return postRepository.findById(id)
+                .map(systemPost -> {
+                    systemPost.setReported(!systemPost.getReported());
+                    postRepository.save(systemPost);
+                    return systemPost;
+                })
+                .orElseThrow(() -> new Exception("Could not find entity with ID: " + id));
     }
 }
 
