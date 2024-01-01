@@ -54,7 +54,8 @@ class PostPanel extends Component {
         await this.refresh();
     }
     removePost = async () => {
-        //this.postService
+        let response = await this.postService.validateAndRemovePost(this.state.post.id);
+        console.log(response);
     }
 
 
@@ -109,7 +110,12 @@ class PostPanel extends Component {
                                 </Button>
                             </Col>
                             <Col>
-                                <Button variant="outline-primary" style={buttonStyle} >
+                                <Button
+                                    variant="outline-primary"
+                                    style={buttonStyle}
+                                    onClick={this.removePost}
+
+                                >
                                     Usuń
                                 </Button>
                             </Col>

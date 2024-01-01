@@ -74,8 +74,14 @@ class PostService{
         return await this.postRequests.editPost(request)
     }
 
-    removePost = () => {
-        //this.postRequests.
+    validateAndRemovePost = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        const request = {
+            postId:data,
+            token:token
+        }
+        return await this.postRequests.removePostById(request);
+
     }
 
 

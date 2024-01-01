@@ -113,8 +113,21 @@ class PostRequests {
         }
     }
 
-    removePostById = () => {
+    removePostById = async (data) => {
+        try {
+            const response = await axios.delete(` http://localhost:8080/api/v1/tokenmang/post/${data.postId}`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': data.token,
+                    },
+                });
 
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
     }
 
 
