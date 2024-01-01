@@ -148,6 +148,24 @@ class PostRequests {
         }
     }
 
+    addCommentToPost = async (data) => {
+        try {
+            const response = await axios.post(`http://localhost:8080/api/v1/tokenmang/post/comment/${data.postId}`,
+                data.value,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': data.token,
+                    },
+                });
+
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
 }
 
 export default PostRequests;

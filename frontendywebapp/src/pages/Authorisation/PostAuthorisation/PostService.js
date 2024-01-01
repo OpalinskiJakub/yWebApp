@@ -94,6 +94,20 @@ class PostService{
         }
         return await this.postRequests.AddVoteById(request);
     }
+    validateAndSendComment = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+        const request = {
+            value:{
+                ownerId:user.id,
+                ownerName:user.username,
+                content:data.content,
+            },
+            postId:data.postId,
+            token:token,
+        }
+        return await this.postRequests.addCommentToPost(request);
+    }
 
 
 }

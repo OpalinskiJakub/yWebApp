@@ -15,8 +15,11 @@ class PostPanel extends Component {
         this.state = {
             isPostOwner:false,
 
-            showReplyForm: false,
+            showEditForm: false,
+
+            newComment:'',
             newContent:'',
+
 
             postId: this.props.params.postId,
             post: '',
@@ -65,8 +68,15 @@ class PostPanel extends Component {
     }
 
 
-    handleAddComment = () => {
-        // Add your comment handling logic here
+    addComment = async () => {
+        let data= {
+            content:this.state.newComment,
+            postId:this.state.post.id,
+        }
+        console.log(data)
+        let response = await this.postService.validateAndSendComment(data);
+        console.log(response);
+        await this.refresh();
     };
 
     render() {
@@ -132,7 +142,7 @@ class PostPanel extends Component {
                             </>
                             )}
                         </Row>
-                        {this.state.showReplyForm && (
+                        {this.state.showEditForm && (
                             <Form>
                                 <Form.Group style={{ marginTop: '10px' }}>
                                     <Form.Control
@@ -166,7 +176,7 @@ class PostPanel extends Component {
                         </Form.Group>
                         <Button
                             variant="outline-primary"
-                            onClick={this.handleAddComment}
+                            onClick={this.addComment}
                             style={{ padding: 4, fontSize: 15, marginTop: 10 }}
                         >
                             Dodaj Komentarz
