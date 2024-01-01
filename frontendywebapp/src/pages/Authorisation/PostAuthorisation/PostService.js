@@ -84,6 +84,17 @@ class PostService{
 
     }
 
+    validateAndAddVote = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+        const request = {
+            postId:data,
+            token:token,
+            userId:user.id,
+        }
+        return await this.postRequests.AddVoteById(request);
+    }
+
 
 }
 export default PostService;

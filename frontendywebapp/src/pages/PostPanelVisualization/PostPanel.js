@@ -58,6 +58,12 @@ class PostPanel extends Component {
         console.log(response);
     }
 
+    addVote = async () => {
+        let response = await this.postService.validateAndAddVote(this.state.postId);
+        console.log(response);
+        await this.refresh();
+    }
+
 
     handleAddComment = () => {
         // Add your comment handling logic here
@@ -89,7 +95,11 @@ class PostPanel extends Component {
 
                             </Col>
                             <Col>
-                                <Button variant="outline-primary" style={buttonStyle} >
+                                <Button
+                                    variant="outline-primary"
+                                    style={buttonStyle}
+                                    onClick={this.addVote}
+                                >
                                     Polub
                                 </Button>
                             </Col>
