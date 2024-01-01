@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class SystemPost {
     private String ownerId;
     private String ownerName;
     @Indexed(unique = true)
+    @TextIndexed
     private String title;
     private String content;
     private Integer upvote;

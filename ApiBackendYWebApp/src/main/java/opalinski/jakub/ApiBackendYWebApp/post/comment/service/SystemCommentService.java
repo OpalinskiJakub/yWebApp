@@ -75,5 +75,14 @@ public class SystemCommentService {
         commentRepository.save(commentData);
         return commentData;
     }
+
+    public SystemComment deleteComment(String id) throws Exception{
+        return commentRepository.findById(id)
+                .map(systemComment -> {
+                    commentRepository.delete(systemComment);
+                    return systemComment;
+                })
+                .orElseThrow(() -> new Exception("Could not find entity with ID: " + id));
+    }
 }
 

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -135,6 +136,15 @@ public class SystemPostService {
                     return systemPost;
                 })
                 .orElseThrow(() -> new Exception("Could not find entity with ID: " + id));
+    }
+
+    public List<PostDataResponse> getSpecificPostByTitle(String title) {
+        var postDataResponseList = postRepository.findAllByTitleContaining(title)
+                .map(PostDataResponse::new).stream().toList();
+        if (postDataResponseList.isEmpty()){
+            throw new NoSuchElementException("No such element found");
+        }
+        return postDataResponseList;
     }
 }
 

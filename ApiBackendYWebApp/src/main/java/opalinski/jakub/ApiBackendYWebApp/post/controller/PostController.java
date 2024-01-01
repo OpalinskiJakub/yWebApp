@@ -13,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequiredArgsConstructor
@@ -70,6 +71,19 @@ public class PostController {
 
     @PreAuthorize("hasRole('USER')")
     @CrossOrigin
+    @GetMapping("/tokenmang/post/search/{title}")
+    public ResponseEntity<List<PostDataResponse>> getSpecificPostByTitle(@PathVariable String title){
+        try {
+            return ResponseEntity.ok(systemPostService.getSpecificPostByTitle(title));
+        } catch (NoSuchElementException e){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PreAuthorize("hasRole('USER')")
+    @CrossOrigin
     @PatchMapping("/tokenmang/post/{id}")
     public ResponseEntity<SystemPost> updatePost(@PathVariable String id, @RequestBody SystemPost systemPost){
         try {
@@ -93,7 +107,7 @@ public class PostController {
     @PreAuthorize("hasRole('USER')")
     @CrossOrigin
     @DeleteMapping("/tokenmang/post/{id}")
-    public ResponseEntity<SystemPost> delete(@PathVariable String id){
+    public ResponseEntity<SystemPost> deletePost(@PathVariable String id){
         try {
             return ResponseEntity.ok(systemPostService.removePost(id));
         } catch (Exception e) {

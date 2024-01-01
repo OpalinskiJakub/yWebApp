@@ -25,4 +25,15 @@ public class CommentController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @CrossOrigin
+    @PreAuthorize("hasRole('USER')")
+    @DeleteMapping("/tokenmang/comment/{entityId}")
+    public ResponseEntity<SystemComment> deleteComment(@PathVariable String entityId){
+        try {
+            return ResponseEntity.ok(systemCommentService.deleteComment(entityId));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
