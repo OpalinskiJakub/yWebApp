@@ -20,11 +20,6 @@ class MainPagePostsWizualization extends Component {
         this.setState({
             posts: response,
         });
-        console.log(response);
-        console.log(this.state.posts.length)
-    }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(this.state.posts.length)
     }
 
 

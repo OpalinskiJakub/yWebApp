@@ -49,6 +49,7 @@ class PostService{
             token:token
         }
         let response = await this.postRequests.getPostById(request);
+        console.log(response);
         return response;
     }
 

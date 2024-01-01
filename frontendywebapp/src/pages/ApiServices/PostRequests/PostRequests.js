@@ -1,8 +1,9 @@
 import axios from "axios";
-import React from "react";
+import React, {Component} from "react";
 import PostPreviewBuilder from "../../StorageSystem/PostPanel/Model/PostPreviewBuilder";
 import UserBuilder from "../../StorageSystem/UserPanel/Model/UserBuilder";
 import PostBuilder from "../../StorageSystem/PostPanel/Model/PostBuilder";
+import CommentBuilder from "../../StorageSystem/PostPanel/Model/CommentBuilder";
 
 class PostRequests {
 
@@ -69,6 +70,8 @@ class PostRequests {
                     Authorization:data.token,
                 },
             });
+
+
             let post = PostBuilder.Builder()
                 .setId(response.data.id)
                 .setOwnerId(response.data.ownerId)

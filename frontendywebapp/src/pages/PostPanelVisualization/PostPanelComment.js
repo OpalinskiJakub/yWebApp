@@ -55,16 +55,16 @@ class PostPanelComment extends Component {
                 <Card.Title >
                     <Row xs="auto">
                         <Col>
-                            {this.props.comment.author.name}
+                            {this.props.comment.ownerName}
                         </Col>
                         <Col>
-                            {this.props.parentName ? <Card style={{padding:4 ,fontSize:15}}>
+                            {this.props.comment.ownerName ? <Card style={{padding:4 ,fontSize:15}}>
                                 Odpowiada
                             </Card> : ""}
 
                         </Col>
                         <Col>
-                            {this.props.parentName}
+                            {this.props.comment.ownerName}
                         </Col>
 
                     </Row>
@@ -132,12 +132,16 @@ class PostPanelComment extends Component {
                 )}
             </Card>
 
-                {this.props.comment.answers.map((comment, index) => (
-                    <PostPanelComment key={index} comment={comment} parentName={this.props.comment.author.name}/>
-                ))}
+
     </div>
         );
     }
 }
 
 export default PostPanelComment;
+
+/*
+{this.props.comment.answers.map((comment, index) => (
+                    <PostPanelComment key={index} comment={comment} parentName={this.props.comment.author.name}/>
+                ))}
+ */
