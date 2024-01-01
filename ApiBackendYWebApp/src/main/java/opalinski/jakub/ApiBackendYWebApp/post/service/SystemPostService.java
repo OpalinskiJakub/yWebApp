@@ -6,6 +6,7 @@ import opalinski.jakub.ApiBackendYWebApp.post.comment.CommentRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.model.PostDataResponse;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
+import opalinski.jakub.ApiBackendYWebApp.post.model.TitleRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -138,13 +139,26 @@ public class SystemPostService {
                 .orElseThrow(() -> new Exception("Could not find entity with ID: " + id));
     }
 
-    public List<PostDataResponse> getSpecificPostByTitle(String title) {
-        var postDataResponseList = postRepository.findAllByTitleContaining(title)
-                .map(PostDataResponse::new).stream().toList();
-        if (postDataResponseList.isEmpty()){
-            throw new NoSuchElementException("No such element found");
+    public List<PostDataResponse> getSpecificPostByTitle(TitleRequest title) {
+        if (title.getTitle() == null || title.getTitle().isEmpty()) {
+            throw new IllegalArgumentException("Request not satisfied.");
         }
-        return postDataResponseList;
+
+        return postRepository.findAllByTitleLike(title.getTitle())
+                .map(titleRequest -> titleRequest
+                        .stream()
+                        .map(PostDataResponse::new))
+                .orElseThrow(()-> new NoSuchElementException("No such element found"))
+                .collect(Collectors.toList());
+    }
+
+    public List<PostDataResponse> getUserPosts(String userId) {
+        return postRepository.findAllByOwnerId(userId)
+                .map(systemPosts -> systemPosts
+                        .stream()
+                        .map(PostDataResponse::new))
+                .orElseThrow(()-> new NoSuchElementException("No such element found"))
+                .collect(Collectors.toList());
     }
 }
 

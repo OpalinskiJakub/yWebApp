@@ -19,6 +19,10 @@ public class PostDataResponse {
         this.upvote = systemPost.getUpvote();
     }
 
+    public PostDataResponse (TitleRequest systemPost){
+        this.title = systemPost.getTitle();
+    }
+
     private String id;
     private String ownerId;
     private String ownerName;
