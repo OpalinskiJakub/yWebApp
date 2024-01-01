@@ -21,6 +21,7 @@ public class SystemComment {
     private String id;
     private String ownerId;
     private String ownerName;
+    private String parentOwnerName;
     private String parentId;
     private Integer upvote;
     private String content;

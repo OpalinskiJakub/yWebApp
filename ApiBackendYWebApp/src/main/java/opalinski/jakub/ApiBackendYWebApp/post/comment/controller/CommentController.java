@@ -1,4 +1,4 @@
-package opalinski.jakub.ApiBackendYWebApp.post.comment;
+package opalinski.jakub.ApiBackendYWebApp.post.comment.controller;
 
 import lombok.RequiredArgsConstructor;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;

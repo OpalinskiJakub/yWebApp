@@ -2,6 +2,7 @@
 package opalinski.jakub.ApiBackendYWebApp.post.comment.service;
 
 import lombok.RequiredArgsConstructor;
+import opalinski.jakub.ApiBackendYWebApp.post.PostRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.CommentRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class SystemCommentService {
 
     private final CommentRepository commentRepository;
+    private final PostRepository postRepository;
 
     public SystemComment saveComment(String parentId, SystemComment systemComment) throws IllegalArgumentException {
         if ((parentId == null || parentId.isEmpty()) ||
@@ -25,10 +27,16 @@ public class SystemCommentService {
             throw new IllegalArgumentException("One or more fields are empty or null");
         }
 
+        String parentOwnerName = getCommentParentOwnerName(parentId);
+        if (parentOwnerName == null || parentOwnerName.isEmpty()) {
+            throw new IllegalArgumentException("There is no such parent.");
+        }
+
         var comment = SystemComment.builder()
                 .ownerName(systemComment.getOwnerName())
                 .ownerId(systemComment.getOwnerId())
                 .content(systemComment.getContent())
+                .parentOwnerName(parentOwnerName)
                 .parentId(parentId)
                 .upvote(0)
                 .systemCommentList(Collections.emptyList())
@@ -37,6 +45,15 @@ public class SystemCommentService {
 
         commentRepository.save(comment);
         return comment;
+    }
+
+    private String getCommentParentOwnerName(String parentId) {
+        Optional<SystemPost> postParent = postRepository.findById(parentId);
+        if (postParent.isPresent()) {
+            return postParent.get().getOwnerName();
+        }
+        Optional<SystemComment> commentParent = commentRepository.findById(parentId);
+        return commentParent.map(SystemComment::getOwnerName).orElse(null);
     }
 
     public SystemComment upvoteComment(String commentId, String userId) throws Exception {
