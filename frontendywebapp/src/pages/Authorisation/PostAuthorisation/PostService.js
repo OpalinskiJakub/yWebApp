@@ -36,6 +36,15 @@ class PostService{
         return response;
     }
 
+    checkOwner = async (ownerId) => {
+        let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+        if(user.id === ownerId){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 
     getAllPostPreview = async () => {
         let response = await this.postRequests.getAllPostPreview();
@@ -53,6 +62,21 @@ class PostService{
         return response;
     }
 
+    validateAndEditPost = async (data) => {
+        let token = this.tokenStorage.getToken();
+        const request = {
+            value:{
+                content:data.content
+            },
+            postId:data.postId,
+            token:token
+        }
+        return await this.postRequests.editPost(request)
+    }
+
+    removePost = () => {
+        //this.postRequests.
+    }
 
 
 }

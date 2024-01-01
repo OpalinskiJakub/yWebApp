@@ -38,6 +38,27 @@ class PostRequests {
         }
     }
 
+    editPost = async (data) =>{
+        try {
+
+            const response = await axios.patch(` http://localhost:8080/api/v1/tokenmang/post/${data.postId}`,
+                data.value,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': data.token,
+                    },
+                });
+
+
+
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
     getAllPostPreview = async (data) => {
         try {
             const response = await axios.get(`http://localhost:8080/api/v1/public/post`);
@@ -90,6 +111,10 @@ class PostRequests {
 
             return false;
         }
+    }
+
+    removePostById = () => {
+
     }
 
 

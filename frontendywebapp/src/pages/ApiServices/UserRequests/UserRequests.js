@@ -79,7 +79,7 @@ class UserRequests {
                 },
             });
 
-            console.log(response+"ttuaj");
+
             let sesseionUser = UserBuilder.Builder()
                 .setId(response.data.id)
                 .setEmail(response.data.email)

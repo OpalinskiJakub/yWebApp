@@ -80,7 +80,7 @@ class PostPanelComment extends Component {
                 <Row xs="auto">
                     <Col>
                         <Card style={{padding:5}}>
-                                1 polubień
+                            {this.props.comment.upvote} polubień
                         </Card>
 
                     </Col>
@@ -97,11 +97,6 @@ class PostPanelComment extends Component {
                     <Col>
                         <Button variant="outline-primary" style={buttonStyle} >
                             Usuń
-                        </Button>
-                    </Col>
-                    <Col>
-                        <Button variant="outline-primary" style={buttonStyle} >
-                            Zgłoś
                         </Button>
                     </Col>
                 </Row>
@@ -131,6 +126,10 @@ class PostPanelComment extends Component {
                     </div>
                 )}
             </Card>
+                {Array.isArray(this.props.comment.systemCommentList) &&
+                    this.props.comment.systemCommentList.map((comment, index) => (
+                        <PostPanelComment key={index} comment={comment} />
+                    ))}
 
 
     </div>
