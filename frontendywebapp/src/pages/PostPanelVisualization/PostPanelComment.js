@@ -8,12 +8,42 @@ class PostPanelComment extends Component {
         super(props);
         this.state = {
             showReplyForm: false,
-            newReply: ''
+            newReply: '',
+            voteState:true
         };
         this.postService = PostService.getInstance();
 
     }
 
+
+
+    checkState = async () => {
+            let votes = this.props.comment.upvoteUserId;
+            let response = await this.postService.checkVoteState(votes);
+            if(response==true){
+                this.setState({
+                    voteState:true
+                })
+            }else {
+                this.setState({
+                    voteState:false
+                })
+            }
+
+    }
+    async componentDidMount() {
+        let votes = this.props.comment.upvoteUserId;
+        let response = await this.postService.checkVoteState(votes);
+        if(response==true){
+            this.setState({
+                voteState:false
+            })
+        }else {
+            this.setState({
+                voteState:true
+            })
+        }
+    }
 
 
     addReply = async () => {
@@ -24,7 +54,19 @@ class PostPanelComment extends Component {
         let response = await this.postService.addReplyComment(data);
         const { refresh } = this.props;
         await refresh();
-        console.log(response)
+    }
+
+    removeComment = async () => {
+
+    }
+
+
+    addVote = async () => {
+        let response = await this.postService.validateAndAddCommentVote(this.props.comment.id)
+        console.log(response);
+        this.checkState();
+        const { refresh } = this.props;
+        await refresh();
     }
 
     render() {
@@ -58,6 +100,20 @@ class PostPanelComment extends Component {
             fontSize: '90%',
             padding: '7%',
         };
+        const buttonStyle3 = {
+            fontSize: '200%',
+            padding: '10%',
+        }
+
+        const buttonStyleLike = {
+            fontSize: '100%',
+            padding: '10%',
+
+        }
+        const buttonStyleUnlike = {
+            fontSize: '64%',
+            padding: '1%',
+        }
 
         const { refresh } = this.props;
 
@@ -66,6 +122,7 @@ class PostPanelComment extends Component {
             <Card className="m-3" style={{ padding: 10 }} >
                 <Card.Title >
                     <Row xs="auto">
+
                         <Col>
                             {this.props.comment.ownerName}
                         </Col>
@@ -97,9 +154,24 @@ class PostPanelComment extends Component {
 
                     </Col>
                     <Col>
-                        <Button variant="outline-primary" style={buttonStyle} >
-                            Polub
-                        </Button>
+                        {this.state.voteState ?
+                            <Button
+                                variant="outline-primary"
+                                style={buttonStyleLike}
+                                onClick={this.addVote}
+                            >
+                                Polub
+                            </Button>
+                            :
+                            <Button
+                            variant="outline-primary"
+                            style={buttonStyleUnlike}
+                            onClick={this.addVote}
+                            >
+                                Usun polubienie
+                            </Button>
+                        }
+
                     </Col>
                     <Col>
                         <Button variant="outline-primary" style={buttonStyle2} onClick={() => this.setState({ showReplyForm: !this.state.showReplyForm })}>

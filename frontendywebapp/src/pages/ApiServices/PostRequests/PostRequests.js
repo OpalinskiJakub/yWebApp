@@ -166,6 +166,24 @@ class PostRequests {
         }
     }
 
+
+    addVoteCommentById = async (data) => {
+        try {
+            const response = await axios.patch(`http://localhost:8080/api/v1/tokenmang/comment/${data.commentId}/upvote/${data.userId}`,
+                {},{
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': data.token,
+                    },
+                });
+
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
 }
 
 export default PostRequests;

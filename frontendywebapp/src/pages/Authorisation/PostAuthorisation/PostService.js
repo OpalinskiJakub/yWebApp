@@ -18,6 +18,18 @@ class PostService{
         this.sessionUserStorageSystem = SessionUserStorageSystem.getInstance();
         this.tokenStorage = UnsecuredTokenStorageSystem.getInstance();
     }
+
+
+
+    checkVoteState = async (data) => {
+        console.log(data);
+        let user = await this.sessionUserStorageSystem. getUserFromLocalStorage();
+        if(data.includes(user.id)){
+            return true;
+        }else {
+            return false;
+        }
+    }
     validateAndSendPost = async (data) => {
         console.log(data)
         let user = await this.sessionUserStorageSystem. getUserFromLocalStorage();
@@ -122,6 +134,32 @@ class PostService{
             token:token,
         }
         return await this.postRequests.addCommentToPost(request);
+    }
+
+    removeComment = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+        const request = {
+            value:{
+                ownerId:user.id,
+                ownerName:user.username,
+                content:data.content,
+            },
+            postId:data.commentId,
+            token:token,
+        }
+        return await this.postRequests.addCommentToPost(request);
+    }
+
+    validateAndAddCommentVote = async (commentId) => {
+        let token = await this.tokenStorage.getToken();
+        let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+        const request = {
+            userId:user.id,
+            commentId:commentId,
+            token:token,
+        }
+        return await this.postRequests.addVoteCommentById(request);
     }
 
 
