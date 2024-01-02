@@ -20,11 +20,43 @@ class PostPanel extends Component {
             newComment:'',
             newContent:'',
 
+            voteState:true,
 
             postId: this.props.params.postId,
             post: '',
         };
         this.postService = PostService.getInstance();
+    }
+
+
+
+    checkState = async () => {
+        let votes = this.state.post.upvoteUserId;
+        let response = await this.postService.checkVoteState(votes);
+        if(response==true){
+            this.setState({
+                voteState:true
+            })
+        }else {
+            this.setState({
+                voteState:false
+            })
+        }
+
+    }
+
+    checkStateDidMount = async (votes) => {
+        let response = await this.postService.checkVoteState(votes);
+        if(response==true){
+            this.setState({
+                voteState:false
+            })
+        }else {
+            this.setState({
+                voteState:true
+            })
+        }
+
     }
 
     checkIsPostOwner = async (data) => {
@@ -34,8 +66,10 @@ class PostPanel extends Component {
         })
     }
 
+
     componentDidMount = async () => {
         await this.refresh();
+
 
     };
 
@@ -46,6 +80,7 @@ class PostPanel extends Component {
             commentList: response.systemCommentList,
         });
         await this.checkIsPostOwner(response.ownerId);
+        await this.checkStateDidMount(response.upvoteUserId);
     };
 
     editPost = async () => {
@@ -63,6 +98,7 @@ class PostPanel extends Component {
 
     addVote = async () => {
         let response = await this.postService.validateAndAddVote(this.state.postId);
+        this.checkState();
         console.log(response);
         await this.refresh();
     }
@@ -80,6 +116,9 @@ class PostPanel extends Component {
     };
 
     render() {
+
+
+
         const buttonStyle = {
             fontSize: '100%',
             padding: '10%',
@@ -89,6 +128,16 @@ class PostPanel extends Component {
             fontSize: '90%',
             padding: '7%',
         };
+
+        const buttonStyleLike = {
+            fontSize: '100%',
+            padding: '10%',
+
+        }
+        const buttonStyleUnlike = {
+            fontSize: '64%',
+            padding: '1%',
+        }
         return (
             <Card data-bs-theme="dark" className="m-3">
                 <Card.Body>
@@ -105,13 +154,23 @@ class PostPanel extends Component {
 
                             </Col>
                             <Col>
-                                <Button
-                                    variant="outline-primary"
-                                    style={buttonStyle}
-                                    onClick={this.addVote}
-                                >
-                                    Polub
-                                </Button>
+                                {this.state.voteState ?
+                                    <Button
+                                        variant="outline-primary"
+                                        style={buttonStyleLike}
+                                        onClick={this.addVote}
+                                    >
+                                        Polub
+                                    </Button>
+                                    :
+                                    <Button
+                                        variant="outline-primary"
+                                        style={buttonStyleUnlike}
+                                        onClick={this.addVote}
+                                    >
+                                        Usun polubienie
+                                    </Button>
+                                }
                             </Col>
                             <Col>
                                 <Button variant="outline-primary" style={buttonStyle} >
