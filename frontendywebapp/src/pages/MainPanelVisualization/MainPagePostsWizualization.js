@@ -23,12 +23,6 @@ class MainPagePostsWizualization extends Component {
         });
     }
 
-    getExpectedPosts = async () => {
-        const response = await this.postService.getExpectedPostsByName();
-        this.setState({
-            posts: response,
-        });
-    }
 
 
     render() {

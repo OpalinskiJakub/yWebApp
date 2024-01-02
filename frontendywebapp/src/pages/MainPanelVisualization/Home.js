@@ -77,7 +77,7 @@ class Home extends Component{
                                     <Nav className="justify-content-end flex-grow-1 pe-3" data-bs-theme="dark">
                                         <Nav.Link href="/home/UserPanel">Dane użytkownika</Nav.Link>
                                         <Nav.Link href="/home/postCreator">Stworz post</Nav.Link>
-                                        <Nav.Link href="/home/post">Twoje posty</Nav.Link>
+                                        <Nav.Link href="/home/userPosts">Twoje posty</Nav.Link>
                                         <Nav.Link href="/home/AdminPanel">Panel administratora</Nav.Link>
                                         <Nav.Link href="/access" onClick={this.close}>Wyloguj sie</Nav.Link>
                                         <NavDropdown

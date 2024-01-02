@@ -177,6 +177,17 @@ class PostService{
         return await this.postRequests.removeCommentById(request);
     }
 
+    validateAndGetUserPosts = async () => {
+        let token = await this.tokenStorage.getToken();
+        let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+        let request = {
+            userId:user.id,
+            token:token,
+        }
+        let response = await this.postRequests.getAllUserPosts(request);
+        return response;
+    }
+
 
 
 }

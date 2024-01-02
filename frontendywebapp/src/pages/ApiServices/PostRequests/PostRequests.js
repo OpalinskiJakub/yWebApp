@@ -231,6 +231,37 @@ class PostRequests {
         }
     }
 
+    getAllUserPosts = async (data) => {
+        try {
+
+            const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/post/user/${data.userId}`,
+                {
+                    headers: {
+                        'Authorization': data.token,
+                    },
+                });
+
+            let postPreviewArray = []
+            response.data.forEach(postData => {
+                const postPreview = PostPreviewBuilder.Builder()
+                    .setId(postData.id)
+                    .setOwnerId(postData.ownerId)
+                    .setOwnerName(postData.ownerName)
+                    .setTitle(postData.title)
+                    .setUpvote(postData.upvote)
+                    .build();
+
+                postPreviewArray.push(postPreview);
+            });
+
+            return postPreviewArray;
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
+
 }
 
 export default PostRequests;

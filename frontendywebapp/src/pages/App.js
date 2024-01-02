@@ -25,6 +25,7 @@ import UnsecuredTokenStorageSystem from "./StorageSystem/TokenStorageSystem/Unse
 import PreviewAuthorization from "./Authorisation/PreviewAuthorization";
 import CreatePostPanel from "./PostPanelVisualization/CreatePostPanel";
 import MainPageSearchPostsVisualization from "./MainPanelVisualization/MainPageSearchPostsVisualization";
+import UserPostsPanel from "./UserPanelVisualization/UserPostsPanel";
 
 class App extends Component{
     constructor(props) {
@@ -53,6 +54,7 @@ class App extends Component{
                         <Route path="post/:postId" element={<PostPanel/>}/>
                         <Route path="search/:searchValue" element={<MainPageSearchPostsVisualization />}/>
                         <Route path="postCreator" element={<CreatePostPanel/>}/>
+                        <Route path="userPosts" element={<UserPostsPanel />}/>
                         <Route path="userPanel" element={<UserPanel/>}>
                             <Route index element={<UserDataPanel/>}/>
                             <Route path="userDataEditPanel" element={<UserDataEditPanel/>}/>
