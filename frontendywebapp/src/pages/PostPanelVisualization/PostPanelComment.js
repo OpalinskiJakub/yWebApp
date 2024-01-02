@@ -9,12 +9,21 @@ class PostPanelComment extends Component {
         this.state = {
             showReplyForm: false,
             newReply: '',
-            voteState:true
+            voteState:true,
+            isCommentOwner:false
         };
         this.postService = PostService.getInstance();
 
     }
 
+    checkIsCommentOwner = async (data) => {
+        let response = await this.postService.checkOwner(data);
+        console.log(response)
+        this.setState({
+            isCommentOwner:response
+        })
+    }
+    com
 
 
     checkState = async () => {
@@ -43,6 +52,8 @@ class PostPanelComment extends Component {
                 voteState:true
             })
         }
+        console.log(this.props.comment.ownerId)
+        await this.checkIsCommentOwner(this.props.comment.ownerId);
     }
 
 
@@ -180,15 +191,18 @@ class PostPanelComment extends Component {
                             Odpowiedz
                         </Button>
                     </Col>
-                    <Col>
-                        <Button
-                            variant="outline-primary"
-                            style={buttonStyle}
-                            onClick={this.removeComment}
-                        >
-                            Usuń
-                        </Button>
-                    </Col>
+                    {this.state.isPostOwner &&
+                        <Col>
+                            <Button
+                                variant="outline-primary"
+                                style={buttonStyle}
+                                onClick={this.removeComment}
+                            >
+                                Usuń
+                            </Button>
+                        </Col>
+                    }
+
                 </Row>
                 {comment.replies && comment.replies.map((reply, index) => (
                     <PostPanelComment
