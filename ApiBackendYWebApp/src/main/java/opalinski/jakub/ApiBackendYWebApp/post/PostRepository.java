@@ -11,4 +11,5 @@ public interface PostRepository extends MongoRepository<SystemPost, String> {
     Optional<SystemPost> findSystemPostById(String id);
     Optional<List<SystemPost>> findAllByTitleLike(String title);
     Optional<List<SystemPost>> findAllByOwnerId(String id);
+    Optional<List<SystemPost>> findAllByReportedIsFalse();
 }

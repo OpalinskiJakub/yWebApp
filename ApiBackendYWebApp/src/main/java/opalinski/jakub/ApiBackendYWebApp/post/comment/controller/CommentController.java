@@ -9,16 +9,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.NoSuchElementException;
+
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1")
+@RequestMapping(value ="/api/v1", consumes = MediaType.APPLICATION_JSON_VALUE)
 public class CommentController {
 
     private final SystemCommentService systemCommentService;
-
-
-    @PreAuthorize("hasRole('USER')")
     @CrossOrigin
+    @PreAuthorize("hasRole('USER')")
     @PatchMapping("/tokenmang/comment/{entityId}/upvote/{userId}")
     public ResponseEntity<SystemComment> upvoteComment(@PathVariable String entityId, @PathVariable String userId){
         try {
@@ -28,12 +28,14 @@ public class CommentController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
     @CrossOrigin
+    @PreAuthorize("hasRole('USER')")
     @DeleteMapping("/tokenmang/comment/{entityId}")
     public ResponseEntity<SystemComment> deleteComment(@PathVariable String entityId){
         try {
             return ResponseEntity.ok(systemCommentService.deleteComment(entityId));
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

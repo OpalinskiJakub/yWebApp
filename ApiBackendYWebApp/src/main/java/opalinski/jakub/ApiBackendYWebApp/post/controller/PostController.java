@@ -23,7 +23,7 @@ import java.util.NoSuchElementException;
 @RequestMapping("/api/v1")
 public class PostController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PostController.class);
     private final SystemPostService systemPostService;
     private final SystemCommentService systemCommentService;
 
@@ -47,6 +47,19 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         return ResponseEntity.ok(systemPostService.getAllPosts());
     }
+/*    @PreAuthorize("hasRole('USER')")
+    @CrossOrigin
+    @GetMapping("/tokenmang/post/reported")
+    public ResponseEntity<List<PostDataResponse>> getReportedPosts() {
+        try {
+            List<PostDataResponse> postDataResponseList = systemPostService.getReportedPosts();
+            if (postDataResponseList.isEmpty())
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return ResponseEntity.ok(systemPostService.getAllPosts());
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }*/
 
 
     @PreAuthorize("hasRole('USER')")
@@ -123,7 +136,7 @@ public class PostController {
     @PreAuthorize("hasRole('USER')")
     @CrossOrigin
     @PatchMapping("/tokenmang/post/{id}/report")
-    public ResponseEntity<SystemPost> updatePost(@PathVariable String id) {
+    public ResponseEntity<SystemPost> reportPost(@PathVariable String id) {
         try {
             return ResponseEntity.ok(systemPostService.reportPost(id));
         } catch (Exception e) {
@@ -137,6 +150,8 @@ public class PostController {
     public ResponseEntity<SystemPost> deletePost(@PathVariable String id) {
         try {
             return ResponseEntity.ok(systemPostService.removePost(id));
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

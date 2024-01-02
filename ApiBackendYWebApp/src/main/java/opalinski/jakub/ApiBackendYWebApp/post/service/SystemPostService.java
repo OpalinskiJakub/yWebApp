@@ -7,6 +7,8 @@ import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.model.PostDataResponse;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
 import opalinski.jakub.ApiBackendYWebApp.post.model.TitleRequest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -121,12 +123,17 @@ public class SystemPostService {
     }
 
     public SystemPost removePost(String id) throws Exception {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
         return postRepository.findById(id)
                 .map(systemPost -> {
+                    if (!systemPost.getOwnerName().equals(name)){
+                        return null;
+                    }
                     postRepository.delete(systemPost);
                     return systemPost;
                 })
-                .orElseThrow(() -> new Exception("Could not find entity with ID: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Could not find entity with ID: " + id));
     }
 
     public SystemPost reportPost(String id) throws Exception {
@@ -160,5 +167,14 @@ public class SystemPostService {
                 .orElseThrow(()-> new NoSuchElementException("No such element found"))
                 .collect(Collectors.toList());
     }
+
+/*    public List<PostDataResponse> getReportedPosts() {
+        return postRepository.findAllByReportedIsFalse()
+                .map(systemPosts -> systemPosts
+                        .stream()
+                        .map(PostDataResponse::new))
+                .orElseThrow(()-> new NoSuchElementException("No such element found"))
+                .collect(Collectors.toList());
+    }*/
 }
 

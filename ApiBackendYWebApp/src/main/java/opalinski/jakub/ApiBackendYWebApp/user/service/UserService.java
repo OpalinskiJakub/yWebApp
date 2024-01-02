@@ -5,7 +5,6 @@ import opalinski.jakub.ApiBackendYWebApp.auth.model.AuthenticationRequest;
 import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
 import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
 import opalinski.jakub.ApiBackendYWebApp.user.model.UserDataResponse;
-import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,7 +34,11 @@ public class UserService {
 
     public List<UserDataResponse> getAllUsers() {
         Optional<List<SystemUser>> systemUsers = userRepository.findAllByActive(true);
-        return systemUsers.map(users -> users.stream().map(UserDataResponse::new).collect(Collectors.toList())).orElse(null);
+        return systemUsers.map(users -> users
+                .stream()
+                .map(UserDataResponse::new)
+                .collect(Collectors.toList()))
+                .orElse(null);
     }
 
     public UserDataResponse updateUser(String userId, SystemUser user) {
@@ -66,4 +69,12 @@ public class UserService {
         return systemUser.isPresent();
     }
 
+    public List<UserDataResponse> getBannedUsers() {
+        Optional<List<SystemUser>> systemUsers = userRepository.findAllByActive(false);
+        return systemUsers.map(systemUserList -> systemUserList
+                .stream()
+                .map(UserDataResponse::new)
+                .collect(Collectors.toList()))
+                .orElse(null);
+    }
 }

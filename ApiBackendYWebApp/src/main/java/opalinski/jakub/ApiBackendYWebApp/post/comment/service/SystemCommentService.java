@@ -6,15 +6,21 @@ import opalinski.jakub.ApiBackendYWebApp.post.PostRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.CommentRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
+import opalinski.jakub.ApiBackendYWebApp.user.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class SystemCommentService {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(SystemCommentService.class);
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
 
@@ -76,13 +82,18 @@ public class SystemCommentService {
         return commentData;
     }
 
-    public SystemComment deleteComment(String id) throws Exception{
+    public SystemComment deleteComment(String id) throws NoSuchElementException{
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
         return commentRepository.findById(id)
                 .map(systemComment -> {
+                    if (!systemComment.getOwnerName().equals(name)){
+                        return null;
+                    }
                     commentRepository.delete(systemComment);
                     return systemComment;
                 })
-                .orElseThrow(() -> new Exception("Could not find entity with ID: " + id));
+                .orElseThrow(() -> new NoSuchElementException("Could not find entity with ID: " + id));
     }
 }
 
