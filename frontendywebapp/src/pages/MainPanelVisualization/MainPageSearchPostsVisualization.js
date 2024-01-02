@@ -1,13 +1,10 @@
-
-import {Card} from "react-bootstrap";
-import React, {Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button} from "react-bootstrap";
+import React, {Component} from "react";
 import PostService from "../Authorisation/PostAuthorisation/PostService";
 import Container from "react-bootstrap/Container";
+import {Button, Card} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 
-class MainPagePostsWizualization extends Component {
+class MainPageSearchPostsVisualization extends Component {
     constructor() {
         super();
         this.state = {
@@ -17,14 +14,10 @@ class MainPagePostsWizualization extends Component {
     }
 
     async componentDidMount() {
-        const response = await this.postService.getAllPostPreview();
-        this.setState({
-            posts: response,
-        });
-    }
-
-    getExpectedPosts = async () => {
-        const response = await this.postService.getExpectedPostsByName();
+        const { searchValue } = this.props.params
+        console.log(searchValue)
+        const response = await this.postService.validateGetExpectedPostsByName(searchValue);
+        console.log(response)
         this.setState({
             posts: response,
         });
@@ -56,7 +49,7 @@ class MainPagePostsWizualization extends Component {
 }
 
 export default (props) => (
-    <MainPagePostsWizualization
+    <MainPageSearchPostsVisualization
         {...props}
         params={useParams()}
     />

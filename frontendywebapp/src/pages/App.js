@@ -24,7 +24,7 @@ import React, {Component} from "react";
 import UnsecuredTokenStorageSystem from "./StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 import PreviewAuthorization from "./Authorisation/PreviewAuthorization";
 import CreatePostPanel from "./PostPanelVisualization/CreatePostPanel";
-
+import MainPageSearchPostsVisualization from "./MainPanelVisualization/MainPageSearchPostsVisualization";
 
 class App extends Component{
     constructor(props) {
@@ -51,6 +51,7 @@ class App extends Component{
                     <Route path="/home" element={<Home />}>
                         <Route index element={<MainPagePostsWizualization/>}/>
                         <Route path="post/:postId" element={<PostPanel/>}/>
+                        <Route path="search/:searchValue" element={<MainPageSearchPostsVisualization />}/>
                         <Route path="postCreator" element={<CreatePostPanel/>}/>
                         <Route path="userPanel" element={<UserPanel/>}>
                             <Route index element={<UserDataPanel/>}/>

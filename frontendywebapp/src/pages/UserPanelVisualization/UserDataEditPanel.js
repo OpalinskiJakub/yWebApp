@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 import {Button, Card, Form,Nav,ListGroup ,Col,Image,Container,Row,InputGroup,Accordion} from "react-bootstrap";
-import SessionUserStorageSystem from "../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
-import RegisterAutorization from "../Authorisation/UserAuthorisation/RegisterService";
 import UserDataService from "../Authorisation/UserAuthorisation/userDataService";
 import Alert from "react-bootstrap/Alert";
 import {Link, Navigate} from "react-router-dom";

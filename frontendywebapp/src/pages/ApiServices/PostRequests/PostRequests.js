@@ -133,7 +133,7 @@ class PostRequests {
 
     AddVoteById = async (data) => {
         try {
-            const response = await axios.patch(`http://localhost:8080/api/v1/tokenmang/post/${data.postId}/upvote/${data.userId}`,
+            const response = await axios.patch(`http://localhost:8080/api/v1//tokenmang/post/search`,
                 {},{
                     headers: {
                         'Content-Type': 'application/json',
@@ -190,6 +190,26 @@ class PostRequests {
                 {
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': data.token,
+                    },
+                });
+
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
+    getExpectedPostsByName = async (data) => {
+        try {
+            console.log(data)
+            const response = await axios.get('http://localhost:8080/api/v1/tokenmang/post/search',{
+                params: {
+                    title:''
+                }},
+                {
+                    headers: {
                         'Authorization': data.token,
                     },
                 });

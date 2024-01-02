@@ -13,12 +13,25 @@ class Home extends Component{
     constructor() {
         super();
         this.tokenStorage = new UnsecuredTokenStorageSystem();
+        this.state = {
+            encodedSearchValue:'',
+            searchValue:''
+        }
     }
 
     close = () => {
         this.tokenStorage.removeToken();
-        this.props.closeUserSystem();
     }
+
+    handleInputChange = (event) => {
+        const {value} = event.target;
+        let encodedValue = btoa(value);
+        this.setState({
+            encodedSearchValue:encodedValue,
+            searchValue:value
+        })
+        console.log(encodedValue);
+    };
     render() {
         return (
             <div data-bs-theme="dark" sticky="top">
@@ -33,12 +46,19 @@ class Home extends Component{
                             <div style={{width:"50%"}}>
                                 <Form className="d-flex">
                                     <Form.Control
-                                        type="search"
-                                        placeholder="Wyszukaj"
-                                        className="me-2"
+                                        required
+                                        type="text"
+                                        placeholder="Enter your email"
                                         aria-label="Wyszukaj"
+                                        name="searchValue"
+                                        value={this.state.searchValue}
+                                        onChange={this.handleInputChange}
                                     />
-                                    <Button variant="outline-primary">Search</Button>
+                                    <Button variant="outline-primary"
+                                        href={`/home/search/${this.state.encodedSearchValue}`}
+                                    >
+                                        Search
+                                    </Button>
                                 </Form>
                             </div>
                             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
