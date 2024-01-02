@@ -27,7 +27,8 @@ public class PostController {
     private final SystemPostService systemPostService;
     private final SystemCommentService systemCommentService;
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @PostMapping("/tokenmang/post")
     public ResponseEntity<SystemPost> savePost(@RequestBody SystemPost systemPost) {
@@ -62,7 +63,8 @@ public class PostController {
     }*/
 
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @PostMapping("/tokenmang/post/comment/{parentId}")
     public ResponseEntity<SystemComment> saveComment(@PathVariable String parentId, @RequestBody SystemComment systemComment) {
@@ -74,7 +76,8 @@ public class PostController {
     }
 
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @GetMapping("/tokenmang/post/{id}")
     public ResponseEntity<SystemPost> getSpecificPost(@PathVariable String id) {
@@ -85,7 +88,8 @@ public class PostController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @GetMapping("/tokenmang/post/user/{userId}")
     public ResponseEntity<List<PostDataResponse>> getUserPosts(@PathVariable String userId) {
@@ -100,7 +104,8 @@ public class PostController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @GetMapping("/tokenmang/post/search/{searchdata}")
     public ResponseEntity<List<PostDataResponse>> getSpecificPostByTitle(@PathVariable String searchdata) {
@@ -124,7 +129,8 @@ public class PostController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @PatchMapping("/tokenmang/post/{id}")
     public ResponseEntity<SystemPost> updatePost(@PathVariable String id, @RequestBody SystemPost systemPost) {
@@ -135,7 +141,8 @@ public class PostController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @PatchMapping("/tokenmang/post/{id}/report")
     public ResponseEntity<SystemPost> reportPost(@PathVariable String id) {
@@ -146,7 +153,8 @@ public class PostController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @DeleteMapping("/tokenmang/post/{id}")
     public ResponseEntity<SystemPost> deletePost(@PathVariable String id) {
@@ -160,7 +168,8 @@ public class PostController {
     }
 
 
-    @PreAuthorize("hasRole('USER')")
+
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
     @PatchMapping("/tokenmang/post/{entityId}/upvote/{userId}")
     public ResponseEntity<SystemPost> upvotePost(@PathVariable String entityId, @PathVariable String userId) {

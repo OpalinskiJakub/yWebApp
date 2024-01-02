@@ -18,7 +18,7 @@ public class CommentController {
 
     private final SystemCommentService systemCommentService;
     @CrossOrigin
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @PatchMapping("/tokenmang/comment/{entityId}/upvote/{userId}")
     public ResponseEntity<SystemComment> upvoteComment(@PathVariable String entityId, @PathVariable String userId){
         try {
@@ -29,7 +29,7 @@ public class CommentController {
     }
 
     @CrossOrigin
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @DeleteMapping("/tokenmang/comment/{entityId}")
     public ResponseEntity<SystemComment> deleteComment(@PathVariable String entityId){
         try {
