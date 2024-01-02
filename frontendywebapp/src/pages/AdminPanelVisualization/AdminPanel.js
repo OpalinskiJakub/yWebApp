@@ -29,16 +29,16 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel")}
                             >
-                                Panel użytkowników
+                                Aktywni uzytkownicy
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/home/AdminPanel/PostsAdminPanel"
+                                to="/home/AdminPanel/unActiveUsers"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/home/AdminPanel/PostsAdminPanel")}
+                                onClick={() => this.handleTabChange("/home/AdminPanel/unActiveUsers")}
                             >
-                                Panel postów
+                                Nieaktywni uzytkownicy
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -47,7 +47,7 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel/ReportsAdminPanel")}
                             >
-                                Panel zgłoszeń
+                                Zgłoszenia
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -56,7 +56,16 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel/AppealAdminPanel")}
                             >
-                                Panel odwołań
+                                Odwolania
+                            </Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Link
+                                to="/home/AdminPanel/AppealAdminPanel"
+                                className="nav-link"
+                                onClick={() => this.handleTabChange("/home/AdminPanel/AppealAdminPanel")}
+                            >
+                                Posty
                             </Link>
                         </Nav.Item>
                     </Nav>

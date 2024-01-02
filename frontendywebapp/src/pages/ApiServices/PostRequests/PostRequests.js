@@ -115,7 +115,7 @@ class PostRequests {
 
     removePostById = async (data) => {
         try {
-            const response = await axios.delete(` http://localhost:8080/api/v1/tokenmang/post/${data.postId}`,
+            const response = await axios.delete(`http://localhost:8080/api/v1/tokenmang/post/${data.postId}`,
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ class PostRequests {
 
     AddVoteById = async (data) => {
         try {
-            const response = await axios.patch(`http://localhost:8080/api/v1//tokenmang/post/search`,
+            const response = await axios.patch(`http://localhost:8080/api/v1/tokenmang/post/${data.postId}/upvote/${data.userId}`,
                 {},{
                     headers: {
                         'Content-Type': 'application/json',

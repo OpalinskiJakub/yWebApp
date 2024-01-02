@@ -19,7 +19,7 @@ class AccessPanel extends Component{
                 <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/access/registerType">
                     Zarejstruj sie
                 </Button>
-                <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/home">
+                <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/preview">
                     Przejdz do Y
                 </Button>
                 <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/access/AppealForm">

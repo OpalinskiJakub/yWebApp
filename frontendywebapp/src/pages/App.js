@@ -15,7 +15,7 @@ import UserDataPanel from "./UserPanelVisualization/UserDataPanel";
 import UserDataEditPanel from "./UserPanelVisualization/UserDataEditPanel";
 import AdminAutorization from "./Authorisation/AdminAuthorisation/AdminAutorization";
 import AdminPanel from "./AdminPanelVisualization/AdminPanel";
-import UsersAdminPanel from "./AdminPanelVisualization/UsersAdminPanel";
+import ActiveUsersAdminPanel from "./AdminPanelVisualization/ActiveUsersAdminPanel";
 import PostsAdminPanel from "./AdminPanelVisualization/PostsAdminPanel";
 import CommentsAdminPanel from "./AdminPanelVisualization/CommentsAdminPanel";
 import ReportsAdminPanel from "./AdminPanelVisualization/ReportsAdminPanel";
@@ -26,6 +26,9 @@ import PreviewAuthorization from "./Authorisation/PreviewAuthorization";
 import CreatePostPanel from "./PostPanelVisualization/CreatePostPanel";
 import MainPageSearchPostsVisualization from "./MainPanelVisualization/MainPageSearchPostsVisualization";
 import UserPostsPanel from "./UserPanelVisualization/UserPostsPanel";
+import UnActiveUsersAdminPanel from "./AdminPanelVisualization/UnActiveUsersAdminPanel";
+import PreviewNavbar from "./PostPanelVisualization/PreviewNavbar";
+import PreviewPosts from "./PostPanelVisualization/PreviewPosts";
 
 class App extends Component{
     constructor(props) {
@@ -47,7 +50,9 @@ class App extends Component{
                     <Route path="AppealForm" element={<AppealForm/>}/>
 
                 </Route>
-
+                <Route path="preview" element={<PreviewNavbar/>}>
+                   <Route index element={<PreviewPosts/>}/>
+                </Route>
                 <Route element={<UserAutorization/>}>
                     <Route path="/home" element={<Home />}>
                         <Route index element={<MainPagePostsWizualization/>}/>
@@ -62,7 +67,8 @@ class App extends Component{
                         </Route>
                         <Route element={<AdminAutorization/>}>
                             <Route path="adminPanel" element={<AdminPanel/>}>
-                                <Route index element={<UsersAdminPanel/>}/>
+                                <Route index element={<ActiveUsersAdminPanel/>}/>
+                                <Route path="unActiveUsers" element={<UnActiveUsersAdminPanel/>}/>
                                 <Route path="postsAdminPanel" element={<PostsAdminPanel/>}/>
                                 <Route path="commentsAdminPanel" element={<CommentsAdminPanel/>}/>
                                 <Route path="reportsAdminPanel" element={<ReportsAdminPanel/>}/>

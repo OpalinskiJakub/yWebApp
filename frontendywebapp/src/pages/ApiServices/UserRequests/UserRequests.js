@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import UserBuilder from "../../StorageSystem/UserPanel/Model/UserBuilder";
+import PostPreviewBuilder from "../../StorageSystem/PostPanel/Model/PostPreviewBuilder";
 
 class UserRequests {
     static instance = null;
@@ -99,7 +100,41 @@ class UserRequests {
             return {
                 user:null,
                 status:false
-            };;
+            };
+        }
+    }
+
+
+    getAllUsers  = async (data) => {
+        try {
+
+            const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/user`,
+                {
+                    headers: {
+                        'Authorization': data.token,
+                    },
+                });
+
+            let userArray = []
+            response.data.forEach(user => {
+                let sesseionUser = UserBuilder.Builder()
+                    .setId(user.id)
+                    .setEmail(user.email)
+                    .setUsername(user.username)
+                    .setDescription(user.description)
+                    .setRole(user.role)
+                    .setAge(user.age)
+                    .setActive(user.active)
+                    .setAvatarURL(user.avatarUrl)
+                    .build();
+
+                userArray.push(sesseionUser);
+            });
+
+            return userArray;
+        } catch (error) {
+            console.log(error)
+            return false;
         }
     }
 }

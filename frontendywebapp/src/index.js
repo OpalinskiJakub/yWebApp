@@ -8,7 +8,7 @@ import UserPanel from "./pages/UserPanelVisualization/UserPanel";
 import UserDataPanel from "./pages/UserPanelVisualization/UserDataPanel";
 import UserDataEditPanel from "./pages/UserPanelVisualization/UserDataEditPanel";
 import AdminPanel from "./pages/AdminPanelVisualization/AdminPanel";
-import UsersAdminPanel from "./pages/AdminPanelVisualization/UsersAdminPanel";
+import ActiveUsersAdminPanel from "./pages/AdminPanelVisualization/ActiveUsersAdminPanel";
 import PostsAdminPanel from "./pages/AdminPanelVisualization/PostsAdminPanel";
 import CommentsAdminPanel from "./pages/AdminPanelVisualization/CommentsAdminPanel";
 import ReportsAdminPanel from "./pages/AdminPanelVisualization/ReportsAdminPanel";
