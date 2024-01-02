@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Button, Form, DropdownButton, Dropdown, Card,Row,Col} from "react-bootstrap";
 import PostService from "../Authorisation/PostAuthorisation/PostService";
+import SessionUserStorageSystem from "../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
 
 
 class PostPanelComment extends Component {
@@ -13,17 +14,17 @@ class PostPanelComment extends Component {
             isCommentOwner:false
         };
         this.postService = PostService.getInstance();
-
     }
 
-    checkIsCommentOwner = async (data) => {
-        let response = await this.postService.checkOwner(data);
-        console.log(response)
-        this.setState({
-            isCommentOwner:response
-        })
+    checkIsCommentOwner = async () => {
+        let response = await this.postService.checkCommentOwner(this.props.comment.ownerId);
+        if(response){
+            this.setState({
+                isCommentOwner:true
+            })
+        }
     }
-    com
+
 
 
     checkState = async () => {
@@ -38,8 +39,9 @@ class PostPanelComment extends Component {
                     voteState:false
                 })
             }
-
+        this.checkIsCommentOwner()
     }
+
     async componentDidMount() {
         let votes = this.props.comment.upvoteUserId;
         let response = await this.postService.checkVoteState(votes);
@@ -52,8 +54,7 @@ class PostPanelComment extends Component {
                 voteState:true
             })
         }
-        console.log(this.props.comment.ownerId)
-        await this.checkIsCommentOwner(this.props.comment.ownerId);
+        this.checkIsCommentOwner()
     }
 
 
@@ -65,12 +66,14 @@ class PostPanelComment extends Component {
         let response = await this.postService.addReplyComment(data);
         const { refresh } = this.props;
         await refresh();
+        this.checkIsCommentOwner()
     }
 
     removeComment = async () => {
         await this.postService.validateAndRemoveComment(this.props.comment.id);
         const { refresh } = this.props;
         await refresh();
+        this.checkIsCommentOwner()
     }
 
 
@@ -80,6 +83,7 @@ class PostPanelComment extends Component {
         this.checkState();
         const { refresh } = this.props;
         await refresh();
+        this.checkIsCommentOwner()
     }
 
     render() {
@@ -191,7 +195,7 @@ class PostPanelComment extends Component {
                             Odpowiedz
                         </Button>
                     </Col>
-                    {this.state.isPostOwner &&
+                    {this.state.isCommentOwner &&
                         <Col>
                             <Button
                                 variant="outline-primary"
@@ -204,14 +208,7 @@ class PostPanelComment extends Component {
                     }
 
                 </Row>
-                {comment.replies && comment.replies.map((reply, index) => (
-                    <PostPanelComment
-                        key={index}
-                        comment={reply}
-                        handleReply={handleReply}
-                        isReply
-                    />
-                ))}
+
                 {this.state.showReplyForm && (
                     <div>
                         <Form.Group style={{ marginTop: '10px' }}>

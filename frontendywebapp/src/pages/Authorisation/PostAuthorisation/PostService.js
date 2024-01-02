@@ -19,10 +19,18 @@ class PostService{
         this.tokenStorage = UnsecuredTokenStorageSystem.getInstance();
     }
 
+    checkCommentOwner = (ownerId) => {
+        let user = this.sessionUserStorageSystem.getUserFromLocalStorage()
+        if(user.id===ownerId){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 
 
     checkVoteState = async (data) => {
-        console.log(data);
         let user = await this.sessionUserStorageSystem. getUserFromLocalStorage();
         if(data.includes(user.id)){
             return true;
@@ -31,7 +39,7 @@ class PostService{
         }
     }
     validateAndSendPost = async (data) => {
-        console.log(data)
+
         let user = await this.sessionUserStorageSystem. getUserFromLocalStorage();
         let token = await this.tokenStorage.getToken();
         let request = {
@@ -43,13 +51,14 @@ class PostService{
             },
             token:token
         }
-        console.log(request)
+
         let response = await this.postRequests.sendPost(request);
         return response;
     }
 
     checkOwner = async (ownerId) => {
         let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+
         if(user.id === ownerId){
             return true;
         }else {
