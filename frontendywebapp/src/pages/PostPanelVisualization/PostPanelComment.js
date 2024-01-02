@@ -11,7 +11,8 @@ class PostPanelComment extends Component {
             showReplyForm: false,
             newReply: '',
             voteState:true,
-            isCommentOwner:false
+            isCommentOwner:false,
+            isFirstRowComment:true
         };
         this.postService = PostService.getInstance();
     }
@@ -55,6 +56,7 @@ class PostPanelComment extends Component {
             })
         }
         this.checkIsCommentOwner()
+        this.checkFirstRowComment()
     }
 
 
@@ -84,6 +86,17 @@ class PostPanelComment extends Component {
         const { refresh } = this.props;
         await refresh();
         this.checkIsCommentOwner()
+    }
+
+    checkFirstRowComment = () => {
+        if(this.props.firstRow!=null){
+            if(this.props.firstRow===false){
+                this.setState({
+                    isFirstRowComment:false
+                })
+            }
+        }
+
     }
 
     render() {
@@ -139,20 +152,21 @@ class PostPanelComment extends Component {
             <Card className="m-3" style={{ padding: 10 }} >
                 <Card.Title >
                     <Row xs="auto">
-
                         <Col>
-                            {this.props.comment.ownerName}
+                        {this.props.comment.ownerName}
                         </Col>
+                        {this.state.isFirstRowComment ?
+                        <>
                         <Col>
-                            {this.props.comment.ownerName ? <Card style={{padding:4 ,fontSize:15}}>
                                 Odpowiada
-                            </Card> : ""}
+
 
                         </Col>
                         <Col>
-                            {this.props.comment.ownerName}
+                            {this.props.comment.parentOwnerName}
                         </Col>
-
+                        </>
+                        :null}
                     </Row>
                 </Card.Title>
                 <Card.Text>

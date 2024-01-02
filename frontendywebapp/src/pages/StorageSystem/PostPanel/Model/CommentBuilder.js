@@ -1,7 +1,17 @@
 import Comment from "./Comment";
 class CommentBuilder {
     constructor() {
-        this.comment = new Comment('', '', '', '', '');
+        this.comment = new Comment('', '', '', '', '','');
+    }
+
+    setParentOwnerName(parentOwnerName) {
+        this.comment._parentOwnerName = parentOwnerName;
+        return this;
+    }
+
+    setParentOwnerName(parentOwnerName) {
+        this.comment._parentOwnerName = parentOwnerName;
+        return this;
     }
 
     setId(id) {
@@ -40,6 +50,7 @@ class CommentBuilder {
                 .setParentId(commentData.parentId)
                 .setContent(commentData.content)
                 .setSystemCommentList(commentData.systemCommentList)
+                .setOwnerName(commentData.parentOwnerName)
                 .build());
             this.comment._systemCommentList=comments
         }

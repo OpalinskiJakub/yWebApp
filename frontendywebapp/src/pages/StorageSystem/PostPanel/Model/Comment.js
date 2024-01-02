@@ -1,13 +1,23 @@
 class Comment {
-    constructor(id, ownerId, ownerName, parentId, content) {
+    constructor(id, ownerId, ownerName, parentId, content,parentOwnerName) {
         this._id = id;
         this._ownerId = ownerId;
         this._ownerName = ownerName;
         this._parentId = parentId;
         this._content = content;
         this._systemCommentList = [];
+        this._parentOwnerName = parentOwnerName;
+
     }
 
+
+    get parentOwnerName() {
+        return this._parentOwnerName;
+    }
+
+    set parentOwnerName(value) {
+        this._parentOwnerName = value;
+    }
 
     get systemCommentList() {
         return this._systemCommentList;
