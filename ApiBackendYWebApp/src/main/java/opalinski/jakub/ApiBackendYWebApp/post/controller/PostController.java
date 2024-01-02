@@ -5,7 +5,6 @@ import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.service.SystemCommentService;
 import opalinski.jakub.ApiBackendYWebApp.post.model.PostDataResponse;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
-import opalinski.jakub.ApiBackendYWebApp.post.model.TitleRequest;
 import opalinski.jakub.ApiBackendYWebApp.post.service.SystemPostService;
 import opalinski.jakub.ApiBackendYWebApp.user.service.UserService;
 import org.slf4j.Logger;
@@ -15,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -102,9 +102,11 @@ public class PostController {
 
     @PreAuthorize("hasRole('USER')")
     @CrossOrigin
-    @GetMapping("/tokenmang/post/search")
-    public ResponseEntity<List<PostDataResponse>> getSpecificPostByTitle(@RequestBody TitleRequest title) {
+    @GetMapping("/tokenmang/post/search/{searchdata}")
+    public ResponseEntity<List<PostDataResponse>> getSpecificPostByTitle(@PathVariable String searchdata) {
         try {
+            byte[] decodedBytes = Base64.getDecoder().decode(searchdata);
+            String title = new String(decodedBytes);
             List<PostDataResponse> postDataResponseList = systemPostService.getSpecificPostByTitle(title);
             if (postDataResponseList.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);

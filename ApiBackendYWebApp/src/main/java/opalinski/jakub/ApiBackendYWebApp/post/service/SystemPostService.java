@@ -6,7 +6,6 @@ import opalinski.jakub.ApiBackendYWebApp.post.comment.CommentRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.model.PostDataResponse;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
-import opalinski.jakub.ApiBackendYWebApp.post.model.TitleRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -146,13 +145,13 @@ public class SystemPostService {
                 .orElseThrow(() -> new Exception("Could not find entity with ID: " + id));
     }
 
-    public List<PostDataResponse> getSpecificPostByTitle(TitleRequest title) {
-        if (title.getTitle() == null || title.getTitle().isEmpty()) {
+    public List<PostDataResponse> getSpecificPostByTitle(String title) {
+        if (title == null || title.isEmpty()) {
             throw new IllegalArgumentException("Request not satisfied.");
         }
 
-        return postRepository.findAllByTitleLike(title.getTitle())
-                .map(titleRequest -> titleRequest
+        return postRepository.findAllByTitleLike(title)
+                .map(posts -> posts
                         .stream()
                         .map(PostDataResponse::new))
                 .orElseThrow(()-> new NoSuchElementException("No such element found"))
