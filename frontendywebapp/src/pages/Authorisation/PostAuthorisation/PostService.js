@@ -21,12 +21,8 @@ class PostService{
 
     validateGetExpectedPostsByName = async (data) => {
         let token = await this.tokenStorage.getToken();
-        let decodedData = atob(data);
-        console.log(decodedData)
         let request = {
-            value:{
-                title:decodedData
-            },
+            searchdata:data,
             token:token,
         }
         let response = await this.postRequests.getExpectedPostsByName(request);

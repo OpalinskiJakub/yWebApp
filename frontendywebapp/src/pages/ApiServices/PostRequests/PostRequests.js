@@ -204,17 +204,27 @@ class PostRequests {
     getExpectedPostsByName = async (data) => {
         try {
             console.log(data)
-            const response = await axios.get('http://localhost:8080/api/v1/tokenmang/post/search',{
-                params: {
-                    title:''
-                }},
+            const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/post/search/${data.searchdata}`,
                 {
                     headers: {
                         'Authorization': data.token,
                     },
                 });
 
-            return true
+            let postPreviewArray = []
+            response.data.forEach(postData => {
+                const postPreview = PostPreviewBuilder.Builder()
+                    .setId(postData.id)
+                    .setOwnerId(postData.ownerId)
+                    .setOwnerName(postData.ownerName)
+                    .setTitle(postData.title)
+                    .setUpvote(postData.upvote)
+                    .build();
+
+                postPreviewArray.push(postPreview);
+            });
+
+            return postPreviewArray;
         } catch (error) {
             console.log(error)
             return false

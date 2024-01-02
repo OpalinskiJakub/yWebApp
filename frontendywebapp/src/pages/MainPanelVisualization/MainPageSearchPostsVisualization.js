@@ -15,9 +15,7 @@ class MainPageSearchPostsVisualization extends Component {
 
     async componentDidMount() {
         const { searchValue } = this.props.params
-        console.log(searchValue)
         const response = await this.postService.validateGetExpectedPostsByName(searchValue);
-        console.log(response)
         this.setState({
             posts: response,
         });
