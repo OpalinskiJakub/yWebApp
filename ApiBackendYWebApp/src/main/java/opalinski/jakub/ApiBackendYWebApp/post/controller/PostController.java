@@ -147,7 +147,18 @@ public class PostController {
     @PatchMapping("/tokenmang/post/{id}/report")
     public ResponseEntity<SystemPost> reportPost(@PathVariable String id) {
         try {
-            return ResponseEntity.ok(systemPostService.reportPost(id));
+            return ResponseEntity.ok(systemPostService.reportPost(id, true));
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PreAuthorize ("hasRole('ADMIN')")
+    @CrossOrigin
+    @PatchMapping("/tokenmang/post/{id}/report/undo")
+    public ResponseEntity<SystemPost> unReportPost(@PathVariable String id) {
+        try {
+            return ResponseEntity.ok(systemPostService.reportPost(id, false));
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

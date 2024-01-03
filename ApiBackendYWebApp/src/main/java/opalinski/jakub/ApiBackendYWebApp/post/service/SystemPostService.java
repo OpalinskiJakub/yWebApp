@@ -146,10 +146,10 @@ public class SystemPostService {
                 .orElseThrow(() -> new Exception("Error while processing authentication context."));
     }
 
-    public SystemPost reportPost(String id) throws Exception {
+    public SystemPost reportPost(String id, Boolean flag) throws Exception {
         return postRepository.findById(id)
                 .map(systemPost -> {
-                    systemPost.setReported(!systemPost.getReported());
+                    systemPost.setReported(flag);
                     postRepository.save(systemPost);
                     return systemPost;
                 })
