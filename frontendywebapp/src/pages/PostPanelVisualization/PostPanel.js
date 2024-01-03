@@ -103,6 +103,15 @@ class PostPanel extends Component {
         await this.refresh();
     }
 
+    reportPost = async () => {
+        let data = {
+            postId:this.state.post.id,
+            reported:this.state.newContent
+        }
+        let response = await this.postService.validateAndEditPost(data);
+        await this.refresh();
+    }
+
 
     addComment = async () => {
         let data= {
@@ -173,7 +182,10 @@ class PostPanel extends Component {
                                 }
                             </Col>
                             <Col>
-                                <Button variant="outline-primary" style={buttonStyle} >
+                                <Button
+                                    variant="outline-primary"
+                                    style={buttonStyle}
+                                >
                                     Zglos
                                 </Button>
                             </Col>
