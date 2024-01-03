@@ -81,6 +81,26 @@ class AdminService {
         return response;
     }
 
+    validateAndGetAllReportedPosts = async () => {
+        let token = await this.tokenStorage.getToken();
+        let request = {
+            token:token,
+        }
+        let response = await this.adminRequests.getAllReportedPosts(request);
+        return response;
+    }
+
+    validateAndUnReportPost = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        const request = {
+            postId:data,
+            token:token
+        }
+        return await this.adminRequests.unReportPostById(request);
+
+    }
+
+
 
 }
 export default AdminService;

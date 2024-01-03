@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import PostService from "../Authorisation/PostAuthorisation/PostService";
 import Container from "react-bootstrap/Container";
 import {withTranslation} from "react-i18next";
+import AdminService from "../Authorisation/AdminAuthorisation/AdminService";
 
 
 
@@ -27,6 +28,7 @@ class PostPanel extends Component {
             post: '',
         };
         this.postService = PostService.getInstance();
+        this.adminService = AdminService.getInstance();
     }
 
 
@@ -107,9 +109,9 @@ class PostPanel extends Component {
     reportPost = async () => {
         let data = {
             postId:this.state.post.id,
-            reported:this.state.newContent
         }
-        let response = await this.postService.validateAndEditPost(data);
+        console.log(data)
+        let response = await this.postService.validateAndReportPost(data);
         await this.refresh();
     }
 
@@ -186,6 +188,7 @@ class PostPanel extends Component {
                                 <Button
                                     variant="outline-primary"
                                     style={buttonStyle}
+                                    onClick={this.reportPost}
                                 >
                                     Zglos
                                 </Button>

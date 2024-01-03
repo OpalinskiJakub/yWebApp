@@ -200,6 +200,18 @@ class PostService{
         return await this.postRequests.editPost(request)
     }
 
+    validateAndReportPost = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        const request = {
+            postId:data.postId,
+            token:token
+        }
+        console.log(request)
+        return await this.postRequests.reportPost(request);
+    }
+
+
+
 
 
 }
