@@ -6,7 +6,9 @@ import opalinski.jakub.ApiBackendYWebApp.post.PostRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.CommentRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
-import opalinski.jakub.ApiBackendYWebApp.user.service.UserService;
+import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
+import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -23,6 +25,7 @@ public class SystemCommentService {
     private static final Logger LOGGER = LoggerFactory.getLogger(SystemCommentService.class);
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
+    private final UserRepository userRepository;
 
     public SystemComment saveComment(String parentId, SystemComment systemComment) throws IllegalArgumentException {
         if ((parentId == null || parentId.isEmpty()) ||
@@ -82,9 +85,9 @@ public class SystemCommentService {
         return commentData;
     }
 
-    public SystemComment deleteComment(String id) throws NoSuchElementException{
+    public SystemComment deleteComment(String id) throws Exception {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String name = authentication.getName();
+        String name = getUserName(authentication.getName());
         return commentRepository.findById(id)
                 .map(systemComment -> {
                     if (!systemComment.getOwnerName().equals(name)){
@@ -94,6 +97,11 @@ public class SystemCommentService {
                     return systemComment;
                 })
                 .orElseThrow(() -> new NoSuchElementException("Could not find entity with ID: " + id));
+    }
+    public String getUserName(String email) throws Exception {
+        Optional<SystemUser> systemUser = userRepository.findSystemUserByEmailAndActiveTrue(email);
+        return systemUser.map(SystemUser::getEmail) // email is actually mapped to username :)
+                .orElseThrow(() -> new Exception("Error while processing authentication context."));
     }
 }
 

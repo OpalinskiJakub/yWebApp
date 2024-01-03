@@ -6,6 +6,8 @@ import opalinski.jakub.ApiBackendYWebApp.post.comment.CommentRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.model.PostDataResponse;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
+import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
+import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,7 @@ public class SystemPostService {
 
     private final PostRepository postRepository;
     private final CommentRepository commentRepository;
+    private final UserRepository userRepository;
 
     public List<PostDataResponse> getAllPosts() {
         List<SystemPost> systemPosts = postRepository.findAll();
@@ -122,17 +125,25 @@ public class SystemPostService {
     }
 
     public SystemPost removePost(String id) throws Exception {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String name = authentication.getName();
+        String name = getUserName(authentication.getName());
+
         return postRepository.findById(id)
                 .map(systemPost -> {
-                    if (!systemPost.getOwnerName().equals(name)){
+                    if (!systemPost.getOwnerName().equals(name)) {
                         return null;
                     }
                     postRepository.delete(systemPost);
                     return systemPost;
                 })
                 .orElseThrow(() -> new NoSuchElementException("Could not find entity with ID: " + id));
+    }
+
+    private String getUserName(String email) throws Exception {
+        Optional<SystemUser> systemUser = userRepository.findSystemUserByEmailAndActiveTrue(email);
+        return systemUser.map(SystemUser::getEmail) // email is actually mapped to username :)
+                .orElseThrow(() -> new Exception("Error while processing authentication context."));
     }
 
     public SystemPost reportPost(String id) throws Exception {
@@ -154,7 +165,7 @@ public class SystemPostService {
                 .map(posts -> posts
                         .stream()
                         .map(PostDataResponse::new))
-                .orElseThrow(()-> new NoSuchElementException("No such element found"))
+                .orElseThrow(() -> new NoSuchElementException("No such element found"))
                 .collect(Collectors.toList());
     }
 
@@ -163,7 +174,7 @@ public class SystemPostService {
                 .map(systemPosts -> systemPosts
                         .stream()
                         .map(PostDataResponse::new))
-                .orElseThrow(()-> new NoSuchElementException("No such element found"))
+                .orElseThrow(() -> new NoSuchElementException("No such element found"))
                 .collect(Collectors.toList());
     }
 
