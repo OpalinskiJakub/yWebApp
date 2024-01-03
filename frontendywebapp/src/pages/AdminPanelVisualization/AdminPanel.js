@@ -61,9 +61,9 @@ class AdminPanel extends Component{
                         </Nav.Item>
                         <Nav.Item>
                             <Link
-                                to="/home/AdminPanel/AppealAdminPanel"
+                                to="/home/AdminPanel/postsAdminPanel"
                                 className="nav-link"
-                                onClick={() => this.handleTabChange("/home/AdminPanel/AppealAdminPanel")}
+                                onClick={() => this.handleTabChange("/home/AdminPanel/postsAdminPanel")}
                             >
                                 Posty
                             </Link>
