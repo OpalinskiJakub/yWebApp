@@ -1,6 +1,7 @@
 import {Component} from "react";
 import axios from "axios";
 import UserBuilder from "../../StorageSystem/UserPanel/Model/UserBuilder";
+import RevocationBuilder from "../../StorageSystem/UserPanel/Model/RevocationBuilder";
 
 
 class AdminRequests {
@@ -69,6 +70,35 @@ class AdminRequests {
             return false;
         }
     }
+
+    getAllRevocation = async (data) => {
+        try {
+
+            const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/revocation`,
+                {
+                    headers: {
+                        'Authorization': data.token,
+                    },
+                });
+
+            let revocationArray = []
+            response.data.forEach(revocation => {
+                let revocationInstance = RevocationBuilder.builder()
+                    .setId(revocation.id)
+                    .setEmail(revocation.email)
+                    .setContent(revocation.content)
+                    .build()
+
+                revocationArray.push(revocationInstance);
+            });
+
+            return revocationArray;
+        } catch (error) {
+            console.log(error)
+            return false;
+        }
+    }
+
 
 
 

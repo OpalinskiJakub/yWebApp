@@ -60,5 +60,16 @@ class AdminService {
         return response;
     }
 
+    validateAndGetAllRevocations = async () => {
+        let token = await this.tokenStorage.getToken();
+        let request = {
+            token:token,
+        }
+
+        let response = await this.adminRequests.getAllRevocation(request);
+        return response;
+    }
+
+
 }
 export default AdminService;

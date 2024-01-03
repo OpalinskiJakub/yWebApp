@@ -27,6 +27,11 @@ class UserService {
         return response;
     }
 
+    validateAndSendRevocation = async (data) => {
+        let response= await this.userRequests.sendRevocation(data);
+        return response;
+    }
+
 
 }
 export default UserService;

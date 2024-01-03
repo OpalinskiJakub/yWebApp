@@ -23,7 +23,7 @@ class PreviewNavbar extends Component{
 
                     <Navbar className="bg-body-tertiary" data-bs-theme="dark" sticky="top">
                         <Container fluid>
-                            <Navbar.Brand href="/home">
+                            <Navbar.Brand href="/access">
                                 <Badge variant="dark" style={{width:"50px", height:"37px"}}>
                                     <h4 style={{ color: "black", fontFamily: "sans-serif" }}>Y</h4>
                                 </Badge>

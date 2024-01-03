@@ -72,6 +72,7 @@ class PostPanelComment extends Component {
     }
 
     removeComment = async () => {
+        console.log("jest")
         await this.postService.validateAndRemoveComment(this.props.comment.id);
         const { refresh } = this.props;
         await refresh();
@@ -254,8 +255,3 @@ class PostPanelComment extends Component {
 
 export default PostPanelComment;
 
-/*
-{this.props.comment.answers.map((comment, index) => (
-                    <PostPanelComment key={index} comment={comment} parentName={this.props.comment.author.name}/>
-                ))}
- */

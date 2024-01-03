@@ -137,6 +137,28 @@ class UserRequests {
             return false;
         }
     }
-}
+
+    sendRevocation = async (data) =>{
+            try {
+                console.log(data)
+                const response = await axios.patch(`http://localhost:8080/api/v1/public/revocation`,
+                    data,
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+
+                return true
+            } catch (error) {
+                console.log(error)
+                return false;
+            }
+
+
+    }
+
+
+    }
 
 export default UserRequests;
