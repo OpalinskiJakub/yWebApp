@@ -183,7 +183,7 @@ class PostPanel extends Component {
                                 <Button
                                     variant="outline-primary"
                                     style={buttonStyle}
-                                    onClick={() => this.setState({ showReplyForm: !this.state.showReplyForm })}
+                                    onClick={() => this.setState({ showEditForm: !this.state.showEditForm })}
                                 >
                                     Edytuj
                                 </Button>
