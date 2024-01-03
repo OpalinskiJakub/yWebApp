@@ -193,7 +193,7 @@ class PostPanel extends Component {
                                     variant="outline-primary"
                                     style={buttonStyle}
                                     onClick={this.removePost}
-
+                                    href="/home"
                                 >
                                     Usuń
                                 </Button>

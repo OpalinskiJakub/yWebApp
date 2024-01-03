@@ -8,6 +8,7 @@ import {Badge,Button,Dropdown,Form,Offcanvas} from "react-bootstrap";
 import React, {Component} from "react";
 import UserPanel from "../UserPanelVisualization/UserPanel";
 import UnsecuredTokenStorageSystem from "../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
+import UserService from "../Authorisation/UserAuthorisation/UserService";
 
 class Home extends Component{
     constructor() {
@@ -15,8 +16,18 @@ class Home extends Component{
         this.tokenStorage = new UnsecuredTokenStorageSystem();
         this.state = {
             encodedSearchValue:'',
-            searchValue:''
+            searchValue:'',
+            isAdmin:false
         }
+
+        this.userService = UserService.getInstance();
+    }
+
+    async componentDidMount() {
+        let response =await this.userService.checkIsAdmin();
+        this.setState({
+            isAdmin:response
+        })
     }
 
     close = () => {
@@ -78,7 +89,10 @@ class Home extends Component{
                                         <Nav.Link href="/home/UserPanel">Dane użytkownika</Nav.Link>
                                         <Nav.Link href="/home/postCreator">Stworz post</Nav.Link>
                                         <Nav.Link href="/home/userPosts">Twoje posty</Nav.Link>
-                                        <Nav.Link href="/home/AdminPanel">Panel administratora</Nav.Link>
+                                        {this.state.isAdmin ?
+                                            <Nav.Link href="/home/AdminPanel">Panel administratora</Nav.Link>
+                                            : null}
+
                                         <Nav.Link href="/access" onClick={this.close}>Wyloguj sie</Nav.Link>
                                         <NavDropdown
                                             title="Wybierz język"

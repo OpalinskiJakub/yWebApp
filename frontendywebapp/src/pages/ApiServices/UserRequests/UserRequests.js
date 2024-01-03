@@ -141,7 +141,7 @@ class UserRequests {
     sendRevocation = async (data) =>{
             try {
                 console.log(data)
-                const response = await axios.patch(`http://localhost:8080/api/v1/public/revocation`,
+                const response = await axios.post(`http://localhost:8080/api/v1/public/revocation`,
                     data,
                     {
                         headers: {

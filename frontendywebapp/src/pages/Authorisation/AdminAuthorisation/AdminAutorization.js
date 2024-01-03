@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import UnsecuredTokenStorageSystem from "../../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 import SessionUserStorageSystem from "../../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
+import UserService from "../UserAuthorisation/UserService";
 
 class AdminAuthorization extends Component {
     constructor(props) {
@@ -10,33 +11,24 @@ class AdminAuthorization extends Component {
             auth:false,
         };
 
-        this.tokenStorage = new UnsecuredTokenStorageSystem();
-        this.sessionUserStorage = SessionUserStorageSystem.getInstance();
+        this.userService = UserService.getInstance();
     }
 
-    componentDidMount() {
-        let status = this.tokenStorage.isTokenValid();
-
-        if(status==true&&this.sessionUserStorage.isAdmin()){
-            if(this.state.auth!==status)
-                this.setState({
-                    auth:status
-                })
+    async componentDidMount() {
+        let response = await this.userService.checkIsAdmin();
+        if(response===true){
+            this.setState({
+                auth:true
+            });
+        }else {
+            this.setState({
+                auth:false
+            });
         }
 
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        let status = this.tokenStorage.isTokenValid();
 
-        if(status==true&&this.sessionUserStorage.isAdmin()){
-            if(this.state.auth!==status)
-                this.setState({
-                    auth:status
-                })
-        }
-
-    }
 
 
 

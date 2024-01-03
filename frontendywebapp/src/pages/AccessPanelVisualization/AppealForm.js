@@ -34,6 +34,17 @@ class AppealForm extends Component {
     sendRevocation = async () => {
         let response = await this.userService.validateAndSendRevocation(this.state.formData);
         console.log(response);
+        if(response===true){
+            this.setState({
+                createdAlert: true,
+                errorAlert:false,
+            });
+        }else {
+            this.setState({
+                createdAlert: false,
+                errorAlert:true,
+            });
+        }
     }
 
 

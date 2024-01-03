@@ -12,11 +12,22 @@ class UserService {
         }
         return this.#instance;
     }
+
+
     constructor() {
         this.userRequests = new UserRequests();
         this.sessionUserStorageSystem = SessionUserStorageSystem.getInstance();
         this.tokenStorage = UnsecuredTokenStorageSystem.getInstance();
     }
+    checkIsAdmin = async () => {
+        let user = await this.sessionUserStorageSystem.getUserFromLocalStorage();
+        if(user.role==='ADMIN'){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 
     validateAndGetAllUsers = async () => {
         let token = await this.tokenStorage.getToken();
