@@ -178,13 +178,13 @@ public class SystemPostService {
                 .collect(Collectors.toList());
     }
 
-/*    public List<PostDataResponse> getReportedPosts() {
-        return postRepository.findAllByReportedIsFalse()
+    public List<PostDataResponse> getReportedPosts() {
+        return postRepository.findAllByReported(true)
                 .map(systemPosts -> systemPosts
                         .stream()
                         .map(PostDataResponse::new))
                 .orElseThrow(()-> new NoSuchElementException("No such element found"))
                 .collect(Collectors.toList());
-    }*/
+    }
 }
 

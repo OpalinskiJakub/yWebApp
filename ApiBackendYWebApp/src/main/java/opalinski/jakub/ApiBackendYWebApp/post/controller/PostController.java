@@ -48,7 +48,9 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         return ResponseEntity.ok(systemPostService.getAllPosts());
     }
-/*    @PreAuthorize("hasRole('USER')")
+
+
+    @PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin
     @GetMapping("/tokenmang/post/reported")
     public ResponseEntity<List<PostDataResponse>> getReportedPosts() {
@@ -56,13 +58,11 @@ public class PostController {
             List<PostDataResponse> postDataResponseList = systemPostService.getReportedPosts();
             if (postDataResponseList.isEmpty())
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            return ResponseEntity.ok(systemPostService.getAllPosts());
+            return ResponseEntity.ok(postDataResponseList);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }*/
-
-
+    }
 
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
     @CrossOrigin
@@ -74,7 +74,6 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
 
 
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
@@ -153,7 +152,7 @@ public class PostController {
         }
     }
 
-    @PreAuthorize ("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     @CrossOrigin
     @PatchMapping("/tokenmang/post/{id}/report/undo")
     public ResponseEntity<SystemPost> unReportPost(@PathVariable String id) {
@@ -177,7 +176,6 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 
 
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
