@@ -25,7 +25,7 @@ class AppealAdminPanel extends Component{
     }
 
     changeRevocationStatus = async (data) => {
-        let response=  await this.adminService.validateAndChangeUserStatusToUnBanned(data)
+        let response=  await this.adminService.validateAndRemoveRevocation(data);
         this.refresh();
     }
 

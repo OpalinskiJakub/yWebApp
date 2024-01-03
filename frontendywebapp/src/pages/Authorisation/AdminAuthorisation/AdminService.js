@@ -70,6 +70,17 @@ class AdminService {
         return response;
     }
 
+    validateAndRemoveRevocation = async (data) => {
+        let token = await this.tokenStorage.getToken();
+        let request = {
+            token:token,
+            revocationId:data
+        }
+
+        let response = await this.adminRequests.removeRevocationById(request);
+        return response;
+    }
+
 
 }
 export default AdminService;

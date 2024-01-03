@@ -98,7 +98,23 @@ class AdminRequests {
             return false;
         }
     }
+    removeRevocationById = async (data) => {
+        try {
+            const response = await axios.delete(`http://localhost:8080/api/v1/tokenmang/revocation/${data.revocationId}`,
 
+                {
+                    headers: {
+                        'Authorization': data.token,
+                    },
+                });
+
+
+            return true;
+        } catch (error) {
+            console.log(error)
+            return false;
+        }
+    }
 
 
 
