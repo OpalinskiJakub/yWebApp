@@ -98,7 +98,7 @@ public class SystemCommentService {
                 })
                 .orElseThrow(() -> new NoSuchElementException("Could not find entity with ID: " + id));
     }
-    public String getUserName(String email) throws Exception {
+    private String getUserName(String email) throws Exception {
         Optional<SystemUser> systemUser = userRepository.findSystemUserByEmailAndActiveTrue(email);
         return systemUser.map(SystemUser::getEmail) // email is actually mapped to username :)
                 .orElseThrow(() -> new Exception("Error while processing authentication context."));

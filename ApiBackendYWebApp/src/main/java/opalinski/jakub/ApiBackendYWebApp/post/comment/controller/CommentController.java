@@ -13,12 +13,13 @@ import java.util.NoSuchElementException;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value ="/api/v1", consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping("/api/v1")
 public class CommentController {
 
     private final SystemCommentService systemCommentService;
-    @CrossOrigin
+
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @CrossOrigin
     @PatchMapping("/tokenmang/comment/{entityId}/upvote/{userId}")
     public ResponseEntity<SystemComment> upvoteComment(@PathVariable String entityId, @PathVariable String userId){
         try {
@@ -28,8 +29,8 @@ public class CommentController {
         }
     }
 
-    @CrossOrigin
     @PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+    @CrossOrigin
     @DeleteMapping("/tokenmang/comment/{entityId}")
     public ResponseEntity<SystemComment> deleteComment(@PathVariable String entityId){
         try {
