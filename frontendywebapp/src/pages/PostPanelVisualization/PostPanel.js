@@ -5,6 +5,7 @@ import PostRequests from "../ApiServices/PostRequests/PostRequests";
 import { useParams } from 'react-router-dom';
 import PostService from "../Authorisation/PostAuthorisation/PostService";
 import Container from "react-bootstrap/Container";
+import {withTranslation} from "react-i18next";
 
 
 
@@ -125,7 +126,7 @@ class PostPanel extends Component {
     };
 
     render() {
-
+        const { t } = this.props;
 
 
         const buttonStyle = {
@@ -158,7 +159,7 @@ class PostPanel extends Component {
                         <Row xs="auto">
                             <Col>
                                 <Card style={{padding:5}}>
-                                    {this.state.post.upvote} polubień
+                                    {this.state.post.upvote}   {t('message')}
                                 </Card>
 
                             </Col>
@@ -261,12 +262,12 @@ class PostPanel extends Component {
     }
 }
 
-export default (props) => (
+export default withTranslation()((props) => (
     <PostPanel
         {...props}
         params={useParams()}
     />
-);
+));
 /*
 {this.state.comments.map((comment, index) => (
                                 <PostPanelComment key={index} comment={comment} />
