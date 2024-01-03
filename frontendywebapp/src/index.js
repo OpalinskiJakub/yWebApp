@@ -25,30 +25,34 @@ import AdminAutorization from "./pages/Authorisation/AdminAuthorisation/AdminAut
 import App from "./pages/App";
 import global_pol from "./translations/pol/global.json"
 import global_en from "./translations/en/global.json"
-import i18next from "i18next";
+import { initReactI18next } from 'react-i18next';
 import {I18nContext, I18nextProvider} from "react-i18next";
+import i18n from 'i18next';
+const resources = {
+    en: {
+        translation: global_en,
+    },
+    pol: {
+        translation: global_pol,
+    },
+};
 
-i18next.init({
-    interpolation: {escapeValue:false},
-    lng:"pol",
-    resources:{
-        pol:{
-            global:global_pol
+i18n
+    .use(initReactI18next)
+    .init({
+        resources,
+        lng: 'en',
+        interpolation: {
+            escapeValue: false,
         },
-        en: {
-            global:global_en
-        }
-
-    }
-}
-)
+    });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 document.body.style.background = 'grey';
 
 
 root.render(
-    <I18nextProvider i18n={i18next}>
+    <I18nextProvider i18n={i18n}>
     <App />
     </I18nextProvider>
 );

@@ -12,11 +12,12 @@ class AccessPanel extends Component{
 
     render() {
         const { t } = this.props;
+
         return(
             <Col md={{ span: 3, offset: 2 }} style={{marginTop:'8%'}}>
             <Card style={{padding:'16%'}}>
                 <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/access/LoginPanel">
-                    {t('message')}
+                    {t('message.first')}
                 </Button>
                 <Button variant="outline-primary" style={{marginBottom:"3%"}} as={Link} to="/access/registerType">
                     Zarejstruj sie
