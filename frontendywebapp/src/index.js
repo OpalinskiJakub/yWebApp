@@ -23,17 +23,19 @@ import AppealForm from "./pages/AccessPanelVisualization/AppealForm";
 import UserAutorization from "./pages/Authorisation/UserAuthorisation/UserAuthorization";
 import AdminAutorization from "./pages/Authorisation/AdminAuthorisation/AdminAutorization";
 import App from "./pages/App";
-import global_pol from "./translations/pol/global.json"
-import global_en from "./translations/en/global.json"
+
 import { initReactI18next } from 'react-i18next';
 import {I18nContext, I18nextProvider} from "react-i18next";
 import i18n from 'i18next';
+import accesPanel from "./translations/en/accesPanel.json";
+import accesPanelPol from "./translations/pol/accesPanelPol.json"
+
 const resources = {
     en: {
-        translation: global_en,
+        accesPanel:accesPanel
     },
     pol: {
-        translation: global_pol,
+        accesPanel:accesPanelPol,
     },
 };
 

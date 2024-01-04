@@ -1,0 +1,11 @@
+{
+  "login": "Sign up",
+  "register": "Sign in",
+  "preview": "Go to Y",
+  "appeal": "Appeal form",
+  "lang": {
+    "title":"Language",
+    "en": "English",
+    "pol": "polish"
+  }
+}
