@@ -1,0 +1,13 @@
+{
+  "emailForm": {
+    "title": "Email",
+    "description": "Enter your email address"
+  },
+  "descriptionForm": {
+    "title": "Description",
+    "description": "Enter your description"
+  },
+  "button": "Send",
+  "errorAlert": "Invalid data",
+  "acceptAlert": "Successfully sent"
+}

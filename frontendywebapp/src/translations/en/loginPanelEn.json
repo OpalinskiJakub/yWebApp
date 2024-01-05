@@ -1,0 +1,12 @@
+{
+  "emailForm": {
+    "title": "Email",
+    "description": "Enter your email"
+  },
+  "passwordForm": {
+    "title": "Password",
+    "description": "Enter your password"
+  },
+  "button": "Sign up",
+  "alert": "Invalid data"
+}

@@ -1,0 +1,28 @@
+{
+  "emailForm": {
+    "title": "Email",
+    "description": "Wprowadź swój adres email"
+  },
+  "usernameForm": {
+    "title": "Nazwa użytkownika",
+    "description": "Wprowadź swoją nazwę użytkownika"
+  },
+  "descriptionForm": {
+    "title": "Opis",
+    "description": "Wprowadź swój opis"
+  },
+  "ageForm": {
+    "title": "Wiek",
+    "description": "Wprowadź swój wiek"
+  },
+  "passwordForm": {
+    "title": "Hasło",
+    "description": "Wprowadź swoje hasło"
+  },
+  "button": "Zaloguj się",
+  "errorAlert": "Nieprawidłowe dane",
+  "acceptAlert": {
+    "button": "Zarejestruj się",
+    "title": "Rejestracja udana"
+  }
+}

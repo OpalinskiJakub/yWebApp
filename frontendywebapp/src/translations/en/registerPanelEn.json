@@ -1,0 +1,28 @@
+{
+  "emailForm": {
+    "title": "Email",
+    "description": "Enter your email"
+  },
+  "usernameForm": {
+    "title": "Username",
+    "description": "Enter your username"
+  },
+  "descriptionForm": {
+    "title": "Description",
+    "description": "Enter your description"
+  },
+  "ageForm": {
+    "title": "Age",
+    "description": "Enter your age"
+  },
+  "passwordForm": {
+    "title": "Password",
+    "description": "Enter your password"
+  },
+  "button": "Sign in",
+  "errorAlert": "Invalid data",
+  "acceptAlert": {
+    "button": "Sign up",
+    "title": "Registration Successful"
+  }
+}

@@ -4,6 +4,9 @@ import Alert from "react-bootstrap/Alert";
 import userAutorization from "../Authorisation/UserAuthorisation/UserAuthorization";
 import {Navigate} from "react-router-dom";
 import LoginService from "../Authorisation/UserAuthorisation/LoginService";
+
+import { useTranslation } from 'react-i18next';
+import { withTranslation } from 'react-i18next';
 class LoginPanel extends Component {
     constructor(props) {
         super(props);
@@ -62,6 +65,7 @@ class LoginPanel extends Component {
 
     render() {
         const {formData} = this.state;
+        const { t } = this.props;
 
         return (
             <Col md={{span: 3, offset: 2}} style={{marginTop: this.state.cardPadding}}>
@@ -69,7 +73,7 @@ class LoginPanel extends Component {
                     {
                         this.state.ErrorAlert ? (
                             <Alert variant="danger" onClose={this.closeValidateAlert} dismissible>
-                                Niepoprawne dane
+                                {t('alert')}
                             </Alert>
 
                         ) : null
@@ -77,11 +81,11 @@ class LoginPanel extends Component {
 
                     <Form>
                         <Form.Group controlId="formName" style={{padding: '4%'}}>
-                            <Form.Label>Nazwa użytkownika</Form.Label>
+                            <Form.Label>{t('emailForm.title')}</Form.Label>
                             <Form.Control
                                 required
                                 type="text"
-                                placeholder="Enter your name"
+                                placeholder={t('emailForm.description')}
                                 name="name"
                                 value={formData.name}
                                 onChange={this.handleInputChange}
@@ -89,11 +93,11 @@ class LoginPanel extends Component {
                         </Form.Group>
 
                         <Form.Group controlId="formPassword" style={{padding: '4%'}}>
-                            <Form.Label>Hasło</Form.Label>
+                            <Form.Label>{t('passwordForm.title')}</Form.Label>
                             <Form.Control
                                 required
                                 type="password"
-                                placeholder="Enter your password"
+                                placeholder={t('passwordForm.description')}
                                 name="password"
                                 value={formData.password}
                                 onChange={this.handleInputChange}
@@ -101,7 +105,9 @@ class LoginPanel extends Component {
 
                         </Form.Group>
 
-                        <Button variant="outline-primary" onClick={this.validate}>Zaloguj sie</Button>
+                        <Button variant="outline-primary" onClick={this.validate}>
+                            {t('button')}
+                        </Button>
                     </Form>
                     {this.state.shouldRedirect ? <Navigate to="/home" /> : null}
                 </Card>
@@ -111,4 +117,4 @@ class LoginPanel extends Component {
 }
 
 
-export default LoginPanel;
+export default withTranslation('loginPanel')(LoginPanel);

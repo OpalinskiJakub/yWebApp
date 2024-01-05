@@ -5,6 +5,7 @@ import RegisterAutorization from "../Authorisation/UserAuthorisation/RegisterSer
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
+import {withTranslation} from "react-i18next";
 
 class AppealForm extends Component {
     constructor() {
@@ -49,6 +50,8 @@ class AppealForm extends Component {
 
 
     render() {
+
+        const { t } = this.props;
         return (
             <Col md={{ span: 4, offset: 1 }} style={{marginTop:'5%'}} >
                 <Card style={{ padding: '7%' }}>
@@ -59,7 +62,7 @@ class AppealForm extends Component {
                             dismissible
                             style={{ fontSize: 'smaller' }}
                         >
-                            Niepoprawne dane
+                            {t('errorAlert')}
                         </Alert>
                     ) : null}
 
@@ -73,7 +76,7 @@ class AppealForm extends Component {
                         >
                             <Container>
                                 <Row>
-                                    Pomyślnie wyslano
+                                    {t('acceptAlert')}
                                 </Row>
 
                             </Container>
@@ -85,11 +88,11 @@ class AppealForm extends Component {
 
                     <Form>
                         <Form.Group controlId="formEmail" style={{ padding: '4%' }}>
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label>{t('emailForm.title')}</Form.Label>
                             < Form.Control
                                 required
                                 type="text"
-                                placeholder="Enter your email"
+                                placeholder={t('emailForm.description')}
                                 name="email"
                                 value={this.state.formData.email}
                                 onChange={this.handleInputChange}
@@ -98,12 +101,12 @@ class AppealForm extends Component {
 
 
                         <Form.Group controlId="formDescription" style={{ padding: '4%' }}>
-                            <Form.Label>Opis</Form.Label>
+                            <Form.Label>{t('descriptionForm.title')}</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 rows={3}
                                 required
-                                placeholder="Enter your description"
+                                placeholder={t('descriptionForm.description')}
                                 name="content"
                                 value={this.state.formData.content}
                                 onChange={this.handleInputChange}
@@ -115,7 +118,7 @@ class AppealForm extends Component {
                             variant="outline-primary"
                             onClick={this.sendRevocation}
                         >
-                            Wyslij
+                            {t('button')}
                         </Button>
                     </Form>
                 </Card>
@@ -125,4 +128,4 @@ class AppealForm extends Component {
 
 }
 
-export default AppealForm;
+export default withTranslation('appealPanel')(AppealForm);

@@ -29,13 +29,32 @@ import {I18nContext, I18nextProvider} from "react-i18next";
 import i18n from 'i18next';
 import accesPanel from "./translations/en/accesPanel.json";
 import accesPanelPol from "./translations/pol/accesPanelPol.json"
+import loginPanelEn from "./translations/en/loginPanelEn.json"
+import loginPanelPol from "./translations/pol/loginPanelPol.json"
+import registerTypePanelEn from "./translations/en/registerTypePanelEn.json"
+import registerTypePanelPol from "./translations/pol/registerTypePanelPol.json"
+import appealPanelEn from "./translations/en/appealPanelEn.json"
+import appealPanelPol from "./translations/pol/appealPanelPol.json"
+
+
+const savedLanguage = localStorage.getItem('selectedLanguage');
+
+
+const defaultLanguage = savedLanguage || 'pol';
 
 const resources = {
     en: {
-        accesPanel:accesPanel
+        accesPanel:accesPanel,
+        loginPanel:loginPanelEn,
+        registerTypePanel:registerTypePanelEn,
+        appealPanel:appealPanelEn,
+
     },
     pol: {
         accesPanel:accesPanelPol,
+        loginPanel:loginPanelPol,
+        registerTypePanel:registerTypePanelPol,
+        appealPanel:appealPanelPol,
     },
 };
 
@@ -43,7 +62,7 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        lng: 'en',
+        lng: defaultLanguage,
         interpolation: {
             escapeValue: false,
         },

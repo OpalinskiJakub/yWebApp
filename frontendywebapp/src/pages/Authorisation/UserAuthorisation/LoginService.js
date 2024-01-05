@@ -36,11 +36,14 @@ class LoginService{
             }
         }
         let response= await this.connector.sendLoginRequest(data);
-        let preparedToken = 'Bearer '+response.token;
-        response.token=preparedToken;
-        this.tokenStorage.saveToken(preparedToken);
-        let user = await this.userRequests.getUserWithEmail(response);
-        this.userStorage.saveUserToLocalStorage(user);
+        if(response.status==true){
+            let preparedToken = 'Bearer '+response.token;
+            response.token=preparedToken;
+            this.tokenStorage.saveToken(preparedToken);
+            let user = await this.userRequests.getUserWithEmail(response);
+            this.userStorage.saveUserToLocalStorage(user);
+        }
+
         return response;
     }
 
