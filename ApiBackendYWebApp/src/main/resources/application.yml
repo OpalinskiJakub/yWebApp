@@ -15,4 +15,11 @@ spring:
       port: 27017
       host: 172.23.0.3
       auto-index-creation: true
+github:
+  uri: https://github.com/login/oauth/access_token
+  clientid: 2def095dacb74694b9e5
+  clientsecret: 9a44fe6624b43835250993972d1ef684ff96bc1a
+  userUri: https://api.github.com/user
+  redirect: https://example.com/
+
 
