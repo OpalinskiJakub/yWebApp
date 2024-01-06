@@ -12,8 +12,8 @@ class AccessPanel extends Component{
     }
 
     changeLanguage = (lng) => {
-        console.log(lng)
         i18n.changeLanguage(lng);
+        localStorage.setItem('selectedLanguage', lng);
     };
 
     render() {

@@ -19,10 +19,10 @@
     "title": "Hasło",
     "description": "Wprowadź swoje hasło"
   },
-  "button": "Zaloguj się",
+  "button": "Zarejestruj się",
   "errorAlert": "Nieprawidłowe dane",
   "acceptAlert": {
-    "button": "Zarejestruj się",
+    "button": "Zaloguj się",
     "title": "Rejestracja udana"
   }
 }

@@ -9,6 +9,7 @@ import React, {Component} from "react";
 import UserPanel from "../UserPanelVisualization/UserPanel";
 import UnsecuredTokenStorageSystem from "../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 import UserService from "../Authorisation/UserAuthorisation/UserService";
+import i18n from "i18next";
 
 class Home extends Component{
     constructor() {
@@ -42,6 +43,11 @@ class Home extends Component{
             searchValue:value
         })
         console.log(encodedValue);
+    };
+
+    changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+        localStorage.setItem('selectedLanguage', lng);
     };
     render() {
         return (
@@ -98,10 +104,14 @@ class Home extends Component{
                                             title="Wybierz język"
                                             id={`offcanvasNavbarDropdown-expand-${expand}`}
                                         >
-                                            <NavDropdown.Item href="#action3">
+                                            <NavDropdown.Item
+                                            onClick={() => this.changeLanguage('en')}
+                                            >
                                                 Angielski
                                             </NavDropdown.Item>
-                                            <NavDropdown.Item href="#action4">
+                                            <NavDropdown.Item
+                                                onClick={() => this.changeLanguage('pol')}
+                                            >
                                                 Polski
                                             </NavDropdown.Item>
 

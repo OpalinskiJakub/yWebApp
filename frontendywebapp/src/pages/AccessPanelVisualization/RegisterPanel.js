@@ -4,6 +4,7 @@ import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import RegisterAutorization from "../Authorisation/UserAuthorisation/RegisterService";
+import {withTranslation} from "react-i18next";
 
 class RegisterPanel extends Component {
     constructor() {
@@ -61,6 +62,7 @@ class RegisterPanel extends Component {
     }
 
     render() {
+        const { t } = this.props;
         return (
             <Col md={{ span: 4, offset: 1 } }>
                 <Card style={{ padding: '7%' }}>
@@ -71,7 +73,8 @@ class RegisterPanel extends Component {
                             dismissible
                             style={{ fontSize: 'smaller' }}
                         >
-                            Niepoprawne dane lub konto z podanymi danymi juz istnieje
+                            {t('errorAlert')}
+
                         </Alert>
                     ) : null}
 
@@ -85,11 +88,11 @@ class RegisterPanel extends Component {
                         >
                             <Container>
                                 <Row>
-                                    Pomyślnie zarejestrowano
+                                    {t('acceptAlert.title')}
                                 </Row>
                                 <Row>
                                     <Button variant="outline-success" style={{marginTop:"3%"}} as={Link} to="/access/LoginPanel">
-                                        Przejdz do logowania
+                                        {t('acceptAlert.button')}
                                     </Button>
                                 </Row>
                             </Container>
@@ -101,11 +104,11 @@ class RegisterPanel extends Component {
 
                     <Form>
                         <Form.Group controlId="formEmail" style={{ padding: '4%' }}>
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label>{t('emailForm.title')}</Form.Label>
                             < Form.Control
                                 required
                                 type="text"
-                                placeholder="Enter your email"
+                                placeholder={t('emailForm.description')}
                                 name="email"
                                 value={this.state.formData.email}
                                 onChange={this.handleInputChange}
@@ -113,11 +116,11 @@ class RegisterPanel extends Component {
                         </Form.Group>
 
                         <Form.Group controlId="formUsername" style={{ padding: '4%' }}>
-                            <Form.Label>Username</Form.Label>
+                            <Form.Label>{t('usernameForm.title')}</Form.Label>
                             <Form.Control
                                 required
                                 type="text"
-                                placeholder="Enter your username"
+                                placeholder={t('usernameForm.description')}
                                 name="username"
                                 value={this.state.formData.username}
                                 onChange={this.handleInputChange}
@@ -125,12 +128,12 @@ class RegisterPanel extends Component {
                         </Form.Group>
 
                         <Form.Group controlId="formDescription" style={{ padding: '4%' }}>
-                            <Form.Label>Opis</Form.Label>
+                            <Form.Label>{t('descriptionForm.title')}</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 rows={3}
                                 required
-                                placeholder="Enter your description"
+                                placeholder={t('descriptionForm.description')}
                                 name="description"
                                 value={this.state.formData.description}
                                 onChange={this.handleInputChange}
@@ -138,11 +141,11 @@ class RegisterPanel extends Component {
                         </Form.Group>
 
                         <Form.Group controlId="formAge" style={{ padding: '4%' }}>
-                            <Form.Label>Wiek</Form.Label>
+                            <Form.Label>{t('ageForm.title')}</Form.Label>
                             <Form.Control
                                 required
                                 type="text"
-                                placeholder="Enter your age"
+                                placeholder={t('ageForm.description')}
                                 name="age"
                                 value={this.state.formData.age}
                                 onChange={this.handleInputChange}
@@ -150,18 +153,20 @@ class RegisterPanel extends Component {
                         </Form.Group>
 
                         <Form.Group controlId="formPassword" style={{ padding: '4%' }}>
-                            <Form.Label>Haslo</Form.Label>
+                            <Form.Label>{t('passwordForm.title')}</Form.Label>
                             <Form.Control
                                 required
                                 type="password"
-                                placeholder="Enter your password"
+                                placeholder={t('passwordForm.description')}
                                 name="password"
                                 value={this.state.formData.password}
                                 onChange={this.handleInputChange}
                             />
                         </Form.Group>
 
-                        <Button variant="outline-primary" onClick={this.register}>Zarejstruj sie</Button>
+                        <Button variant="outline-primary" onClick={this.register}>
+                            {t('button')}
+                        </Button>
                     </Form>
                 </Card>
             </Col>
@@ -169,4 +174,4 @@ class RegisterPanel extends Component {
     }
 }
 
-export default RegisterPanel;
+export default withTranslation('registerPanel')(RegisterPanel);
