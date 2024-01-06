@@ -10,6 +10,7 @@ import UserPanel from "../UserPanelVisualization/UserPanel";
 import UnsecuredTokenStorageSystem from "../StorageSystem/TokenStorageSystem/UnsecuredTokenStorageSystem";
 import UserService from "../Authorisation/UserAuthorisation/UserService";
 import i18n from "i18next";
+import {withTranslation} from "react-i18next";
 
 class Home extends Component{
     constructor() {
@@ -46,11 +47,15 @@ class Home extends Component{
     };
 
     changeLanguage = (lng) => {
+        console.log(lng)
         i18n.changeLanguage(lng);
         localStorage.setItem('selectedLanguage', lng);
     };
     render() {
+        const { t } = this.props;
         return (
+
+
             <div data-bs-theme="dark" sticky="top">
                 {[false].map((expand) => (
                     <Navbar key={expand} expand={expand} className="bg-body-tertiary" data-bs-theme="dark" sticky="top">
@@ -65,7 +70,7 @@ class Home extends Component{
                                     <Form.Control
                                         required
                                         type="text"
-                                        placeholder="Enter your email"
+                                        placeholder={t('searchForm.description')}
                                         aria-label="Wyszukaj"
                                         name="searchValue"
                                         value={this.state.searchValue}
@@ -74,7 +79,7 @@ class Home extends Component{
                                     <Button variant="outline-primary"
                                         href={`/home/search/${this.state.encodedSearchValue}`}
                                     >
-                                        Search
+                                        {t('searchForm.button')}
                                     </Button>
                                 </Form>
                             </div>
@@ -87,32 +92,34 @@ class Home extends Component{
                             >
                                 <Offcanvas.Header closeButton>
                                     <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                                        Panel użytkownika
+                                        {t('navbar.title')}
                                     </Offcanvas.Title>
                                 </Offcanvas.Header>
                                 <Offcanvas.Body data-bs-theme="dark">
                                     <Nav className="justify-content-end flex-grow-1 pe-3" data-bs-theme="dark">
-                                        <Nav.Link href="/home/UserPanel">Dane użytkownika</Nav.Link>
-                                        <Nav.Link href="/home/postCreator">Stworz post</Nav.Link>
-                                        <Nav.Link href="/home/userPosts">Twoje posty</Nav.Link>
+                                        <Nav.Link href="/home/UserPanel">{t('navbar.userData')}</Nav.Link>
+                                        <Nav.Link href="/home/postCreator">{t('navbar.createPost')}</Nav.Link>
+                                        <Nav.Link href="/home/userPosts">{t('navbar.yourPosts')}</Nav.Link>
                                         {this.state.isAdmin ?
-                                            <Nav.Link href="/home/AdminPanel">Panel administratora</Nav.Link>
+                                            <Nav.Link href="/home/AdminPanel">{t('navbar.title')}</Nav.Link>
                                             : null}
 
-                                        <Nav.Link href="/access" onClick={this.close}>Wyloguj sie</Nav.Link>
+                                        <Nav.Link href="/access" onClick={this.close}>
+                                            {t('navbar.logout')}
+                                        </Nav.Link>
                                         <NavDropdown
-                                            title="Wybierz język"
+                                            title={t('navbar.lang.title')}
                                             id={`offcanvasNavbarDropdown-expand-${expand}`}
                                         >
                                             <NavDropdown.Item
                                             onClick={() => this.changeLanguage('en')}
                                             >
-                                                Angielski
+                                                {t('navbar.lang.en')}
                                             </NavDropdown.Item>
                                             <NavDropdown.Item
                                                 onClick={() => this.changeLanguage('pol')}
                                             >
-                                                Polski
+                                                {t('navbar.lang.pol')}
                                             </NavDropdown.Item>
 
                                         </NavDropdown>
@@ -132,6 +139,6 @@ class Home extends Component{
 
 }
 
-export default Home;
+export default withTranslation('home')(Home);
 
 

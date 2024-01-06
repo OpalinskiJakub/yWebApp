@@ -3,6 +3,7 @@ import PostService from "../Authorisation/PostAuthorisation/PostService";
 import Container from "react-bootstrap/Container";
 import {Button, Card} from "react-bootstrap";
 import {useParams} from "react-router-dom";
+import {withTranslation} from "react-i18next";
 
 class MainPageSearchPostsVisualization extends Component {
     constructor() {
@@ -23,6 +24,7 @@ class MainPageSearchPostsVisualization extends Component {
 
 
     render() {
+        const { t } = this.props;
         return (
             <Container>
                 {this.state.posts.length >= 1 ?  (
@@ -34,7 +36,7 @@ class MainPageSearchPostsVisualization extends Component {
                             </Card.Body>
                             <Card.Footer className="text-center">
                                 <Button variant="outline-primary" href={`/home/post/${post.id}`}>
-                                    Zobacz post
+                                    {t('postPreview')}
                                 </Button>
                             </Card.Footer>
                         </Card>
@@ -46,11 +48,11 @@ class MainPageSearchPostsVisualization extends Component {
 
 }
 
-export default (props) => (
+export default withTranslation('home')((props) => (
     <MainPageSearchPostsVisualization
         {...props}
         params={useParams()}
     />
-);
+));
 
 

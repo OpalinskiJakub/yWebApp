@@ -2,6 +2,7 @@ import {Component} from "react";
 import {Button, Card, Form,Nav,ListGroup ,Col,Image,Container,Row} from "react-bootstrap";
 
 import SessionUserStorageSystem from "../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
+import {withTranslation} from "react-i18next";
 class UserDataPanel extends Component{
     constructor() {
         super();
@@ -27,6 +28,7 @@ class UserDataPanel extends Component{
     }
 
     render() {
+        const { t } = this.props;
         return(
             <Container>
                 <Row>
@@ -36,25 +38,25 @@ class UserDataPanel extends Component{
 
                     <Col xs={12} md={6}>
                         <Card style={{ width: '100%', marginTop: '10px',marginBottom: '10px' }}>
-                            <Card.Header>Nazwa użytkowanika</Card.Header>
+                            <Card.Header>{t('name')}</Card.Header>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>{this.state.username}</ListGroup.Item>
                             </ListGroup>
                         </Card>
                         <Card style={{ width: '100%', marginTop: '10px',marginBottom: '10px' }}>
-                            <Card.Header>Email</Card.Header>
+                            <Card.Header>{t('email')}</Card.Header>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>{this.state.email}</ListGroup.Item>
                             </ListGroup>
                         </Card>
                         <Card style={{ width: '100%', marginTop: '10px',marginBottom: '10px' }}>
-                            <Card.Header>Wiek</Card.Header>
+                            <Card.Header>{t('age')}</Card.Header>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>{this.state.age}</ListGroup.Item>
                             </ListGroup>
                         </Card>
                         <Card style={{ width: '100%', marginTop: '10px',marginBottom: '10px' }}>
-                            <Card.Header>Opis</Card.Header>
+                            <Card.Header>{t('description')}</Card.Header>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>{this.state.description}</ListGroup.Item>
                             </ListGroup>
@@ -66,4 +68,4 @@ class UserDataPanel extends Component{
     }
 }
 
-export default UserDataPanel;
+export default withTranslation('userDataPanel')(UserDataPanel);

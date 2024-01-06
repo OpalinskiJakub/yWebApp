@@ -1,0 +1,13 @@
+{
+  "titleForm": {
+    "title": "Temat",
+    "description": "Wprowadź swój adres temat"
+  },
+  "contentForm": {
+    "title": "Treść",
+    "description": "Wprowadź treść posta"
+  },
+  "button": "Stwórz post",
+  "errorAlert": "Nieprawidłowe dane",
+  "acceptAlert": "Post stworzony"
+}

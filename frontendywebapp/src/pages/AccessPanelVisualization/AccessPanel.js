@@ -40,8 +40,12 @@ class AccessPanel extends Component{
                     title={t('lang.title')}
                     id="bg-vertical-dropdown-1"
                 >
-                    <Dropdown.Item eventKey="1" onClick={() => this.changeLanguage('en')}>{t('lang.en')}</Dropdown.Item>
-                    <Dropdown.Item eventKey="2" onClick={() => this.changeLanguage('pol')}>{t('lang.pol')}</Dropdown.Item>
+                    <Dropdown.Item eventKey="1" onClick={() => this.changeLanguage('en')}>
+                        {t('lang.en')}
+                    </Dropdown.Item>
+                    <Dropdown.Item eventKey="2" onClick={() => this.changeLanguage('pol')}>
+                        {t('lang.pol')}
+                    </Dropdown.Item>
 
                 </DropdownButton>
 

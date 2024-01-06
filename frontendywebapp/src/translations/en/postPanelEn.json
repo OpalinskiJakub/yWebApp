@@ -1,0 +1,21 @@
+{
+  "numberoflikes": "Likes",
+  "likeForm": {
+    "like": "Like",
+    "unlike": "Unlike"
+  },
+  "report": "Report",
+  "editForm": {
+    "title": "Edit",
+    "description": "Enter your content",
+    "button": "Edit content"
+  },
+  "remove": "Remove",
+  "comment": {
+    "title": "Comments",
+    "commentForm": {
+      "description" :"Enter your comment",
+      "button": "Add comment"
+    }
+  }
+}

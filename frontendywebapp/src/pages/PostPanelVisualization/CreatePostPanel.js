@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import {Link} from "react-router-dom";
 import Post from "../StorageSystem/PostPanel/Model/Post";
 import PostService from "../Authorisation/PostAuthorisation/PostService";
+import {withTranslation} from "react-i18next";
 
 class CreatePostPanel extends Component{
     constructor() {
@@ -55,6 +56,7 @@ class CreatePostPanel extends Component{
 
 
     render() {
+        const { t } = this.props;
         return (
             <Card className="mx-auto" style={{ width: "80%", margin: "10px" }}>
                 <Card.Header>
@@ -67,7 +69,7 @@ class CreatePostPanel extends Component{
                             dismissible
                             style={{ fontSize: 'smaller' }}
                         >
-                            Niepoprawne dane lub konto z podanymi danymi juz istnieje
+                            {t('errorAlert')}
                         </Alert>
                     ) : null}
 
@@ -79,7 +81,7 @@ class CreatePostPanel extends Component{
                             dismissible
                             style={{ fontSize: 'smaller' }}
                         >
-                           Post stworzony
+                            {t('acceptAlert')}
                         </Alert>
 
                     ) : null}
@@ -88,11 +90,11 @@ class CreatePostPanel extends Component{
 
                     <Form>
                         <Form.Group controlId="formEmail" style={{ padding: '4%' }}>
-                            <Form.Label>Temat</Form.Label>
+                            <Form.Label>{t('titleForm.title')}</Form.Label>
                             < Form.Control
                                 required
                                 type="text"
-                                placeholder="Enter your email"
+                                placeholder={t('titleForm.description')}
                                 name="title"
                                 value={this.state.formData.title}
                                 onChange={this.handleInputChange}
@@ -100,12 +102,12 @@ class CreatePostPanel extends Component{
                         </Form.Group>
 
                         <Form.Group controlId="formUsername" style={{ padding: '4%' }}>
-                            <Form.Label>Tresc</Form.Label>
+                            <Form.Label>{t('contentForm.title')}</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 rows={5}
                                 required
-                                placeholder="Enter your description"
+                                placeholder={t('contentForm.description')}
                                 name="content"
                                 value={this.state.formData.content}
                                 onChange={this.handleInputChange}
@@ -114,7 +116,9 @@ class CreatePostPanel extends Component{
 
                         <Button variant="outline-primary"
                         onClick={this.createPost}
-                        >Stworz post</Button>
+                        >
+                            {t('button')}
+                        </Button>
                     </Form>
                 </Card>
             </Col>
@@ -125,4 +129,4 @@ class CreatePostPanel extends Component{
     }
 
 }
-export default CreatePostPanel;
+export default  withTranslation('createPostPanel')(CreatePostPanel);

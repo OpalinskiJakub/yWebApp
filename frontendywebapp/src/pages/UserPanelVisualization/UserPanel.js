@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, Nav } from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
+import {withTranslation} from "react-i18next";
 
 class UserPanel extends Component {
     constructor() {
@@ -16,6 +17,7 @@ class UserPanel extends Component {
 
     render() {
         const { activeTab } = this.state;
+        const { t } = this.props;
 
         return (
             <Card className="mx-auto" style={{ width: "80%", margin: "10px" }}>
@@ -27,7 +29,7 @@ class UserPanel extends Component {
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/UserPanel")}
                             >
-                                Twoje Dane
+                                {t('yourData')}
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -36,7 +38,7 @@ class UserPanel extends Component {
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/UserPanel/UserDataEditPanel")}
                             >
-                                Zmień dane
+                                {t('changeData')}
                             </Link>
                         </Nav.Item>
                     </Nav>
@@ -49,4 +51,4 @@ class UserPanel extends Component {
     }
 }
 
-export default UserPanel;
+export default withTranslation('userPanel')(UserPanel);

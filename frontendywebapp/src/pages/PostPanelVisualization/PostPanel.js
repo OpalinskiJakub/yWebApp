@@ -161,7 +161,7 @@ class PostPanel extends Component {
                         <Row xs="auto">
                             <Col>
                                 <Card style={{padding:5}}>
-                                    {this.state.post.upvote}   {t('message')}
+                                    {this.state.post.upvote}   {t('numberoflikes')}
                                 </Card>
 
                             </Col>
@@ -172,7 +172,7 @@ class PostPanel extends Component {
                                         style={buttonStyleLike}
                                         onClick={this.addVote}
                                     >
-                                        Polub
+                                        {t('likeForm.like')}
                                     </Button>
                                     :
                                     <Button
@@ -180,7 +180,7 @@ class PostPanel extends Component {
                                         style={buttonStyleUnlike}
                                         onClick={this.addVote}
                                     >
-                                        Usun polubienie
+                                        {t('likeForm.unlike')}
                                     </Button>
                                 }
                             </Col>
@@ -190,7 +190,7 @@ class PostPanel extends Component {
                                     style={buttonStyle}
                                     onClick={this.reportPost}
                                 >
-                                    Zglos
+                                    {t('report')}
                                 </Button>
                             </Col>
                             {this.state.isPostOwner && (
@@ -201,7 +201,7 @@ class PostPanel extends Component {
                                     style={buttonStyle}
                                     onClick={() => this.setState({ showEditForm: !this.state.showEditForm })}
                                 >
-                                    Edytuj
+                                    {t('editForm.title')}
                                 </Button>
                             </Col>
                             <Col>
@@ -211,7 +211,7 @@ class PostPanel extends Component {
                                     onClick={this.removePost}
                                     href="/home"
                                 >
-                                    Usuń
+                                    {t('remove')}
                                 </Button>
                             </Col>
                             </>
@@ -222,13 +222,13 @@ class PostPanel extends Component {
                                 <Form.Group style={{ marginTop: '10px' }}>
                                     <Form.Control
                                         as="textarea"
-                                        placeholder="Wpisz nowa tresc..."
+                                        placeholder={t('editForm.description')}
                                         value={this.state.newContent}
                                         onChange={(e) => this.setState({ newContent: e.target.value })}
                                     />
                                 </Form.Group>
                                 <Button variant="outline-primary" onClick={this.editPost} style={{padding:4 ,fontSize:17, marginTop:10}}>
-                                    Wyslij
+                                    {t('editForm.button')}
                                 </Button>
                             </Form>
                         )}
@@ -236,7 +236,7 @@ class PostPanel extends Component {
                 </Card.Body>
                 <Card.Body>
                     <Card className="m-3" style={{ padding: 10 }}>
-                        <Card.Title>Komentarze:</Card.Title>
+                        <Card.Title>{t('comment.title')}:</Card.Title>
                         {Array.isArray(this.state.post.systemCommentList) &&
                             this.state.post.systemCommentList.map((comment, index) => (
                                 <PostPanelComment key={index} comment={comment} refresh={this.refresh} firstRow={false} />
@@ -244,7 +244,7 @@ class PostPanel extends Component {
                         <Form.Group>
                             <Form.Control
                                 as="textarea"
-                                placeholder="Dodaj komentarz..."
+                                placeholder={t('comment.commentForm.description')}
                                 value={this.state.newComment}
                                 onChange={(e) => this.setState({ newComment: e.target.value })}
                             />
@@ -254,7 +254,7 @@ class PostPanel extends Component {
                             onClick={this.addComment}
                             style={{ padding: 4, fontSize: 15, marginTop: 10 }}
                         >
-                            Dodaj Komentarz
+                            {t('comment.commentForm.button')}
                         </Button>
                     </Card>
                 </Card.Body>
@@ -265,7 +265,7 @@ class PostPanel extends Component {
     }
 }
 
-export default withTranslation()((props) => (
+export default withTranslation('postPanel')((props) => (
     <PostPanel
         {...props}
         params={useParams()}

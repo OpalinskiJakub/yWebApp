@@ -1,0 +1,13 @@
+{
+  "numberoflikes": "Number of Likes",
+  "likeForm": {
+    "like": "Like",
+    "unlike": "Unlike"
+  },
+  "answerForm": {
+    "title": "Answer",
+    "description": "Enter your content",
+    "button": "Add answer"
+  },
+  "remove": "Remove"
+}

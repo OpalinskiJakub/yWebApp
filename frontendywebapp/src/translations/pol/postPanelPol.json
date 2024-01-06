@@ -1,0 +1,21 @@
+{
+  "numberoflikes": "Liczba polubień",
+  "likeForm": {
+    "like": "Polub",
+    "unlike": "Usuń polubienie"
+  },
+  "report": "Zgłoś",
+  "editForm": {
+    "title": "Edytuj",
+    "description": "Wprowadź treść",
+    "button": "Edytuj treść"
+  },
+  "remove": "Usuń",
+  "comment": {
+    "title": "Komentarze",
+    "commentForm": {
+      "description": "Wprowadź swój komentarz",
+      "button": "Dodaj komentarz"
+    }
+  }
+}

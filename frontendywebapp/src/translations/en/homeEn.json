@@ -1,0 +1,19 @@
+{
+  "searchForm": {
+    "description": "Enter post name",
+    "button": "Search"
+  },
+  "navbar": {
+    "title": "User Panel",
+    "userData": "User Data",
+    "createPost": "Create Post",
+    "yourPosts": "Your Posts",
+    "logout": "Logout",
+    "lang": {
+      "title": "Language",
+      "en": "English",
+      "pol": "Polish"
+    }
+  },
+  "postPreview": "See post"
+}

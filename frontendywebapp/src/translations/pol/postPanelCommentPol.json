@@ -1,0 +1,13 @@
+{
+  "numberoflikes": "Liczba polubień",
+  "likeForm": {
+    "like": "Polub",
+    "unlike": "Usuń polubienie"
+  },
+  "answerForm": {
+    "title": "Odpowiedź",
+    "description": "Wprowadź treść",
+    "button": "Dodaj odpowiedź"
+  },
+  "remove": "Usuń"
+}

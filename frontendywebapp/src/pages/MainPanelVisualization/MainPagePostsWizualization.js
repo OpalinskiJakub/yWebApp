@@ -6,6 +6,7 @@ import {Button} from "react-bootstrap";
 import PostService from "../Authorisation/PostAuthorisation/PostService";
 import Container from "react-bootstrap/Container";
 import {useParams} from "react-router-dom";
+import {withTranslation} from "react-i18next";
 
 class MainPagePostsWizualization extends Component {
     constructor() {
@@ -26,6 +27,7 @@ class MainPagePostsWizualization extends Component {
 
 
     render() {
+        const { t } = this.props;
         return (
             <Container>
                 {this.state.posts.length >= 1 ?  (
@@ -37,7 +39,7 @@ class MainPagePostsWizualization extends Component {
                             </Card.Body>
                             <Card.Footer className="text-center">
                                 <Button variant="outline-primary" href={`/home/post/${post.id}`}>
-                                    Zobacz post
+                                    {t('postPreview')}
                                 </Button>
                             </Card.Footer>
                         </Card>
@@ -49,11 +51,11 @@ class MainPagePostsWizualization extends Component {
 
 }
 
-export default (props) => (
+export default withTranslation('home')((props) => (
     <MainPagePostsWizualization
         {...props}
         params={useParams()}
     />
-);
+));
 
 

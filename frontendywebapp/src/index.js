@@ -15,6 +15,20 @@ import appealPanelEn from "./translations/en/appealPanelEn.json"
 import appealPanelPol from "./translations/pol/appealPanelPol.json"
 import registerPanelEn from "./translations/en/registerPanelEn.json"
 import registerPanelPol from "./translations/pol/registerPanelPol.json"
+import homeEn from "./translations/en/homeEn.json"
+import homePol from "./translations/pol/homePol.json"
+import userPanelEn from "./translations/en/userPanelEn.json"
+import userPanelPol from "./translations/pol/userPanelPol.json"
+import userDataPanelEn from "./translations/en/userDataPanelEn.json"
+import userDataPanelPol from "./translations/pol/userDataPanelPol.json"
+import userDataEditPanelEn from "./translations/en/userDataEditPanelEn.json"
+import userDataEditPanelPol from "./translations/pol/userDataEditPanelPol.json"
+import createPostPanelPol from "./translations/pol/createPostPanelPol.json"
+import createPostPanelEn from "./translations/en/createPostPanelEn.json"
+import postPanelEn from "./translations/en/postPanelEn.json"
+import postPanelPol from "./translations/pol/postPanelPol.json"
+import postPanelCommentEn from "./translations/en/postPanelCommentEn.json"
+import postPanelCommentPol from "./translations/pol/postPanelCommentPol.json"
 
 const savedLanguage = localStorage.getItem('selectedLanguage');
 
@@ -27,7 +41,14 @@ const resources = {
         loginPanel:loginPanelEn,
         registerTypePanel:registerTypePanelEn,
         appealPanel:appealPanelEn,
-        registerPanel:registerPanelEn
+        registerPanel:registerPanelEn,
+        home:homeEn,
+        userPanel:userPanelEn,
+        userDataPanel:userDataPanelEn,
+        userDataEditPanel:userDataEditPanelEn,
+        createPostPanel:createPostPanelEn,
+        postPanel:postPanelEn,
+        postPanelComment:postPanelCommentEn
 
     },
     pol: {
@@ -35,7 +56,14 @@ const resources = {
         loginPanel:loginPanelPol,
         registerTypePanel:registerTypePanelPol,
         appealPanel:appealPanelPol,
-        registerPanel:registerPanelPol
+        registerPanel:registerPanelPol,
+        home:homePol,
+        userPanel:userPanelPol,
+        userDataPanel:userDataPanelPol,
+        userDataEditPanel:userDataEditPanelPol,
+        createPostPanel:createPostPanelPol,
+        postPanel:postPanelPol,
+        postPanelComment:postPanelCommentPol
     },
 };
 

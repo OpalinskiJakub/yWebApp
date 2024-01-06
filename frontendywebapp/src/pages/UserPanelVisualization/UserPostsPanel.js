@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import PostService from "../Authorisation/PostAuthorisation/PostService";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
+import {withTranslation} from "react-i18next";
 class UserPostsPanel extends Component{
     constructor() {
         super();
@@ -20,6 +21,7 @@ class UserPostsPanel extends Component{
 
 
     render() {
+        const { t } = this.props;
         return (
             <Card className="mx-auto" style={{ width: "80%", margin: "10px" }}>
                 <Card.Header>
@@ -37,7 +39,7 @@ class UserPostsPanel extends Component{
                                                 variant="outline-primary"
                                                 href={`/home/post/${post.id}`}
                                             >
-                                                Zobacz post
+                                                {t('postPreview')}
                                             </Button>
                                             </Col>
                                                     </Row>
@@ -58,4 +60,4 @@ class UserPostsPanel extends Component{
     }
 
 }
-export default UserPostsPanel;
+export default withTranslation('home')(UserPostsPanel);

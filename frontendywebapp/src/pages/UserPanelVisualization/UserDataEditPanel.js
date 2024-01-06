@@ -3,6 +3,7 @@ import {Button, Card, Form,Nav,ListGroup ,Col,Image,Container,Row,InputGroup,Acc
 import UserDataService from "../Authorisation/UserAuthorisation/userDataService";
 import Alert from "react-bootstrap/Alert";
 import {Link, Navigate} from "react-router-dom";
+import {withTranslation} from "react-i18next";
 class UserDataEditPanel extends Component{
     constructor() {
         super();
@@ -80,6 +81,7 @@ class UserDataEditPanel extends Component{
     }
 
     render() {
+        const { t } = this.props;
         return(
             <Container>
                 <Row>
@@ -95,24 +97,24 @@ class UserDataEditPanel extends Component{
                                         dismissible
                                         style={{ fontSize: 'smaller' }}
                                     >
-                                        Niepoprawne dane lub konto z podanymi danymi juz istnieje
+                                        {t('emailForm.errorAlert')}
                                     </Alert>
                                 ) : null}
 
                                 {this.state.redirect ? <Navigate to="/access" replace={true} />  : null}
                                 <Form.Group controlId="formEmail" style={{ padding: '1%' }}>
-                                    <Form.Label>Email</Form.Label>
+                                    <Form.Label>{t('emailForm.title')}</Form.Label>
                                     <Form.Control
                                         required
                                         type="text"
-                                        placeholder="Enter your email"
+                                        placeholder={t('emailForm.description')}
                                         name="email"
                                         value={this.state.formData.email}
                                         onChange={this.handleInputChange}
                                     />
                                     <Button variant="outline-primary" id="button-addon2"
                                     onClick={this.changeEmail} style={{ marginTop: '2%' }}s>
-                                    Button
+                                        {t('emailForm.button')}
                                     </Button>
                                 </Form.Group>
 
@@ -120,7 +122,7 @@ class UserDataEditPanel extends Component{
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
-                        <Accordion.Header>Nazwa uzytkownika</Accordion.Header>
+                        <Accordion.Header>{t('usernameForm.title')}</Accordion.Header>
                         <Accordion.Body>
                             <Form>
                                 {this.state.errorUserUsername ? (
@@ -130,7 +132,7 @@ class UserDataEditPanel extends Component{
                                         dismissible
                                         style={{ fontSize: 'smaller' }}
                                     >
-                                        Niepoprawne dane lub konto z podanymi danymi juz istnieje
+                                        {t('usernameForm.errorAlert')}
                                     </Alert>
                                 ) : null}
 
@@ -143,24 +145,24 @@ class UserDataEditPanel extends Component{
                                         style={{ fontSize: 'smaller' }}
                                     >
                                         <Container>
-                                            Zmieniono
+                                            {t('usernameForm.acceptAlert')}
                                         </Container>
                                     </Alert>
 
                                 ) : null}
                                 <Form.Group controlId="formEmail" style={{ padding: '1%' }}>
-                                    <Form.Label>Nazwa uzytkownika</Form.Label>
+                                    <Form.Label>{t('usernameForm.title')}</Form.Label>
                                     <Form.Control
                                         required
                                         type="text"
-                                        placeholder="Enter your username"
+                                        placeholder={t('usernameForm.description')}
                                         name="username"
                                         value={this.state.formData.username}
                                         onChange={this.handleInputChange}
                                     />
                                     <Button variant="outline-primary" id="button-addon2"
                                     onClick={this.changeUsername} style={{ marginTop: '2%' }}>
-                                        Button
+                                        {t('usernameForm.button')}
                                     </Button>
                                 </Form.Group>
 
@@ -168,7 +170,7 @@ class UserDataEditPanel extends Component{
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
-                        <Accordion.Header>Opis</Accordion.Header>
+                        <Accordion.Header>{t('descriptionForm.title')}</Accordion.Header>
                         <Accordion.Body>
                             <Form>
                                 {this.state.errorUserDescribe ? (
@@ -178,7 +180,7 @@ class UserDataEditPanel extends Component{
                                         dismissible
                                         style={{ fontSize: 'smaller' }}
                                     >
-                                        Niepoprawne dane lub konto z podanymi danymi juz istnieje
+                                        {t('descriptionForm.button')}
                                     </Alert>
                                 ) : null}
 
@@ -191,18 +193,18 @@ class UserDataEditPanel extends Component{
                                         style={{ fontSize: 'smaller' }}
                                     >
                                         <Container>
-                                            Zmieniono
+                                            {t('descriptionForm.button')}
                                         </Container>
                                     </Alert>
 
                                 ) : null}
                             <Form.Group controlId="formDescription" style={{ padding: '1%' }}>
-                                <Form.Label>Opis</Form.Label>
+                                <Form.Label>{t('descriptionForm.title')}</Form.Label>
                                 <Form.Control
                                     as="textarea"
                                     rows={3}
                                     required
-                                    placeholder="Enter your description"
+                                    placeholder={t('descriptionForm.description')}
                                     name="description"
                                     value={this.state.formData.description}
                                     onChange={this.handleInputChange}
@@ -210,7 +212,7 @@ class UserDataEditPanel extends Component{
                                 <Button variant="outline-primary" id="button-addon2"
                                         onClick={this.changeDescribe}
                                         style={{ marginTop: '2%' }}>
-                                    Button
+                                    {t('descriptionForm.button')}
                                 </Button>
 
                             </Form.Group>
@@ -230,4 +232,4 @@ class UserDataEditPanel extends Component{
 
 }
 
-export default UserDataEditPanel;
+export default withTranslation('userDataEditPanel')(UserDataEditPanel);

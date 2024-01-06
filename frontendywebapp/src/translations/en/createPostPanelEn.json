@@ -1,0 +1,13 @@
+{
+  "titleForm": {
+    "title": "Subject",
+    "description": "Enter your subject"
+  },
+  "contentForm": {
+    "title": "Content",
+    "description": "Enter post content"
+  },
+  "button": "Create post",
+  "errorAlert": "Invalid data",
+  "acceptAlert": "Post created"
+}
