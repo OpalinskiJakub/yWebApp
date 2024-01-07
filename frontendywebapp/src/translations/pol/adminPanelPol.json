@@ -1,0 +1,59 @@
+{
+  "activeUsers": {
+    "title": "Aktywni Użytkownicy",
+    "id": "ID",
+    "name": "Nazwa Użytkownika",
+    "email": "Email",
+    "role": "Rola",
+    "age": "Wiek",
+    "options": {
+      "title": "Opcje",
+      "button": "Zablokuj"
+    }
+  },
+  "inactiveUsers": {
+    "title": "Nieaktywni Użytkownicy",
+    "id": "ID",
+    "name": "Nazwa Użytkownika",
+    "email": "Email",
+    "role": "Rola",
+    "age": "Wiek",
+    "options": {
+      "title": "Opcje",
+      "button": "Odblokuj"
+    }
+  },
+  "reports": {
+    "title": "Zgłoszenia",
+    "id": "ID",
+    "owner": "Właściciel",
+    "subject": "Temat",
+    "status": "Status",
+    "options": {
+      "title": "Opcje",
+      "button1": "Usuń Zgłoszenie",
+      "button2": "Zobacz Post"
+    }
+  },
+  "userPosts": {
+    "title": "Posty Użytkownika",
+    "id": "ID",
+    "owner": "Właściciel",
+    "subject": "Temat",
+    "options": {
+      "title": "Opcje",
+      "button1": "Usuń",
+      "button2": "Zobacz Post"
+    }
+  },
+  "adminPosts": {
+    "title": "Posty Administratora",
+    "id": "ID",
+    "email": "Email",
+    "description": "Opis",
+    "options": {
+      "title": "Opcje",
+      "button1": "Usuń"
+    }
+  }
+}

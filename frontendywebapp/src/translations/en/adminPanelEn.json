@@ -1,0 +1,59 @@
+{
+  "activeUsers": {
+    "title": "Active Users",
+    "id": "ID",
+    "name": "Username",
+    "email": "Email",
+    "role": "Role",
+    "age": "Age",
+    "options": {
+      "title": "Options",
+      "button": "Block"
+    }
+  },
+  "inactiveUsers": {
+    "title": "Inactive Users",
+    "id": "ID",
+    "name": "Username",
+    "email": "Email",
+    "role": "Role",
+    "age": "Age",
+    "options": {
+      "title": "Options",
+      "button": "Unblock"
+    }
+  },
+  "reports": {
+    "title": "Reports",
+    "id": "ID",
+    "owner": "Owner",
+    "subject": "Subject",
+    "status": "Status",
+    "options": {
+      "title": "Options",
+      "button1": "Delete Report",
+      "button2": "View Post"
+    }
+  },
+  "userPosts": {
+    "title": "User Posts",
+    "id": "ID",
+    "owner": "Owner",
+    "subject": "Subject",
+    "options": {
+      "title": "Options",
+      "button1": "Delete",
+      "button2": "View Post"
+    }
+  },
+  "adminPosts": {
+    "title": "Admin Posts",
+    "id": "ID",
+    "email": "Email",
+    "description": "Description",
+    "options": {
+      "title": "Options",
+      "button1": "Delete"
+    }
+  }
+}

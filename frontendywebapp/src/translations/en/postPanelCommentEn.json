@@ -4,6 +4,7 @@
     "like": "Like",
     "unlike": "Unlike"
   },
+  "title": "Responds",
   "answerForm": {
     "title": "Answer",
     "description": "Enter your content",
@@ -11,3 +12,4 @@
   },
   "remove": "Remove"
 }
+
