@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Button, Table} from "react-bootstrap";
 import AdminService from "../Authorisation/AdminAuthorisation/AdminService";
 import Container from "react-bootstrap/Container";
+import {withTranslation} from "react-i18next";
 
 class AppealAdminPanel extends Component{
     constructor(props) {
@@ -30,15 +31,16 @@ class AppealAdminPanel extends Component{
     }
 
     render() {
+        const { t } = this.props;
         return(
             <Container fluid>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Email</th>
-                        <th>Opis</th>
-                        <th>Opcje</th>
+                        <th>{t('appeals.id')}</th>
+                        <th>{t('appeals.email')}</th>
+                        <th>{t('appeals.content')}</th>
+                        <th>{t('appeals.options.title')}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -53,7 +55,7 @@ class AppealAdminPanel extends Component{
                                         variant="outline-success"
                                         onClick={() => this.changeRevocationStatus(revocation.id)}
                                     >
-                                        Usun
+                                        {t('appeals.options.button1')}
                                     </Button>
 
                                 </th>
@@ -67,4 +69,4 @@ class AppealAdminPanel extends Component{
         );
     }
 }
-export default AppealAdminPanel;
+export default withTranslation('adminPanel')(AppealAdminPanel);

@@ -3,6 +3,7 @@ import {Card, Nav} from "react-bootstrap";
 import {Link, Outlet} from "react-router-dom";
 import AppealAdminPanel from "./AppealAdminPanel";
 import ReportsAdminPanel from "./ReportsAdminPanel";
+import {withTranslation} from "react-i18next";
 
 
 class AdminPanel extends Component{
@@ -19,6 +20,7 @@ class AdminPanel extends Component{
 
 
     render() {
+        const { t } = this.props;
         return(
             <Card className="mx-auto" style={{ width: "80%", margin: "10px" }}>
                 <Card.Header>
@@ -29,7 +31,7 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel")}
                             >
-                                Aktywni uzytkownicy
+                                {t('activeUsers.title')}
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -38,7 +40,7 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel/unActiveUsers")}
                             >
-                                Nieaktywni uzytkownicy
+                                {t('inactiveUsers.title')}
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -47,7 +49,7 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel/ReportsAdminPanel")}
                             >
-                                Zgłoszenia
+                                {t('reports.title')}
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -56,7 +58,7 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel/AppealAdminPanel")}
                             >
-                                Odwolania
+                                {t('appeals.title')}
                             </Link>
                         </Nav.Item>
                         <Nav.Item>
@@ -65,7 +67,7 @@ class AdminPanel extends Component{
                                 className="nav-link"
                                 onClick={() => this.handleTabChange("/home/AdminPanel/postsAdminPanel")}
                             >
-                                Posty
+                                {t('adminPosts.title')}
                             </Link>
                         </Nav.Item>
                     </Nav>
@@ -78,5 +80,5 @@ class AdminPanel extends Component{
 
     }
 }
-export default AdminPanel;
+export default withTranslation('adminPanel')(AdminPanel);
 

@@ -3,6 +3,7 @@ import {Button, Table} from "react-bootstrap";
 import PostService from "../Authorisation/PostAuthorisation/PostService";
 import Container from "react-bootstrap/Container";
 import AdminService from "../Authorisation/AdminAuthorisation/AdminService";
+import {withTranslation} from "react-i18next";
 
 class ReportsAdminPanel extends Component {
     constructor(props) {
@@ -31,16 +32,17 @@ class ReportsAdminPanel extends Component {
     }
 
     render() {
+        const { t } = this.props;
         return(
             <Container fluid>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Wlascicel</th>
-                        <th>Temat</th>
-                        <th>Status</th>
-                        <th>Opcje</th>
+                        <th>{t('reports.id')}</th>
+                        <th>{t('reports.owner')}</th>
+                        <th>{t('reports.subject')}</th>
+                        <th>{t('reports.status')}</th>
+                        <th>{t('reports.options.title')}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -56,14 +58,14 @@ class ReportsAdminPanel extends Component {
                                         variant="outline-success"
                                         onClick={() => this.changePostStatus(post.id)}
                                     >
-                                        Usun zgloszenie
+                                        {t('reports.options.button1')}
                                     </Button>
                                     <Button
                                         style={{marginLeft: '10%'}}
                                         variant="outline-success"
                                         href={`/home/post/${post.id}`}
                                     >
-                                        Zobacz post
+                                        {t('reports.options.button2')}
                                     </Button>
 
                                 </th>
@@ -77,4 +79,4 @@ class ReportsAdminPanel extends Component {
         );
     }
 }
-export default ReportsAdminPanel;
+export default withTranslation('adminPanel')(ReportsAdminPanel);

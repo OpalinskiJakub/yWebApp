@@ -5,6 +5,7 @@ import User from "../StorageSystem/UserPanel/Model/User";
 import UserRequests from "../ApiServices/UserRequests/UserRequests";
 import UserService from "../Authorisation/UserAuthorisation/UserService";
 import AdminService from "../Authorisation/AdminAuthorisation/AdminService";
+import {withTranslation} from "react-i18next";
 
 class ActiveUsersAdminPanel extends Component{
     constructor(props) {
@@ -35,17 +36,18 @@ class ActiveUsersAdminPanel extends Component{
 
 
     render() {
+        const { t } = this.props;
         return(
             <Container fluid>
             <Table striped bordered hover>
                 <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Nazwa Użytkownika</th>
-                    <th>Email</th>
-                    <th>Rola</th>
-                    <th>Wiek</th>
-                    <th>Opcje</th>
+                    <th>{t('activeUsers.id')}</th>
+                    <th>{t('activeUsers.name')}</th>
+                    <th>{t('activeUsers.email')}</th>
+                    <th>{t('activeUsers.role')}</th>
+                    <th>{t('activeUsers.age')}</th>
+                    <th>{t('activeUsers.options.title')}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -63,7 +65,7 @@ class ActiveUsersAdminPanel extends Component{
                                         variant="outline-danger"
                                         onClick={() => this.changeUserStatus(user.id)}
                                     >
-                                        Zablokuj
+                                        {t('activeUsers.options.button')}
                                     </Button>
                             </th>
                         </tr>
@@ -78,5 +80,5 @@ class ActiveUsersAdminPanel extends Component{
 
 }
 
-export default ActiveUsersAdminPanel;
+export default withTranslation('adminPanel')(ActiveUsersAdminPanel);
 

@@ -29,6 +29,8 @@ import postPanelEn from "./translations/en/postPanelEn.json"
 import postPanelPol from "./translations/pol/postPanelPol.json"
 import postPanelCommentEn from "./translations/en/postPanelCommentEn.json"
 import postPanelCommentPol from "./translations/pol/postPanelCommentPol.json"
+import adminPanelEn from "./translations/en/adminPanelEn.json"
+import adminPanelPol from "./translations/pol/adminPanelPol.json"
 
 const savedLanguage = localStorage.getItem('selectedLanguage');
 
@@ -48,7 +50,8 @@ const resources = {
         userDataEditPanel:userDataEditPanelEn,
         createPostPanel:createPostPanelEn,
         postPanel:postPanelEn,
-        postPanelComment:postPanelCommentEn
+        postPanelComment:postPanelCommentEn,
+        adminPanel:adminPanelEn
 
     },
     pol: {
@@ -63,7 +66,8 @@ const resources = {
         userDataEditPanel:userDataEditPanelPol,
         createPostPanel:createPostPanelPol,
         postPanel:postPanelPol,
-        postPanelComment:postPanelCommentPol
+        postPanelComment:postPanelCommentPol,
+        adminPanel:adminPanelPol
     },
 };
 

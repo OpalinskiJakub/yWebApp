@@ -3,6 +3,7 @@ import UserService from "../Authorisation/UserAuthorisation/UserService";
 import Container from "react-bootstrap/Container";
 import {Button, Table} from "react-bootstrap";
 import AdminService from "../Authorisation/AdminAuthorisation/AdminService";
+import {withTranslation} from "react-i18next";
 
 class UnActiveUsersAdminPanel extends Component {
     constructor(props) {
@@ -31,17 +32,18 @@ class UnActiveUsersAdminPanel extends Component {
     }
 
     render() {
+        const { t } = this.props;
         return(
             <Container fluid>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Nazwa Użytkownika</th>
-                        <th>Email</th>
-                        <th>Rola</th>
-                        <th>Wiek</th>
-                        <th>Opcje</th>
+                        <th>{t('inactiveUsers.id')}</th>
+                        <th>{t('inactiveUsers.name')}</th>
+                        <th>{t('inactiveUsers.email')}</th>
+                        <th>{t('inactiveUsers.role')}</th>
+                        <th>{t('inactiveUsers.age')}</th>
+                        <th>{t('inactiveUsers.options.title')}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -58,7 +60,7 @@ class UnActiveUsersAdminPanel extends Component {
                                         variant="outline-success"
                                         onClick={() => this.changeUserStatus(user.id)}
                                     >
-                                        Odblokuj
+                                        {t('inactiveUsers.options.button')}
                                     </Button>
 
                                 </th>
@@ -72,4 +74,4 @@ class UnActiveUsersAdminPanel extends Component {
         );
     }
 }
-export default UnActiveUsersAdminPanel;
+export default withTranslation('adminPanel')(UnActiveUsersAdminPanel);

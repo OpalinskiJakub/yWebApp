@@ -4,6 +4,7 @@ import AdminService from "../Authorisation/AdminAuthorisation/AdminService";
 import Container from "react-bootstrap/Container";
 import UserService from "../Authorisation/UserAuthorisation/UserService";
 import PostService from "../Authorisation/PostAuthorisation/PostService";
+import {withTranslation} from "react-i18next";
 
 class PostsAdminPanel extends Component{
     constructor(props) {
@@ -32,15 +33,16 @@ class PostsAdminPanel extends Component{
     }
 
     render() {
+        const { t } = this.props;
         return(
             <Container fluid>
                 <Table striped bordered hover>
                     <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Wlascicel</th>
-                        <th>Temat</th>
-                        <th>Opcje</th>
+                        <th>{t('adminPosts.id')}</th>
+                        <th>{t('adminPosts.owner')}</th>
+                        <th>{t('adminPosts.subject')}</th>
+                        <th>{t('adminPosts.options.title')}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -55,14 +57,14 @@ class PostsAdminPanel extends Component{
                                         variant="outline-success"
                                         onClick={() => this.changePostStatus(post.id)}
                                     >
-                                        Usun
+                                        {t('adminPosts.options.button1')}
                                     </Button>
                                     <Button
                                         style={{marginLeft:'10%'}}
                                         variant="outline-success"
                                         href={`/home/post/${post.id}`}
                                     >
-                                        Zobacz post
+                                        {t('adminPosts.options.button2')}
                                     </Button>
 
                                 </th>
@@ -76,4 +78,4 @@ class PostsAdminPanel extends Component{
         );
     }
 }
-export default PostsAdminPanel;
+export default withTranslation('adminPanel')(PostsAdminPanel);

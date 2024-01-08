@@ -24,7 +24,7 @@
     }
   },
   "reports": {
-    "title": "Zgłoszenia",
+    "title": "Zgłoszone Posty",
     "id": "ID",
     "owner": "Właściciel",
     "subject": "Temat",
@@ -35,8 +35,18 @@
       "button2": "Zobacz Post"
     }
   },
-  "userPosts": {
-    "title": "Posty Użytkownika",
+  "appeals": {
+    "title": "Odwolania",
+    "id": "ID",
+    "email": "Email",
+    "content": "Tresc",
+    "options": {
+      "title": "Opcje",
+      "button1": "Usuń"
+    }
+  },
+  "adminPosts": {
+    "title": "Posty",
     "id": "ID",
     "owner": "Właściciel",
     "subject": "Temat",
@@ -44,16 +54,6 @@
       "title": "Opcje",
       "button1": "Usuń",
       "button2": "Zobacz Post"
-    }
-  },
-  "adminPosts": {
-    "title": "Posty Administratora",
-    "id": "ID",
-    "email": "Email",
-    "description": "Opis",
-    "options": {
-      "title": "Opcje",
-      "button1": "Usuń"
     }
   }
 }

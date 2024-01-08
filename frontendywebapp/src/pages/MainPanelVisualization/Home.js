@@ -101,7 +101,7 @@ class Home extends Component{
                                         <Nav.Link href="/home/postCreator">{t('navbar.createPost')}</Nav.Link>
                                         <Nav.Link href="/home/userPosts">{t('navbar.yourPosts')}</Nav.Link>
                                         {this.state.isAdmin ?
-                                            <Nav.Link href="/home/AdminPanel">{t('navbar.title')}</Nav.Link>
+                                            <Nav.Link href="/home/AdminPanel">{t('navbar.admin')}</Nav.Link>
                                             : null}
 
                                         <Nav.Link href="/access" onClick={this.close}>
