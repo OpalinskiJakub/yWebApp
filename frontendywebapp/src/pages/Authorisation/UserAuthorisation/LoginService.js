@@ -36,12 +36,15 @@ class LoginService{
             }
         }
         let response= await this.connector.sendLoginRequest(data);
-        if(response.status==true){
+        if(response.status==true&&response.token!=undefined){
             let preparedToken = 'Bearer '+response.token;
             response.token=preparedToken;
             this.tokenStorage.saveToken(preparedToken);
             let user = await this.userRequests.getUserWithEmail(response);
             this.userStorage.saveUserToLocalStorage(user);
+        }
+        if(response.token===undefined){
+            response.status=false;
         }
 
         return response;
