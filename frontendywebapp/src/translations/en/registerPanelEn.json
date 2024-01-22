@@ -20,6 +20,8 @@
     "description": "Enter your password"
   },
   "button": "Sign in",
+  "buttonGithub": "Connect with Github",
+  "buttonGithubFetchData":"Get data from Github" ,
   "errorAlert": "Invalid data",
   "acceptAlert": {
     "button": "Sign in",

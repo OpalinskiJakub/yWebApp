@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Alert from 'react-bootstrap/Alert';
-import {Button, Card, Col, Form, Row} from "react-bootstrap";
+import {Button, Card, Col, Form, Row, Stack} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import RegisterAutorization from "../Authorisation/UserAuthorisation/RegisterService";
 import {withTranslation} from "react-i18next";
+import RegisterService from "../Authorisation/UserAuthorisation/RegisterService";
 
 class RegisterPanel extends Component {
     constructor() {
@@ -21,6 +22,7 @@ class RegisterPanel extends Component {
             }
         };
         this.autorization = new RegisterAutorization();
+        this.registerService =  new RegisterService();
     }
 
 
@@ -58,6 +60,17 @@ class RegisterPanel extends Component {
         }
 
 
+
+    }
+
+    getDataFromOauth = async () => {
+        let response = await this.registerService.getDataFromGithub();
+        this.setState({
+            formData: {
+                username: response.username,
+                description: response.description,
+            }
+        })
 
     }
 
@@ -163,10 +176,18 @@ class RegisterPanel extends Component {
                                 onChange={this.handleInputChange}
                             />
                         </Form.Group>
+                        <Stack gap={3} style={{margin:'4%'}}>
+                            <Button variant="outline-primary" onClick={this.register} >
+                                {t('button')}
+                            </Button>
+                            <Button variant="outline-primary" href="http://github.com/login/oauth/authorize?scope=user:email&client_id=2def095dacb74694b9e5">
+                                {t('buttonGithub')}
+                            </Button>
+                            <Button variant="outline-primary" onClick={this.getDataFromOauth} >
+                                {t('buttonGithubFetchData')}
+                            </Button>
+                        </Stack>
 
-                        <Button variant="outline-primary" onClick={this.register}>
-                            {t('button')}
-                        </Button>
                     </Form>
                 </Card>
             </Col>

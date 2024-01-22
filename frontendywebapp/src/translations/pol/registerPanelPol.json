@@ -20,6 +20,8 @@
     "description": "Wprowadź swoje hasło"
   },
   "button": "Zarejestruj się",
+  "buttonGithub": "Połącz z Githubem",
+  "buttonGithubFetchData": "Pobierz dane z Githuba",
   "errorAlert": "Nieprawidłowe dane",
   "acceptAlert": {
     "button": "Zaloguj się",
