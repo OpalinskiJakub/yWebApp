@@ -3,29 +3,20 @@ import PostService from "../Authorisation/PostAuthorisation/PostService";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
 import {withTranslation} from "react-i18next";
-import SessionUserStorageSystem from "../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
 class UserPostsPanel extends Component{
     constructor() {
         super();
         this.state = {
-            username:'',
-            email:'',
-            age: '',
-            description: '',
-            avatarUrl:''
+            posts: [],
         };
-        this.userSessionStorage = SessionUserStorageSystem.getInstance();
+        this.postService = PostService.getInstance();
     }
 
     async componentDidMount() {
-        let user = await this.userSessionStorage.getUserFromLocalStorage();
+        const response = await this.postService.validateAndGetUserPosts();
         this.setState({
-            username:user.username,
-            email:user.email,
-            age:user.age,
-            description:user.description,
-            avatarUrl:user.avatarUrl
-        })
+            posts: response,
+        });
     }
 
 
@@ -35,30 +26,30 @@ class UserPostsPanel extends Component{
             <Card className="mx-auto" style={{ width: "80%", margin: "10px" }}>
                 <Card.Header>
                     <Col md={{ span: 9, offset: 1 } } style={{ padding: '5%' }}>
-                                    {this.state.posts.length >= 1 ?  (
-                                        this.state.posts.map((post, index) => (
-                                            <Card style={{marginBottom:'2%'}}>
-                                                <Card.Body>
-                                                    <Row>
+                        {this.state.posts.length >= 1 ?  (
+                            this.state.posts.map((post, index) => (
+                                <Card style={{marginBottom:'2%'}}>
+                                    <Card.Body>
+                                        <Row>
                                             <Col key={index} sm={10}>
                                                 {post.title}
                                             </Col>
                                             <Col sm={2}>
-                                            <Button
-                                                variant="outline-primary"
-                                                href={`/home/post/${post.id}`}
-                                            >
-                                                {t('postPreview')}
-                                            </Button>
+                                                <Button
+                                                    variant="outline-primary"
+                                                    href={`/home/post/${post.id}`}
+                                                >
+                                                    {t('postPreview')}
+                                                </Button>
                                             </Col>
-                                                    </Row>
+                                        </Row>
 
-                                                </Card.Body>
-                                            </Card>
+                                    </Card.Body>
+                                </Card>
 
 
-                                        ))
-                                    ): null}
+                            ))
+                        ): null}
 
 
                     </Col>

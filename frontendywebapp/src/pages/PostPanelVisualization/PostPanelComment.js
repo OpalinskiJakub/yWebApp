@@ -12,9 +12,11 @@ class PostPanelComment extends Component {
             newReply: '',
             voteState:true,
             isCommentOwner:false,
-            isFirstRowComment:true
+            isFirstRowComment:true,
+            lang:true
         };
         this.postService = PostService.getInstance();
+        const lang = localStorage.getItem("selectedLanguage");
     }
 
     checkIsCommentOwner = async () => {
@@ -57,6 +59,20 @@ class PostPanelComment extends Component {
         }
         this.checkIsCommentOwner()
         this.checkFirstRowComment()
+        const lang = localStorage.getItem("selectedLanguage");
+        if(lang!=null){
+            if(lang=="en"){
+                this.setState({
+                    lang:false
+                })
+            }
+            else if(lang=="pol"){
+                this.setState({
+                    lang:true
+                })
+            }
+
+        }
     }
 
 
@@ -181,7 +197,7 @@ class PostPanelComment extends Component {
                 <Row xs="auto">
                     <Col>
                         <Card style={{padding:5}}>
-                            {this.props.comment.upvote} polubień
+                            {this.props.comment.upvote} {this.state.lang ? 'polubień' : 'Likes'}
                         </Card>
 
                     </Col>
@@ -192,7 +208,7 @@ class PostPanelComment extends Component {
                                 style={buttonStyleLike}
                                 onClick={this.addVote}
                             >
-                                Polub
+                                {this.state.lang ? 'Polub' : 'Like'}
                             </Button>
                             :
                             <Button
@@ -200,14 +216,14 @@ class PostPanelComment extends Component {
                             style={buttonStyleUnlike}
                             onClick={this.addVote}
                             >
-                                Usun polubienie
+                                {this.state.lang ? 'Usun polubienie' : 'Unlike'}
                             </Button>
                         }
 
                     </Col>
                     <Col>
                         <Button variant="outline-primary" style={buttonStyle2} onClick={() => this.setState({ showReplyForm: !this.state.showReplyForm })}>
-                            Odpowiedz
+                            {this.state.lang ? 'Odpowiedz' : 'Answer'}
                         </Button>
                     </Col>
                     {this.state.isCommentOwner &&
@@ -217,7 +233,7 @@ class PostPanelComment extends Component {
                                 style={buttonStyle}
                                 onClick={this.removeComment}
                             >
-                                Usuń
+                                {this.state.lang ? 'Usun' : 'Remove'}
                             </Button>
                         </Col>
                     }
@@ -235,7 +251,7 @@ class PostPanelComment extends Component {
                             />
                         </Form.Group>
                         <Button variant="outline-primary" onClick={this.addReply} style={{padding:4 ,fontSize:15, marginTop:10}}>
-                            Dodaj Odpowiedź
+                            {this.state.lang ? 'Dodaj Odpowiedź' : 'Add answer'}
                         </Button>
 
 
