@@ -6,8 +6,11 @@ import opalinski.jakub.ApiBackendYWebApp.post.comment.CommentRepository;
 import opalinski.jakub.ApiBackendYWebApp.post.comment.model.SystemComment;
 import opalinski.jakub.ApiBackendYWebApp.post.model.PostDataResponse;
 import opalinski.jakub.ApiBackendYWebApp.post.model.SystemPost;
+import opalinski.jakub.ApiBackendYWebApp.user.Role;
 import opalinski.jakub.ApiBackendYWebApp.user.UserRepository;
 import opalinski.jakub.ApiBackendYWebApp.user.model.SystemUser;
+import opalinski.jakub.ApiBackendYWebApp.user.model.UserDataResponse;
+import org.apache.catalina.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -127,11 +130,11 @@ public class SystemPostService {
     public SystemPost removePost(String id) throws Exception {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String name = getUserName(authentication.getName());
+        UserDataResponse user = getUserName(authentication.getName());
 
         return postRepository.findById(id)
                 .map(systemPost -> {
-                    if (!systemPost.getOwnerName().equals(name)) {
+                    if (!systemPost.getOwnerName().equals(user.getEmail()) && !user.getRole().equals(Role.ADMIN)) {
                         return null;
                     }
                     postRepository.delete(systemPost);
@@ -140,9 +143,9 @@ public class SystemPostService {
                 .orElseThrow(() -> new NoSuchElementException("Could not find entity with ID: " + id));
     }
 
-    private String getUserName(String email) throws Exception {
+    private UserDataResponse getUserName(String email) throws Exception {
         Optional<SystemUser> systemUser = userRepository.findSystemUserByEmailAndActiveTrue(email);
-        return systemUser.map(SystemUser::getEmail) // email is actually mapped to username :)
+        return systemUser.map(UserDataResponse::new) // email is actually mapped to username :)
                 .orElseThrow(() -> new Exception("Error while processing authentication context."));
     }
 
