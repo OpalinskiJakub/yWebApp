@@ -41,17 +41,17 @@ class UserRequests {
         }
     }
 
-    getUserWitId = async (data) => {
+    getUserById = async (data) => {
         try {
-            const encodedEmail = btoa(data.userId);
 
-            const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/user/email/${encodedEmail}`, {
+
+            const response = await axios.get(`http://localhost:8080/api/v1/tokenmang/user/${data.id}`, {
                 headers: {
                     Authorization:data.token,
                 },
             });
 
-            let sesseionUser = UserBuilder.Builder()
+            let user = UserBuilder.Builder()
                 .setId(response.data.id)
                 .setEmail(response.data.email)
                 .setUsername(response.data.username)
@@ -61,7 +61,7 @@ class UserRequests {
                 .setAvatarURL(response.data.avatarUrl)
                 .build();
 
-            return sesseionUser;
+            return user;
         } catch (error) {
             console.log(error)
             return false;

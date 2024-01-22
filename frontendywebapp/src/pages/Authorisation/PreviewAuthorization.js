@@ -32,6 +32,8 @@ class PreviewAuthorization extends Component {
     render() {
         return <>{this.state.auth ? null :<LogoPanel/> }</>;
     }
+
+
 }
 
 export default PreviewAuthorization;

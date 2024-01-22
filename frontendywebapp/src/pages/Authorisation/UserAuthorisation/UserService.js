@@ -43,6 +43,16 @@ class UserService {
         return response;
     }
 
+    validateAndGetUser = async (data) =>{
+        let token = await this.tokenStorage.getToken();
+        let userData = {
+            token:token,
+            id:data
+        }
+        let response = await this.userRequests.getUserById(userData);
+        return response;
+    }
+
 
 }
 export default UserService;

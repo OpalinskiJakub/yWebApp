@@ -29,6 +29,7 @@ import UserPostsPanel from "./UserPanelVisualization/UserPostsPanel";
 import UnActiveUsersAdminPanel from "./AdminPanelVisualization/UnActiveUsersAdminPanel";
 import PreviewNavbar from "./PostPanelVisualization/PreviewNavbar";
 import PreviewPosts from "./PostPanelVisualization/PreviewPosts";
+import UserPreview from "./UserPanelVisualization/UserPreview";
 
 class App extends Component{
     constructor(props) {
@@ -57,6 +58,7 @@ class App extends Component{
                     <Route path="/home" element={<Home />}>
                         <Route index element={<MainPagePostsWizualization/>}/>
                         <Route path="post/:postId" element={<PostPanel/>}/>
+                        <Route path="user/:userId" element={<UserPreview/>}/>
                         <Route path="search/:searchValue" element={<MainPageSearchPostsVisualization />}/>
                         <Route path="postCreator" element={<CreatePostPanel/>}/>
                         <Route path="userPosts" element={<UserPostsPanel />}/>

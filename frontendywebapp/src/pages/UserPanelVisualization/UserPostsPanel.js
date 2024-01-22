@@ -3,20 +3,29 @@ import PostService from "../Authorisation/PostAuthorisation/PostService";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
 import {withTranslation} from "react-i18next";
+import SessionUserStorageSystem from "../StorageSystem/UserStorageSystem/SessionUserStorageSystem";
 class UserPostsPanel extends Component{
     constructor() {
         super();
         this.state = {
-            posts: [],
+            username:'',
+            email:'',
+            age: '',
+            description: '',
+            avatarUrl:''
         };
-        this.postService = PostService.getInstance();
+        this.userSessionStorage = SessionUserStorageSystem.getInstance();
     }
 
     async componentDidMount() {
-        const response = await this.postService.validateAndGetUserPosts();
+        let user = await this.userSessionStorage.getUserFromLocalStorage();
         this.setState({
-            posts: response,
-        });
+            username:user.username,
+            email:user.email,
+            age:user.age,
+            description:user.description,
+            avatarUrl:user.avatarUrl
+        })
     }
 
 

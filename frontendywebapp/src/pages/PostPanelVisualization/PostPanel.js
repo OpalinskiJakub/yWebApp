@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Button, Card, Col, Form, Row} from "react-bootstrap";
+import {Breadcrumb, Button, Card, Col, Form, Row} from "react-bootstrap";
 import PostPanelComment from "./PostPanelComment";
 import PostRequests from "../ApiServices/PostRequests/PostRequests";
 import { useParams } from 'react-router-dom';
@@ -155,7 +155,16 @@ class PostPanel extends Component {
                 <Card.Body>
                     <Card className="m-3" style={{ padding: 10 }}>
                         <Card.Title>{this.state.post.title}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">{this.state.post.ownerName}</Card.Subtitle>
+                        <Card.Subtitle className="mb-2 text-muted">
+                            <Breadcrumb>
+                                <Breadcrumb.Item
+                                    href={`/home/user/${this.state.post.ownerId}`}
+                                    style={{ textDecoration: 'none', fontSize: 'larger' }}
+                                >
+                                    {this.state.post.ownerName}
+                                </Breadcrumb.Item>
+                            </Breadcrumb>
+                        </Card.Subtitle>
                         <Card.Text>{this.state.post.content}</Card.Text>
 
                         <Row xs="auto">
