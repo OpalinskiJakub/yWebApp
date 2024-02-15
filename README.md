@@ -5,7 +5,7 @@
 
 ## Features
 
-### Robust Administrative Panel
+### Comprehensive Admin Control Panel
 "Y" includes a robust administrative panel, a critical component for maintaining the integrity and safety of the platform. Administrators have the authority to manage the service effectively, including removing posts and banning users who violate community guidelines. This ensures that the environment remains respectful and conducive to positive interactions.
 
 ### Reporting System and Appeals Process
