@@ -32,8 +32,8 @@ Overall, "Y" is a comprehensive social networking application that emphasizes co
 Here are some screenshots of the "Y" application in action:
 ![img.png](frontendywebapp%2FImages%2Fimg.png)
 ![img_7.png](frontendywebapp%2FImages%2Fimg_7.png)
-![img_1.png](frontendywebapp%2FImages%2Fimg_1.png)
 ![img_6.png](frontendywebapp%2FImages%2Fimg_6.png)
+![img_1.png](frontendywebapp%2FImages%2Fimg_1.png)
 ![img_2.png](frontendywebapp%2FImages%2Fimg_2.png)
 ![img_3.png](frontendywebapp%2FImages%2Fimg_3.png)
 ![img_4.png](frontendywebapp%2FImages%2Fimg_4.png)
